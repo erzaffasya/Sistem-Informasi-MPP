@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\InstansiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', function () {
+        return view('admin.index')->name('dashboard');
+    });
+    Route::resource('Berita', BeritaController::class);
+    Route::resource('Instansi', InstansiController::class);
+    
+});
 require __DIR__.'/auth.php';
