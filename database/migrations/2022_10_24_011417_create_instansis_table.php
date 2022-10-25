@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('instansi', function (Blueprint $table) {
             $table->id();            
-            $table->string("nama_instansi")->nullable();
-            $table->text("loket")->nullable();
+            $table->string("nama_instansi")->nullable();            
+            $table->string("lantai")->nullable();
+            $table->string("loket")->nullable();
             $table->text("deskripsi")->nullable();
             $table->string("gambar")->nullable();
             $table->timestamps();

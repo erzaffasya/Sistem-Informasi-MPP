@@ -1,29 +1,21 @@
 <x-app-layout>
     <div class="card">
-        <h5 class="card-header">Berita Table</h5>
+        <h5 class="card-header">Layanan Table</h5>
         <div class="table-responsive text-nowrap">
+            <a class="btn btn-primary text-end" href="{{url('tambah-layanan',request()->route()->parameters)}}">Tambah Data</a>
             <table class="table">
                 <thead>
                     <tr class="text-nowrap">
                         <th>#</th>
-                        <th>Judul</th>
-                        <th>Gambar</th>
-                        <th>Deskripsi</th>
-                        <th>Penulis</th>
+                        <th>Nama Layanan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($Berita as $item)
+                    @foreach ($Layanan as $item)
                         <tr>
                             <td> {{ $loop->iteration }} </td>
-                            <td> {{ $item->judul }} </td>
-                            <td> 
-                            <img src="{{ $item->gambar }}" height="70">    
-                            </td>
-                            <td> {!! \Illuminate\Support\Str::limit($item->isi, $limit = 150, $end = '...') !!} </td>
-                            <td> {{ $item->User->name }} </td>
-
+                            <td> {{ $item->nama_layanan }} </td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow "
@@ -32,9 +24,9 @@
                                     </button>
                                     <div class="dropdown-menu " data-popper-placement="bottom-start"
                                         style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 27px);">
-                                        <a class="dropdown-item" href="{{route('Berita.edit',$item->id)}}"><i
+                                        <a class="dropdown-item" href="{{route('Layanan.edit',$item->id)}}"><i
                                                 class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <form action="{{ route('Berita.destroy', $item->id) }}" method="post">
+                                        <form action="{{ route('Layanan.destroy', $item->id) }}" method="post">
                                             @method('DELETE')
                                             @csrf
 

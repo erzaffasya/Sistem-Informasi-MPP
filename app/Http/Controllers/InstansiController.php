@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Instansi;
+use App\Models\Layanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -59,8 +60,8 @@ class InstansiController extends Controller
             'nama_instansi' => $request->nama_instansi,
             'deskripsi' => $request->deskripsi,
             'loket' => $request->loket,
+            'lantai' => $request->lantai,
             'gambar' => $txt,
-            'users_id' => Auth::user()->id,
         ]);
 
 
@@ -77,7 +78,9 @@ class InstansiController extends Controller
      */
     public function show(Instansi $Instansi)
     {
-        //
+        $Layanan = Layanan::where('instansi_id',$Instansi->id)->get();
+        // dd($Layanan);
+        return view('admin.Instansi.Layanan.index', compact('Layanan'));
     }
 
     /**
@@ -117,8 +120,8 @@ class InstansiController extends Controller
         $Instansi->nama_instansi = $request->nama_instansi;
         $Instansi->deskripsi = $request->deskripsi;
         $Instansi->loket = $request->loket;
+        $Instansi->lantai = $request->lantai;
         $Instansi->gambar = $txt;
-        $Instansi->users_id = Auth::user()->id;
         $Instansi->save();
 
         return redirect()->route('Instansi.index')

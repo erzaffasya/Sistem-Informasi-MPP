@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Layanan;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,9 @@ class LayananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('admin.Layanan.tambah');
+        return view('admin.Instansi.Layanan.tambah', compact('id'));
     }
 
     /**
@@ -45,7 +46,7 @@ class LayananController extends Controller
             'instansi_id' => $request->instansi_id,
         ]);
 
-        return redirect()->route('Layanan.index')
+        return redirect()->route('Instansi.show',$request->instansi_id)
             ->with('success', 'Layanan Berhasil Ditambahkan');
     }
 
@@ -69,7 +70,7 @@ class LayananController extends Controller
     public function edit($id)
     {
         $Layanan = Layanan::find($id);
-        return view('admin.Layanan.edit', compact('Layanan'));
+        return view('admin.Instansi.Layanan.edit', compact('Layanan'));
     }
 
     /**
@@ -83,10 +84,10 @@ class LayananController extends Controller
     {
         $Layanan = Layanan::find($id);
         $Layanan->nama_layanan = $request->nama_layanan;
-        $Layanan->instansi_id = $request->instansi_id;
+        // $Layanan->instansi_id = $request->instansi_id;
         $Layanan->save();
 
-        return redirect()->route('Layanan.index')
+        return redirect()->route('Instansi.show',$Layanan->instansi_id)
             ->with('edit', 'Layanan Berhasil Diedit');
     }
 
@@ -100,7 +101,7 @@ class LayananController extends Controller
     {
         $Layanan = Layanan::findOrFail($id);
         $Layanan->delete();
-        return redirect()->route('Layanan.index')
+        return back()
             ->with('delete', 'Layanan Berhasil Dihapus');
     }
 }

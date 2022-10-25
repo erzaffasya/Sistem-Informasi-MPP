@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\InstansiController;
+use App\Http\Controllers\LayananController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::resource('Berita', BeritaController::class);
     Route::resource('Instansi', InstansiController::class);
-    
+    Route::resource('Layanan', LayananController::class);
+    Route::get('tambah-layanan/{id}', [LayananController::class, 'create'])->name('tambah-layanan');
 });
 require __DIR__.'/auth.php';
