@@ -68,20 +68,100 @@
     <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Setting Berita</span>
     </li>
-    {{-- Berita --}}
-    <li class="menu-item {{ request()->routeIs('Berita.*') ? 'active open' : '' }}">
+    {{-- FAQ --}}
+    <li class="menu-item {{ request()->routeIs('FAQ.*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-            <div data-i18n="Misc">Berita</div>
+            <div data-i18n="Misc">FAQ</div>
         </a>
         <ul class="menu-sub ">
-            <li class="menu-item {{ request()->routeIs('Berita.create') ? 'active' : '' }}">
-                <a href="{{ route('Berita.create') }}" class="menu-link">
+            <li class="menu-item {{ request()->routeIs('FAQ.create') ? 'active' : '' }}">
+                <a href="{{ route('FAQ.create') }}" class="menu-link">
                     <div data-i18n="Error">Tambah Data</div>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('Berita.index') ? 'active' : '' }}">
-                <a href="{{ route('Berita.index') }}" class="menu-link">
+            <li class="menu-item {{ request()->routeIs('FAQ.index') ? 'active' : '' }}">
+                <a href="{{ route('FAQ.index') }}" class="menu-link">
+                    <div data-i18n="Under Maintenance">Lihat Data</div>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    {{-- Fasilitas --}}
+    <li class="menu-item {{ request()->routeIs('Fasilitas.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+            <div data-i18n="Misc">Fasilitas</div>
+        </a>
+        <ul class="menu-sub ">
+            <li class="menu-item {{ request()->routeIs('Fasilitas.create') ? 'active' : '' }}">
+                <a href="{{ route('Fasilitas.create') }}" class="menu-link">
+                    <div data-i18n="Error">Tambah Data</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('Fasilitas.index') ? 'active' : '' }}">
+                <a href="{{ route('Fasilitas.index') }}" class="menu-link">
+                    <div data-i18n="Under Maintenance">Lihat Data</div>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    {{-- LinkTerkait --}}
+    <li class="menu-item {{ request()->routeIs('LinkTerkait.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+            <div data-i18n="Misc">Link Terkait</div>
+        </a>
+        <ul class="menu-sub ">
+            <li class="menu-item {{ request()->routeIs('LinkTerkait.create') ? 'active' : '' }}">
+                <a href="{{ route('LinkTerkait.create') }}" class="menu-link">
+                    <div data-i18n="Error">Tambah Data</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('LinkTerkait.index') ? 'active' : '' }}">
+                <a href="{{ route('LinkTerkait.index') }}" class="menu-link">
+                    <div data-i18n="Under Maintenance">Lihat Data</div>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    {{-- Mekanisme --}}
+    <li class="menu-item {{ request()->routeIs('Mekanisme.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+            <div data-i18n="Misc">Mekanisme</div>
+        </a>
+        <ul class="menu-sub ">
+            <li class="menu-item {{ request()->routeIs('Mekanisme.create') ? 'active' : '' }}">
+                <a href="{{ route('Mekanisme.create') }}" class="menu-link">
+                    <div data-i18n="Error">Tambah Data</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('Mekanisme.index') ? 'active' : '' }}">
+                <a href="{{ route('Mekanisme.index') }}" class="menu-link">
+                    <div data-i18n="Under Maintenance">Lihat Data</div>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    {{-- Testimoni --}}
+    <li class="menu-item {{ request()->routeIs('Testimoni.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+            <div data-i18n="Misc">Testimoni</div>
+        </a>
+        <ul class="menu-sub ">
+            <li class="menu-item {{ request()->routeIs('Testimoni.create') ? 'active' : '' }}">
+                <a href="{{ route('Testimoni.create') }}" class="menu-link">
+                    <div data-i18n="Error">Tambah Data</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('Testimoni.index') ? 'active' : '' }}">
+                <a href="{{ route('Testimoni.index') }}" class="menu-link">
                     <div data-i18n="Under Maintenance">Lihat Data</div>
                 </a>
             </li>
@@ -110,9 +190,89 @@
             </li>
         </ul>
     </li>
-    {{-- Menu --}}
 
-</ul>
-</li>
+    <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Setting Galeri</span>
+    </li>
+    {{-- KategoriGaleri --}}
+    <li class="menu-item {{ request()->routeIs('KategoriGaleri.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+            <div data-i18n="Misc">Kategori Galeri</div>
+        </a>
+        <ul class="menu-sub ">
+            <li class="menu-item {{ request()->routeIs('KategoriGaleri.create') ? 'active' : '' }}">
+                <a href="{{ route('KategoriGaleri.create') }}" class="menu-link">
+                    <div data-i18n="Error">Tambah Data</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('KategoriGaleri.index') ? 'active' : '' }}">
+                <a href="{{ route('KategoriGaleri.index') }}" class="menu-link">
+                    <div data-i18n="Under Maintenance">Lihat Data</div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    {{-- Galeri --}}
+    <li class="menu-item {{ request()->routeIs('Galeri.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+            <div data-i18n="Misc">Galeri</div>
+        </a>
+        <ul class="menu-sub ">
+            <li class="menu-item {{ request()->routeIs('Galeri.create') ? 'active' : '' }}">
+                <a href="{{ route('Galeri.create') }}" class="menu-link">
+                    <div data-i18n="Error">Tambah Data</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('Galeri.index') ? 'active' : '' }}">
+                <a href="{{ route('Galeri.index') }}" class="menu-link">
+                    <div data-i18n="Under Maintenance">Lihat Data</div>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Setting Berita</span>
+    </li>
+    {{-- KategoriBerita --}}
+    <li class="menu-item {{ request()->routeIs('KategoriBerita.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+            <div data-i18n="Misc">Kategori Berita</div>
+        </a>
+        <ul class="menu-sub ">
+            <li class="menu-item {{ request()->routeIs('KategoriBerita.create') ? 'active' : '' }}">
+                <a href="{{ route('KategoriBerita.create') }}" class="menu-link">
+                    <div data-i18n="Error">Tambah Data</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('KategoriBerita.index') ? 'active' : '' }}">
+                <a href="{{ route('KategoriBerita.index') }}" class="menu-link">
+                    <div data-i18n="Under Maintenance">Lihat Data</div>
+                </a>
+            </li>
+        </ul>
+    </li>
+    {{-- Berita --}}
+    <li class="menu-item {{ request()->routeIs('Berita.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+            <div data-i18n="Misc">Berita</div>
+        </a>
+        <ul class="menu-sub ">
+            <li class="menu-item {{ request()->routeIs('Berita.create') ? 'active' : '' }}">
+                <a href="{{ route('Berita.create') }}" class="menu-link">
+                    <div data-i18n="Error">Tambah Data</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('Berita.index') ? 'active' : '' }}">
+                <a href="{{ route('Berita.index') }}" class="menu-link">
+                    <div data-i18n="Under Maintenance">Lihat Data</div>
+                </a>
+            </li>
+        </ul>
+    </li>
 
 </ul>
