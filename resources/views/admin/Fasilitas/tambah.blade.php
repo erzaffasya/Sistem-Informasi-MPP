@@ -5,7 +5,7 @@
             <small class="text-muted float-end">Default label</small>
         </div>
         <div class="card-body">
-            <form action="{{ route('Berita.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('Fasilitas.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">judul</label>

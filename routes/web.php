@@ -8,6 +8,7 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\KategoriGaleriController;
+use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\LinkTerkaitController;
 use App\Http\Controllers\MekanismeController;
@@ -26,11 +27,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
+Route::get('/', [LandingpageController::class, 'index'])->name('home');
+Route::get('/berita', [LandingpageController::class, 'berita'])->name('berita');
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('Instansi', InstansiController::class);
     Route::resource('Layanan', LayananController::class);
@@ -48,4 +50,4 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::resource('Profile', ProfileController::class);
     Route::resource('Testimoni', TestimoniController::class);
 });
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
