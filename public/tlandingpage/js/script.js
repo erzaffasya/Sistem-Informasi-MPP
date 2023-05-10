@@ -2,7 +2,13 @@ $('.slick-layanan').slick({
   infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: false
+  arrows: true,
+});
+$('.slick-testimoni').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: true,
 });
 
 /**

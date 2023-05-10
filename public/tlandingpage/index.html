@@ -78,64 +78,13 @@
 					</li> -->
           </ul>
           <!-- account btn -->
-          <a href="#!" class="btn btn-outline-primary">Masuk</a>
+          <a data-bs-toggle="modal" data-bs-target="#modallogin" class="btn btn-outline-primary">Masuk</a>
           <a href="#!" class="btn btn-primary ms-2 ms-lg-3">Daftar</a>
         </div>
       </div>
     </nav>
   </header>
   <!-- /navigation -->
-
-  <div class="modal applyLoanModal fade" id="applyLoan" tabindex="-1" aria-labelledby="applyLoanLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-bottom-0">
-          <h4 class="modal-title" id="exampleModalLabel">How much do you need?</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form action="#!" method="post">
-            <div class="row">
-              <div class="col-lg-6 mb-4 pb-2">
-                <div class="form-group">
-                  <label for="loan_amount" class="form-label">Amount</label>
-                  <input type="number" class="form-control shadow-none" id="loan_amount" placeholder="ex: 25000">
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4 pb-2">
-                <div class="form-group">
-                  <label for="loan_how_long_for" class="form-label">How long for?</label>
-                  <input type="number" class="form-control shadow-none" id="loan_how_long_for" placeholder="ex: 12">
-                </div>
-              </div>
-              <div class="col-lg-12 mb-4 pb-2">
-                <div class="form-group">
-                  <label for="loan_repayment" class="form-label">Repayment</label>
-                  <input type="number" class="form-control shadow-none" id="loan_repayment" disabled>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4 pb-2">
-                <div class="form-group">
-                  <label for="loan_full_name" class="form-label">Full Name</label>
-                  <input type="text" class="form-control shadow-none" id="loan_full_name">
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4 pb-2">
-                <div class="form-group">
-                  <label for="loan_email_address" class="form-label">Email address</label>
-                  <input type="email" class="form-control shadow-none" id="loan_email_address">
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <button type="submit" class="btn btn-primary w-100">Get Your Loan Now</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- Modal -->
   <div class="modal fade" id="modallayanan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -148,7 +97,7 @@
           <div class="row">
             <div class="col-12">
               <div class="section-title text-left mb-0 pb-2">
-                <p class="text-primary text-uppercase fw-bold mb-3">Layanan</p>
+                <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Layanan</p>
                 <h4>BPJS KESEHATAN</h4>
               </div>
             </div>
@@ -243,6 +192,44 @@
       </div>
     </div>
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="modallogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-5">
+            <img loading="prelaod" decoding="async" class="img-fluid" width="60%" src="images/logo.png" alt="Wallet">
+            <h4 class="title mt-4" id="exampleModalLabel">Selamat Datang</h4>
+            <h5 class="subtitle fw-normal text-secondary" id="exampleModalLabel">Masukkan data akun anda dengan benar</h5>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
+                  <input type="email" class="form-control input-md" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-4">
+                  <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
+                  <input type="password" class="form-control input-md" id="exampleInputPassword1">
+                  <div id="emailHelp" class="form-text">Lupa password akun ? <a href="#">Klik disini</a></div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mb-3">MASUK AKUN</button>
+                <a type="submit" class="btn btn-outline-primary w-100 mb-3">DAFTAR AKUN</a>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
   <section class="banner bg-tertiary position-relative overflow-hidden pt-5 pb-0">
     <div class="row align-items-center justify-content-center">
       <div class="col-lg-12 mb-5 mb-3">
@@ -258,9 +245,9 @@
         </div>
       </div>
       <div class="col-lg-12" style="position: relative;">
-        <img src="images/rahmad.png"
+        <!-- <img src="images/rahmad.png"
           style="width: 320px; position: absolute; left: 0; bottom: 0;z-index: 99!important;">
-        <img src="images/budi.png" style="width: 320px; position: absolute; right: 0; bottom: 0;z-index: 99!important;">
+        <img src="images/budi.png" style="width: 320px; position: absolute; right: 0; bottom: 0;z-index: 99!important;"> -->
         <div class="text-center">
           <img loading="lazy" decoding="async" src="images/mpp2.png" alt="banner image" width="80%">
         </div>
@@ -344,7 +331,13 @@
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <div class="notices info text-center">
                   <p class="mb-0 fs-4 fw-bold text-warning text-uppercase">Maaf, Anda Belum Login</p>
-                  <p class="fs-6">Untuk mengakses ambil antrian online anda harus masuk akun terlebih dahulu </p>
+
+                  <p class="fs-6">Untuk mengakses ambil antrian online anda harus
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modallogin" class="text-black">
+                      Masuk Akun
+                    </a>terlebih
+                    dahulu
+                  </p>
                 </div>
               </div>
             </div>
@@ -354,7 +347,9 @@
           <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
             <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
             <p class="display-2 fw-bold text-white mb-0">88.5</p>
-            <p class="h5 text-white fw-normal mb-0 text-lowercase">( Sangat Baik )</p>
+            <a href="https://skm-mpp.balikpapan.go.id/" class="btn btn-outline-primary w-100 mt-2">DETAIL NILAI SKM</a>
+            <!-- <a href="#!" class="btn btn-outline-primary">Masuk</a> -->
+            <!-- <p class="h5 text-white fw-normal mb-0 text-lowercase">( Sangat Baik )</p> -->
           </div>
         </div>
       </div>
@@ -368,6 +363,9 @@
             <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
               <div>
                 <div class="text-center">
+                  <figure class="mb-4">
+                    <img src="images/layanan3.png" alt="" width="45%">
+                  </figure>
                   <h4 class="mb-1">ANTRIAN ONLINE</h4>
                   <p class="text-secondary">Ambil antrian online dengan mudah</p>
                   <button class="btn btn-primary w-100"> KUNJUNGI</button>
@@ -381,6 +379,9 @@
             <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
               <div>
                 <div class="text-center">
+                  <figure class="mb-4">
+                    <img src="images/layanan.png" alt="" width="45%">
+                  </figure>
                   <h4 class="mb-1">TRACKING LAYANAN</h4>
                   <p class="text-secondary">Ketahui status layanan/permohonan</p>
                   <button class="btn btn-danger w-100"> KUNJUNGI</button>
@@ -394,6 +395,9 @@
             <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
               <div>
                 <div class="text-center">
+                  <figure class="mb-4">
+                    <img src="images/layanan2.png" alt="" width="45%">
+                  </figure>
                   <h4 class="mb-4">SURVEY KEPUASAN MASYARAKAT</h4>
                   <button class="btn btn-success w-100"> KUNJUNGI</button>
                 </div>
@@ -413,7 +417,7 @@
       <div class="row justify-content-around align-items-center">
         <div class="col-lg-6">
           <div class="section-title">
-            <p class="text-primary text-uppercase fw-bold mb-3">Tentang Mal Pelayanan Publik Balikpapan</p>
+            <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Tentang Mal Pelayanan Publik Balikpapan</p>
             <h1>Berbagai Pelayanan Dalam 1 Tempat</h1>
             <p>
               MPP dirancang oleh KEMEPAN RB sebagai bagian dari perbaikan menyeluruh dan transformasi tata kelola
@@ -468,16 +472,16 @@
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <div class="section-title text-center">
-            <p class="text-primary text-uppercase fw-bold mb-3">Fasilitas Mal Pelayanan Publik Balikpapan</p>
+            <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Fasilitas Mal Pelayanan Publik Balikpapan</p>
             <h1>Beberapa Fasilitas yang Tersedia</h1>
           </div>
         </div>
         <div class="col-lg-11">
           <ul class="payment_info_tab nav nav-pills justify-content-center mb-4" id="pills-tab" role="tablist">
             <li class="nav-item m-2" role="presentation"> <a
-                class="nav-link btn btn-outline-primary effect-none text-dark active"
-                id="pills-how-much-can-i-recive-tab" data-bs-toggle="pill" href="#tab-ruangbermain" role="tab"
-                aria-controls="tab-ruangbermain" aria-selected="true">Ruang Bermain Anak</a>
+                class="nav-link btn btn-outline-primary effect-none text-dark" id="pills-how-much-can-i-recive-tab"
+                data-bs-toggle="pill" href="#tab-ruangbermain" role="tab" aria-controls="tab-ruangbermain"
+                aria-selected="true">Ruang Bermain Anak</a>
             </li>
             <li class="nav-item m-2" role="presentation"> <a
                 class="nav-link btn btn-outline-primary effect-none text-dark " id="pills-how-much-does-it-costs-tab"
@@ -515,7 +519,7 @@
                 aria-selected="true">Ruang Kesehatan</a>
             </li>
             <li class="nav-item m-2" role="presentation"> <a
-                class="nav-link btn btn-outline-primary effect-none text-dark " id="pills-how-do-i-repay-tab"
+                class="nav-link btn btn-outline-primary effect-none text-dark active" id="pills-how-do-i-repay-tab"
                 data-bs-toggle="pill" href="#tab-virtualmpp" role="tab" aria-controls="tab-virtualmpp"
                 aria-selected="true">Virtual MPP</a>
             </li>
@@ -529,9 +533,14 @@
                 data-bs-toggle="pill" href="#tab-layananinformasi" role="tab" aria-controls="tab-layananinformasi"
                 aria-selected="true">Layanan Informasi</a>
             </li>
+            <li class="nav-item m-2" role="presentation"> <a
+                class="nav-link btn btn-outline-primary effect-none text-dark " id="pills-how-do-i-repay-tab"
+                data-bs-toggle="pill" href="#tab-kantin" role="tab" aria-controls="tab-kantin"
+                aria-selected="true">Kantin</a>
+            </li>
           </ul>
           <div class="rounded shadow bg-white p-5 tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="tab-ruangbermain" role="tabpanel"
+            <div class="tab-pane fade " id="tab-ruangbermain" role="tabpanel"
               aria-labelledby="pills-how-much-can-i-recive-tab">
               <div class="row align-items-center">
                 <div class="col-md-6 order-1 order-md-0">
@@ -698,7 +707,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade " id="tab-virtualmpp" role="tabpanel"
+            <div class="tab-pane fade show active" id="tab-virtualmpp" role="tabpanel"
               aria-labelledby="pills-how-much-does-it-costs-tab">
               <div class="row align-items-center">
                 <div class="col-md-6 order-1 order-md-0">
@@ -761,6 +770,26 @@
                 </div>
               </div>
             </div>
+            <div class="tab-pane fade " id="tab-kantin" role="tabpanel"
+              aria-labelledby="pills-how-much-does-it-costs-tab">
+              <div class="row align-items-center">
+                <div class="col-md-6 order-1 order-md-0">
+                  <div class="content-block">
+                    <h3 class="mb-4">Kantin</h3>
+                    <div class="content">
+                      <p>Mal Pelayanan Publik Kota Balikpapan menyediakan fasilitas Kantin untuk sarana membeli makanan
+                        ringan dan berat</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 order-0 order-md-1 mb-5 mt-md-0">
+                  <div class="image-block text-center">
+                    <img loading="lazy" decoding="async" src="images/kantin.jpg" alt="How Much Does It Costs?"
+                      class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -802,112 +831,94 @@
     </div>
   </section>
 
-  <section class="section" id="layanan-mpp">
+  <section class="section bg-primary pb-0" id="layanan-mpp">
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-9">
           <div class="section-title text-center">
-            <p class="text-primary text-uppercase fw-bold mb-3">Layanan MPP Balikpapan</p>
-            <h1>Loket Pelayanan MPP Balikpapan</h1>
-            <p>Tedapat 25 Loket Pelayanan Instansi, Kantor, dan Dinas</p>
+            <p class="text-white text-uppercase fw-bold mb-3 fs-4">Layanan MPP Balikpapan</p>
+            <h1 class=" text-white">Loket Pelayanan MPP Balikpapan</h1>
+            <p class=" text-white">Tedapat 25 Loket Pelayanan Instansi, Kantor, dan Dinas</p>
           </div>
         </div>
       </div>
       <div class="slick-layanan">
         <div>
-          <div class="row">
-            <div class="col-md-4 service-item">
+          <div class="row gap-5 justify-content-around">
+            <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
               <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan" class="text-black">
-                <div class="block">
-                  <img src="images/logo1.png" class="img-fluid mb-1" width="75px">
-                  <h3 class="mb-3 service-title">BPJS Kesehatan</h3>
+                <div class="block text-center">
+                  <img src="images/logo1.png" class="d-inline-block mb-2" width="100px">
+                  <h3 class="mb-0 service-title">BPJS Kesehatan</h3>
+                  <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
                   <div class="content">
-                    <p class="mb-1">Lantai 3 Loket 2</p>
-                    <p class="mb-0">Jenis Layanan</p>
-                    <ul>
-                      <li class="fs-6">Layanan Administrasi Kepesertaaan JKN-KIS</li>
-                      <li class="fs-6">Layanan Informasi dan Pengaduan terkait JKN-KIS</li>
-                    </ul>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
+                      class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col-md-4 service-item">
-              <a class="text-black">
-                <div class="block">
-                  <img src="images/logo2.png" class="img-fluid mb-1" width="75px">
-                  <h3 class="mb-3 service-title">IMIGRASI</h3>
+            <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan" class="text-black">
+                <div class="block text-center">
+                  <img src="images/logo2.png" class="d-inline-block mb-2" width="100px">
+                  <h3 class="mb-0 service-title">IMIGRASI</h3>
+                  <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
                   <div class="content">
-                    <p class="mb-1">Lantai 2 Loket 21</p>
-                    <p class="mb-0">Jenis Layanan</p>
-                    <ul>
-                      <li class="fs-6">Layanan Paspor Baru</li>
-                      <li class="fs-6">Layanan Pergantian/Habis Berlaku Paspor</li>
-                    </ul>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
+                      class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col-md-4 service-item">
-              <a class="text-black">
-                <div class="block">
-                  <img src="images/logo3.png" class="img-fluid mb-1" width="75px">
-                  <h3 class="mb-3 service-title">BNN</h3>
+            <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan" class="text-black">
+                <div class="block text-center">
+                  <img src="images/logo3.png" class="d-inline-block mb-2" width="100px">
+                  <h3 class="mb-0 service-title">BNN</h3>
+                  <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
                   <div class="content">
-                    <p class="mb-1">Lantai 3 Loket 2</p>
-                    <p class="mb-0">Jenis Layanan</p>
-                    <ul>
-                      <li class="fs-6">Layanan Informasi Tes Urin</li>
-                      <li class="fs-6">Layanan Pelaporan Penyalahguna Narkoba</li>
-                    </ul>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
+                      class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col-md-4 service-item">
-              <a class="text-black">
-                <div class="block">
-                  <img src="images/logo4.png" class="img-fluid mb-1" width="75px">
-                  <h3 class="mb-3 service-title">Bank Kaltimtara</h3>
+            <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan" class="text-black">
+                <div class="block text-center">
+                  <img src="images/logo4.png" class="d-inline-block mb-2" width="100px">
+                  <h3 class="mb-0 service-title">BANK BPD KALTIM</h3>
+                  <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
                   <div class="content">
-                    <p class="mb-1">Lantai 1 Loket 7</p>
-                    <p class="mb-0">Jenis Layanan</p>
-                    <ul>
-                      <li class="fs-6">Layanan Perbankan</li>
-                      <li class="fs-6">Layanan Pembuatan Kartu ATM</li>
-                    </ul>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
+                      class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col-md-4 service-item">
-              <a class="text-black">
-                <div class="block">
-                  <img src="images/logo5.png" class="img-fluid mb-1" width="75px">
-                  <h3 class="mb-3 service-title">PLN</h3>
+            <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan" class="text-black">
+                <div class="block text-center">
+                  <img src="images/logo5.png" class="d-inline-block mb-2" width="100px">
+                  <h3 class="mb-0 service-title">PLN</h3>
+                  <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
                   <div class="content">
-                    <p class="mb-1">Lantai 2 Loket 12</p>
-                    <p class="mb-0">Jenis Layanan</p>
-                    <ul>
-                      <li class="fs-6">Pembayaran Rekening Listrik</li>
-                      <li class="fs-6">Pemasangan Baru</li>
-                    </ul>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
+                      class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col-md-4 service-item">
-              <a class="text-black">
-                <div class="block">
-                  <img src="images/logo6.png" class="img-fluid mb-1" width="75px">
-                  <h3 class="mb-3 service-title">Polresta</h3>
+            <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan" class="text-black">
+                <div class="block text-center">
+                  <img src="images/logo6.png" class="d-inline-block mb-2" width="100px">
+                  <h3 class="mb-0 service-title">POLRES</h3>
+                  <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
                   <div class="content">
-                    <p class="mb-1">Lantai 1 Loket 9</p>
-                    <p class="mb-0">Jenis Layanan</p>
-                    <ul>
-                      <li class="fs-6">Layanan Informasi</li>
-                      <li class="fs-6">Layanan Pengaduan</li>
-                    </ul>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
+                      class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
                   </div>
                 </div>
               </a>
@@ -915,8 +926,8 @@
           </div>
         </div>
         <div>
-          <div class="row">
-            <div class="col-md-4 service-item">
+          <div class="row gap-5 justify-content-around">
+            <div class="col-md-3 bg-white service-item">
               <a class="text-black">
                 <div class="block">
                   <img src="images/logo1.png" class="img-fluid mb-1" width="75px">
@@ -932,7 +943,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-4 service-item">
+            <div class="col-md-3 bg-white service-item">
               <a class="text-black">
                 <div class="block">
                   <img src="images/logo2.png" class="img-fluid mb-1" width="75px">
@@ -948,7 +959,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-4 service-item">
+            <div class="col-md-3 bg-white service-item">
               <a class="text-black">
                 <div class="block">
                   <img src="images/logo3.png" class="img-fluid mb-1" width="75px">
@@ -964,7 +975,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-4 service-item">
+            <div class="col-md-3 bg-white service-item">
               <a class="text-black">
                 <div class="block">
                   <img src="images/logo4.png" class="img-fluid mb-1" width="75px">
@@ -980,7 +991,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-4 service-item">
+            <div class="col-md-3 bg-white service-item">
               <a class="text-black">
                 <div class="block">
                   <img src="images/logo5.png" class="img-fluid mb-1" width="75px">
@@ -996,7 +1007,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-md-4 service-item">
+            <div class="col-md-3 bg-white service-item">
               <a class="text-black">
                 <div class="block">
                   <img src="images/logo6.png" class="img-fluid mb-1" width="75px">
@@ -1019,21 +1030,32 @@
     </div>
   </section>
 
-  <section class="about-section section bg-blues position-relative overflow-hidden">
+  <section class="about-section section bg-blues position-relative pt-5 mb-5">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-7">
+        <div class="col-lg-8">
           <div class="section-title">
-            <p class="text-white text-uppercase fw-bold mb-3">APLIKASI ANTRIAN MPP BALIKPAPAN</p>
-            <h1 class="text-white">Ambil Antrian Kapan Saja Dimana Saja</h1>
-            <a href="https://drive.google.com/file/d/1G3p897tpI5Ty_b9CRq-qfaszXriz3EDu/view" class="mt-5">
-              <!-- <img src="images/playstore.png" class="img-fluid" width="200px"> -->
-              <button class="btn btn-lg btn-light">DOWNLOAD SEKARANG</button>
-            </a>
+            <!-- <p class="text-white text-uppercase fw-bold mb-3">APLIKASI ANTRIAN MPP BALIKPAPAN</p>
+            <h1 class="text-white">Ambil Antrian Kapan Saja Dimana Saja</h1> -->
+            <p class="text-white text-uppercase fw-bold mb-2 fs-4">KAPAN SAJA DIMANA SAJA</p>
+            <h1 class="text-white">Mudah Ambil Antrian Loket MPP</h1>
+            <p class="text-white fs-5 opacity-75">Antrian online tersedia melalui 2 cara berikut</p>
+          </div>
+          <div class="d-flex">
+            <div>
+              <p class="text-white fs-5 mb-2 me-5">Melalui Website Utama</p>
+              <a href="https://drive.google.com/file/d/1G3p897tpI5Ty_b9CRq-qfaszXriz3EDu/view">
+                <img src="images/playstore.png" class="img-fluid" width="170px">
+              </a>
+            </div>
+            <div>
+              <p class="text-white fs-5 mb-2">Melalui Website Utama</p>
+              <a href="#" class="btn btn-lg btn-light text-primary">DOWNLOAD SEKARANG</a>
+            </div>
           </div>
         </div>
-        <div class="col-lg-5 text-center text-lg-end">
-          <img src="images/apps.png" alt="About Ourselves" class="img-fluid">
+        <div class="col-lg-4 text-center text-lg-end">
+          <img src="images/hpgambar.png" alt="About Ourselves" class="img-fluid">
         </div>
       </div>
     </div>
@@ -1069,14 +1091,37 @@
           stroke="currentColor" stroke-miterlimit="10" />
       </svg>
     </div>
+    <div class="container position-absolute" style="left: 0; right: 0;">
+      <div class="row justify-content-center gx-5">
+        <div class="icon-box-item col-lg-4 col-md-6">
+          <div class="block bg-white text-center">
+            <h1 class="mb-2 text-primary display-4 fw-bold">31</h1>
+            <p class="mb-0 fs-5 fw-bold text-dark">JUMLAH INSTANSI</p>
+          </div>
+        </div>
+        <div class="icon-box-item col-lg-4 col-md-6">
+          <div class="block bg-white text-center">
+            <h1 class="mb-2 text-primary display-4 fw-bold">120</h1>
+            <p class="mb-0 fs-5 fw-bold text-dark">JUMLAH LAYANAN</p>
+          </div>
+        </div>
+        <div class="icon-box-item col-lg-4 col-md-6">
+          <div class="block bg-white text-center">
+            <h1 class="mb-2 text-primary display-4 fw-bold">40</h1>
+            <p class="mb-0 fs-5 fw-bold text-dark">KUNJUNGAN HARI INI</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
-
-  <section class="section loan-steps">
+  <br>
+  <br>
+  <section class="section loan-steps mt-5">
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-9">
           <div class="section-title text-center">
-            <p class="text-primary text-uppercase fw-bold mb-3">Mekanisme Pelayanan</p>
+            <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Mekanisme Pelayanan</p>
             <h1>Urus Kebutuhan Dengan 5 Langkah Mudah di MPP Balikpapan</h1>
           </div>
         </div>
@@ -1134,7 +1179,7 @@
               <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="text-left">
-                    <p class="text-primary text-uppercase fw-bold mb-3">Berita MPP Balikpapan</p>
+                    <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Berita MPP Balikpapan</p>
                     <h1>Kabar terbaru saat ini</h1>
                   </div>
                   <div>
@@ -1204,14 +1249,14 @@
       <div class="row justify-content-center">
         <div class="col-lg-6">
           <div class="section-title text-center">
-            <p class="text-primary text-uppercase fw-bold mb-3">TESTIMONIAL TENTang mpp balikpapan</p>
+            <p class="text-primary text-uppercase fw-bold mb-3 fs-4">TESTIMONIAL TENTang mpp balikpapan</p>
             <h1 class="mb-4">Apa kata mereka ?</h1>
             <!-- <p class="lead mb-0">Yang telah</p> -->
           </div>
         </div>
       </div>
-      <div class="row position-relative">
-        <div class="col-lg-4 col-md-6 pt-1">
+      <div class="slick-testimoni row position-relative">
+        <div class="col mx-2 pt-1">
           <div class="shadow rounded bg-white p-4 mt-4">
             <div class="content mb-3">Terima Kasih MPP Kota Balikpapan, saya tidak perlu mondar-mandir untuk mengurus
               beberapa berkas</div>
@@ -1223,7 +1268,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 pt-1">
+        <div class="col mx-2 pt-1">
           <div class="shadow rounded bg-white p-4 mt-4">
             <div class="content mb-3">Mau umroh jadi lebih mudah karena bisa sekalian urus paspor di gedung yang sama
               dan diwaktu yang sama</div>
@@ -1235,7 +1280,43 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 pt-1">
+        <div class="col mx-2 pt-1">
+          <div class="shadow rounded bg-white p-4 mt-4">
+            <div class="content mb-3">MPP Sangat memudahkan urusan bulanan saya seperti membayar air dan listrik di
+              waktu yang sama</div>
+            <div class="d-block d-sm-flex align-items-center">
+              <div class="mt-3 mt-sm-0">
+                <h4 class="h5 mb-0">Abdul Kadir</h4>
+                <p class="mb-0">Wirausaha</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mx-2 pt-1">
+          <div class="shadow rounded bg-white p-4 mt-4">
+            <div class="content mb-3">Terima Kasih MPP Kota Balikpapan, saya tidak perlu mondar-mandir untuk mengurus
+              beberapa berkas</div>
+            <div class="d-block d-sm-flex align-items-center">
+              <div class="mt-3 mt-sm-0">
+                <h4 class="h5 mb-0">Indra Lukman</h4>
+                <p class="mb-0">Wiraswasta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mx-2 pt-1">
+          <div class="shadow rounded bg-white p-4 mt-4">
+            <div class="content mb-3">Mau umroh jadi lebih mudah karena bisa sekalian urus paspor di gedung yang sama
+              dan diwaktu yang sama</div>
+            <div class="d-block d-sm-flex align-items-center">
+              <div class="mt-3 mt-sm-0">
+                <h4 class="h5 mb-0">Nurwahidatul</h4>
+                <p class="mb-0">Ibu Rumah Tangga</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mx-2 pt-1">
           <div class="shadow rounded bg-white p-4 mt-4">
             <div class="content mb-3">MPP Sangat memudahkan urusan bulanan saya seperti membayar air dan listrik di
               waktu yang sama</div>
@@ -1287,12 +1368,18 @@
     </div>
   </section>
 
+  <section class="section">
+    <div class="container">
+      <canvas id="myChart"></canvas>
+    </div>
+  </section>
+
   <section class="section" id="kontak-mpp">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12">
           <div class="section-title text-center mb-5 pb-2">
-            <p class="text-primary text-uppercase fw-bold mb-3">Kontak Kami</p>
+            <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Kontak Kami</p>
             <h1>Pertanyaan-Pertanyaan terkait MPP Balikpapan</h1>
           </div>
         </div>
@@ -1540,6 +1627,30 @@
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <!-- Main Script -->
   <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+        datasets: [{
+          label: 'Kunjungan Harian',
+          data: [12, 19, 3, 5, 2, 3, 9, 12, 20, 10, 11, 8],
+          borderWidth: 3
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
 
 </body>
 
