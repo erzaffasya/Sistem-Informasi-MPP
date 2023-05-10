@@ -10119,11 +10119,17 @@ textarea.form-control {
      object-position: center;
 }
 
-.modal-dialog {
+#modallayanan .modal-dialog {
   max-width: 1040px;
 }
 
 .applyLoanModal .modal-content {
   padding: 10px;
+}
+.slick-testimoni .slick-list.draggable {
+  overflow: visible;
+}
+.slick-testimoni .col{
+  height: inherit!important;  
 }
 /*# sourceMappingURL=style.css.map */
