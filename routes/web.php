@@ -46,6 +46,10 @@ Route::get('/logout-mpp', function () {
 })->name('logout-mpp');
 
 
+// page baru
+Route::get('/regis', [LandingpageController::class, 'regis'])->name('regis');
+
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
