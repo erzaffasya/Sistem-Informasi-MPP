@@ -29,7 +29,7 @@
                                                 data-bs-target="#collapse-{{$item['id']}}-{{$data['id']}}"
                                                 aria-expanded="true"
                                                 aria-controls="collapse-{{$item['id']}}-{{$data['id']}}">
-                                                {{$data['nama_layanan']}}
+                                                {{$data['nama_layanan']['nama_layanan']}}
                                             </h2>
                                             <div id="collapse-{{$item['id']}}-{{$data['id']}}"
                                                 class="accordion-collapse collapse border-0 "

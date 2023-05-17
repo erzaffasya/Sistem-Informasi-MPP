@@ -16,4 +16,8 @@ class Layanan extends Model
     {
         return $this->belongsTo(Instansi::class, 'instansi_id', 'id');
     }
+    public function NamaLayanan()
+    {
+        return $this->belongsTo(NamaLayanan::class, 'nama_layanan_id', 'id');
+    }
 }

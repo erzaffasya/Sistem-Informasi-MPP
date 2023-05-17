@@ -172,6 +172,24 @@
     <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Setting Instansi</span>
     </li>
+    <li class="menu-item {{ request()->routeIs('NamaLayanan.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+            <div data-i18n="Misc">Nama Layanan</div>
+        </a>
+        <ul class="menu-sub ">
+            <li class="menu-item {{ request()->routeIs('NamaLayanan.create') ? 'active' : '' }}">
+                <a href="{{ route('NamaLayanan.create') }}" class="menu-link">
+                    <div data-i18n="Error">Tambah Data</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('NamaLayanan.index') ? 'active' : '' }}">
+                <a href="{{ route('NamaLayanan.index') }}" class="menu-link">
+                    <div data-i18n="Under Maintenance">Lihat Data</div>
+                </a>
+            </li>
+        </ul>
+    </li>
     <li class="menu-item {{ request()->routeIs('Instansi.*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons bx bx-cube-alt"></i>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Layanan;
+use App\Models\NamaLayanan;
 use Illuminate\Http\Request;
 
 class LayananController extends Controller
@@ -27,7 +28,8 @@ class LayananController extends Controller
     public function create($id)
     {
         // dd('erza');
-        return view('admin.Instansi.Layanan.tambah', compact('id'));
+        $namaLayanan = NamaLayanan::all();
+        return view('admin.Instansi.Layanan.tambah', compact('id','namaLayanan'));
     }
 
     /**
@@ -40,10 +42,10 @@ class LayananController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'nama_layanan' => 'required',
+            'nama_layanan_id' => 'required',
         ]);
         $Layanan = Layanan::create([
-            'nama_layanan' => $request->nama_layanan,
+            'nama_layanan_id' => $request->nama_layanan_id,
             'deskripsi' => $request->deskripsi,
             'instansi_id' => $request->instansi_id,
         ]);
@@ -72,7 +74,8 @@ class LayananController extends Controller
     public function edit($id)
     {
         $Layanan = Layanan::find($id);
-        return view('admin.Instansi.Layanan.edit', compact('Layanan'));
+        $namaLayanan = NamaLayanan::all();
+        return view('admin.Instansi.Layanan.edit', compact('Layanan','namaLayanan'));
     }
 
     /**
@@ -85,7 +88,7 @@ class LayananController extends Controller
     public function update(Request $request, $id)
     {
         $Layanan = Layanan::find($id);
-        $Layanan->nama_layanan = $request->nama_layanan;
+        $Layanan->nama_layanan_id = $request->nama_layanan_id;
         $Layanan->deskripsi = $request->deskripsi;
         // $Layanan->instansi_id = $request->instansi_id;
         $Layanan->save();

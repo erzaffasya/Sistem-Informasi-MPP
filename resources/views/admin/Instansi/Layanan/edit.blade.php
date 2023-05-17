@@ -10,7 +10,14 @@
                 @method("PUT")
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">Nama Layanan</label>
-                    <input type="text" class="form-control" id="basic-default-fullname" value="{{$Layanan->nama_layanan}}" name="nama_layanan">
+                    <select class="form-select" name="nama_layanan_id" id="exampleFormControlSelect1"
+                        aria-label="Default select example">
+                        @foreach ($namaLayanan as $item)
+                            <option @if ($item->id == $Layanan->nama_layanan_id)
+                                selected
+                            @endif value="{{ $item->id }}">{{ $item->nama_layanan }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">deskripsi</label>

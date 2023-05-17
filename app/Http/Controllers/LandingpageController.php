@@ -31,7 +31,9 @@ class LandingpageController extends Controller
             $dataLayanan[] = [
                 'id' => $item->id,
                 'nama_instansi' => $item->nama_instansi,
-                'data' => Layanan::where('instansi_id', $item->id)->get()->toArray()
+                'data' => Layanan::with(['NamaLayanan' => function ($query) {
+                    $query->select('id','nama_layanan');
+                }])->where('instansi_id', $item->id)->get()->toArray()
             ];
         }
         // dd($dataLayanan);
