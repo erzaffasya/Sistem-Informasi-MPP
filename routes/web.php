@@ -37,6 +37,10 @@ Route::get('/layanan', [LandingpageController::class, 'layanan'])->name('layanan
 Route::get('/kontak', [LandingpageController::class, 'kontak'])->name('kontak');
 Route::post('/get-kuota', [Controller::class, 'getInstansiKuota'])->name('get-kuota');
 
+// page baru
+Route::get('/regis', [LandingpageController::class, 'regis'])->name('regis');
+
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
