@@ -10,7 +10,11 @@
                 @method("PUT")
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">Nama Layanan</label>
-                    <input type="text" class="form-control" id="basic-default-fullname" value="{{$Layanan->nama_Layanan}}" name="nama_layanan">
+                    <input type="text" class="form-control" id="basic-default-fullname" value="{{$Layanan->nama_layanan}}" name="nama_layanan">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">deskripsi</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="deskripsi" rows="3">{{$Layanan->deskripsi}}</textarea>
                 </div>
                 <input type="hidden" class="form-control" id="basic-default-fullname" value="{{$Layanan->instansi_id}}" name="instansi_id">
                 <button type="submit" class="btn btn-primary">Submit</button>

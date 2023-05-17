@@ -2,12 +2,13 @@
     <div class="card">
         <h5 class="card-header">Layanan Table</h5>
         <div class="table-responsive text-nowrap">
-            <a class="btn btn-primary text-end" href="{{url('tambah-layanan',request()->route()->parameters)}}">Tambah Data</a>
+            <a class="btn btn-primary text-end" href="{{url('admin/tambah-layanan',request()->route()->parameters)}}">Tambah Data</a>
             <table class="table">
                 <thead>
                     <tr class="text-nowrap">
                         <th>#</th>
                         <th>Nama Layanan</th>
+                        <th>Deskripsi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -16,6 +17,7 @@
                         <tr>
                             <td> {{ $loop->iteration }} </td>
                             <td> {{ $item->nama_layanan }} </td>
+                            <td> {!! $item->deskripsi !!} </td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow "

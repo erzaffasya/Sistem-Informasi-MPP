@@ -2,7 +2,8 @@
   <title>Home | Mal Pelayanan Publik Kota Balikpapan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="This is meta description">
-  <meta name="author" content="Themefisher">
+  <meta name="author" content="Themefisher">   
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="tlandingpage/images/favicon.ico" type="image/x-icon">
 
@@ -19,3 +20,9 @@
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <!-- # Main Style Sheet -->
   <link rel="stylesheet" href="{{ asset('tlandingpage/css/style.css')}}">
+  
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
+
+  
