@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('layanan', function (Blueprint $table) {
             $table->id();            
             $table->string("nama_layanan")->nullable();
+            $table->text("deskripsi")->nullable();
             $table->foreignId("instansi_id")->nullable()->constrained("instansi")->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });

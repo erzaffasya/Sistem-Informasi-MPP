@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FasilitasController;
@@ -30,6 +31,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingpageController::class, 'index'])->name('home');
 Route::get('/berita', [LandingpageController::class, 'berita'])->name('berita');
+Route::get('/tentang', [LandingpageController::class, 'tentang'])->name('tentang');
+Route::get('/layanan', [LandingpageController::class, 'layanan'])->name('layanan');
+Route::get('/kontak', [LandingpageController::class, 'kontak'])->name('kontak');
+Route::post('/get-kuota', [Controller::class, 'getInstansiKuota'])->name('get-kuota');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {

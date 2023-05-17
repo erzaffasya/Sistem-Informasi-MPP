@@ -11,13 +11,13 @@
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item"> <a class="nav-link" href="{{route('home')}}">Beranda</a>
           </li>
-          <li class="nav-item "> <a class="nav-link" href="about.html">Tentang</a>
+          <li class="nav-item "> <a class="nav-link" href="{{route('tentang')}}">Tentang</a>
           </li>
           <li class="nav-item "> <a class="nav-link" href="{{route('berita')}}">Berita</a>
           </li>
-          <li class="nav-item "> <a class="nav-link" href="#layanan-mpp">Layanan</a>
+          <li class="nav-item "> <a class="nav-link" href="{{route('layanan')}}">Layanan</a>
           </li>
-          <li class="nav-item "> <a class="nav-link" href="#kontak-mpp">Kontak</a>
+          <li class="nav-item "> <a class="nav-link" href="{{route('kontak')}}">Kontak</a>
           </li>
           <!-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lainnya</a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

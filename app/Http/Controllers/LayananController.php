@@ -43,6 +43,7 @@ class LayananController extends Controller
         ]);
         $Layanan = Layanan::create([
             'nama_layanan' => $request->nama_layanan,
+            'deskripsi' => $request->deskripsi,
             'instansi_id' => $request->instansi_id,
         ]);
 
@@ -84,6 +85,7 @@ class LayananController extends Controller
     {
         $Layanan = Layanan::find($id);
         $Layanan->nama_layanan = $request->nama_layanan;
+        $Layanan->deskripsi = $request->deskripsi;
         // $Layanan->instansi_id = $request->instansi_id;
         $Layanan->save();
 

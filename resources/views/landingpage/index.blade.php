@@ -126,7 +126,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -265,19 +264,24 @@
                         <div class="tab-content px-5 py-4" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                 aria-labelledby="nav-home-tab">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-8">
-                                        <label for="inputState" class="form-label fs-5">Pilih Instansi</label>
-                                        <select id="inputState" class="form-select form-select-lg text-secondary">
-                                            <option selected>Instansi</option>
-                                            <option>BPJS</option>
-                                        </select>
+                                <form method="post" action="{{route('get-kuota')}}">
+                                    @csrf
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8">
+                                            <label for="inputState" class="form-label fs-5">Pilih Instansi</label>
+                                            <select name="instansi_id" id="inputState" class="form-select form-select-lg text-secondary">
+                                                @foreach ($instansi as $item)
+                                                    <option value="{{ $item->id_instansi_mpp }}">
+                                                        {{ $item->nama_instansi }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 d-flex align-items-end">
+                                            <button type="submit" class="btn btn-primary w-100">CEK ANTRIAN
+                                                LAYANAN</button>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4 d-flex align-items-end">
-                                        <button type="button" class="btn btn-primary w-100">CEK ANTRIAN
-                                            LAYANAN</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                 aria-labelledby="nav-profile-tab">
@@ -452,7 +456,7 @@
                                     id="pills-how-do-i-repay-tab" data-bs-toggle="pill"
                                     href="#{{ preg_replace('/\s+/', '', $item->judul) }}" role="tab"
                                     aria-controls="{{ preg_replace('/\s+/', '', $item->judul) }}"
-                                    aria-selected="true">{{ $item->judul }}</a>
+                                    aria-selected="true">{{ $item->judul }} </a>
                             </li>
                         @endforeach
 
@@ -466,15 +470,15 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-6 order-1 order-md-0">
                                         <div class="content-block">
-                                            <h3 class="mb-4">{{$item->judul}}</h3>
+                                            <h3 class="mb-4">{{ $item->judul }}</h3>
                                             <div class="content">
-                                                <p>{!!$item->isi!!}</p>
+                                                <p>{!! $item->isi !!}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 order-0 order-md-1 mb-5 mt-md-0">
                                         <div class="image-block text-center">
-                                            <img loading="lazy" decoding="async" src="{{Storage::url('Fasilitas/Gambar',$item->gambar)}}"
+                                            <img loading="lazy" decoding="async" src="{{ url($item->gambar) }}"
                                                 alt="How Much Does It Costs?" class="img-fluid">
                                         </div>
                                     </div>
@@ -530,206 +534,33 @@
                     <div class="section-title text-center">
                         <p class="text-white text-uppercase fw-bold mb-3 fs-4">Layanan MPP Balikpapan</p>
                         <h1 class=" text-white">Loket Pelayanan MPP Balikpapan</h1>
-                        <p class=" text-white">Tedapat 25 Loket Pelayanan Instansi, Kantor, dan Dinas</p>
+                        <p class=" text-white">Tedapat {{ $instansi->count() }} Loket Pelayanan Instansi, Kantor, dan
+                            Dinas</p>
                     </div>
                 </div>
             </div>
             <div class="slick-layanan">
-                <div>
-                    <div class="row gap-5 justify-content-around">
-                        <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                class="text-black">
-                                <div class="block text-center">
-                                    <img src="tlandingpage/images/logo1.png" class="d-inline-block mb-2"
-                                        width="100px">
-                                    <h3 class="mb-0 service-title">BPJS Kesehatan</h3>
-                                    <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
-                                    <div class="content">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                            class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                class="text-black">
-                                <div class="block text-center">
-                                    <img src="tlandingpage/images/logo2.png" class="d-inline-block mb-2"
-                                        width="100px">
-                                    <h3 class="mb-0 service-title">IMIGRASI</h3>
-                                    <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
-                                    <div class="content">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                            class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                class="text-black">
-                                <div class="block text-center">
-                                    <img src="tlandingpage/images/logo3.png" class="d-inline-block mb-2"
-                                        width="100px">
-                                    <h3 class="mb-0 service-title">BNN</h3>
-                                    <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
-                                    <div class="content">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                            class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                class="text-black">
-                                <div class="block text-center">
-                                    <img src="tlandingpage/images/logo4.png" class="d-inline-block mb-2"
-                                        width="100px">
-                                    <h3 class="mb-0 service-title">BANK BPD KALTIM</h3>
-                                    <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
-                                    <div class="content">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                            class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                class="text-black">
-                                <div class="block text-center">
-                                    <img src="tlandingpage/images/logo5.png" class="d-inline-block mb-2"
-                                        width="100px">
-                                    <h3 class="mb-0 service-title">PLN</h3>
-                                    <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
-                                    <div class="content">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                            class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                class="text-black">
-                                <div class="block text-center">
-                                    <img src="tlandingpage/images/logo6.png" class="d-inline-block mb-2"
-                                        width="100px">
-                                    <h3 class="mb-0 service-title">POLRES</h3>
-                                    <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
-                                    <div class="content">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
-                                            class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="row gap-5 justify-content-around">
-                        <div class="col-md-3 bg-white service-item">
-                            <a class="text-black">
-                                <div class="block">
-                                    <img src="tlandingpage/images/logo1.png" class="img-fluid mb-1" width="75px">
-                                    <h3 class="mb-3 service-title">BPJS Kesehatan</h3>
-                                    <div class="content">
-                                        <p class="mb-1">Lantai 3 Loket 2</p>
-                                        <p class="mb-0">Jenis Layanan</p>
-                                        <ul>
-                                            <li class="fs-6">Layanan Administrasi Kepesertaaan JKN-KIS</li>
-                                            <li class="fs-6">Layanan Informasi dan Pengaduan terkait JKN-KIS</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 bg-white service-item">
-                            <a class="text-black">
-                                <div class="block">
-                                    <img src="tlandingpage/images/logo2.png" class="img-fluid mb-1" width="75px">
-                                    <h3 class="mb-3 service-title">IMIGRASI</h3>
-                                    <div class="content">
-                                        <p class="mb-1">Lantai 2 Loket 21</p>
-                                        <p class="mb-0">Jenis Layanan</p>
-                                        <ul>
-                                            <li class="fs-6">Layanan Paspor Baru</li>
-                                            <li class="fs-6">Layanan Pergantian/Habis Berlaku Paspor</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 bg-white service-item">
-                            <a class="text-black">
-                                <div class="block">
-                                    <img src="tlandingpage/images/logo3.png" class="img-fluid mb-1" width="75px">
-                                    <h3 class="mb-3 service-title">BNN</h3>
-                                    <div class="content">
-                                        <p class="mb-1">Lantai 3 Loket 2</p>
-                                        <p class="mb-0">Jenis Layanan</p>
-                                        <ul>
-                                            <li class="fs-6">Layanan Informasi Tes Urin</li>
-                                            <li class="fs-6">Layanan Pelaporan Penyalahguna Narkoba</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 bg-white service-item">
-                            <a class="text-black">
-                                <div class="block">
-                                    <img src="tlandingpage/images/logo4.png" class="img-fluid mb-1" width="75px">
-                                    <h3 class="mb-3 service-title">Bank Kaltimtara</h3>
-                                    <div class="content">
-                                        <p class="mb-1">Lantai 1 Loket 7</p>
-                                        <p class="mb-0">Jenis Layanan</p>
-                                        <ul>
-                                            <li class="fs-6">Layanan Perbankan</li>
-                                            <li class="fs-6">Layanan Pembuatan Kartu ATM</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 bg-white service-item">
-                            <a class="text-black">
-                                <div class="block">
-                                    <img src="tlandingpage/images/logo5.png" class="img-fluid mb-1" width="75px">
-                                    <h3 class="mb-3 service-title">PLN</h3>
-                                    <div class="content">
-                                        <p class="mb-1">Lantai 2 Loket 12</p>
-                                        <p class="mb-0">Jenis Layanan</p>
-                                        <ul>
-                                            <li class="fs-6">Pembayaran Rekening Listrik</li>
-                                            <li class="fs-6">Pemasangan Baru</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 bg-white service-item">
-                            <a class="text-black">
-                                <div class="block">
-                                    <img src="tlandingpage/images/logo6.png" class="img-fluid mb-1" width="75px">
-                                    <h3 class="mb-3 service-title">Polresta</h3>
-                                    <div class="content">
-                                        <p class="mb-1">Lantai 1 Loket 9</p>
-                                        <p class="mb-0">Jenis Layanan</p>
-                                        <ul>
-                                            <li class="fs-6">Layanan Informasi</li>
-                                            <li class="fs-6">Layanan Pengaduan</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
+                <div>
+                    <div class="row gap-5 justify-content-around">
+                        @foreach ($instansi as $item)
+                            <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
+                                    class="text-black">
+                                    <div class="block text-center">
+                                        <img src="{{ $item->gambar }}" class="d-inline-block mb-2" width="100px">
+                                        <h3 class="mb-0 service-title">{{ $item->nama_instansi }}</h3>
+                                        <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
+                                        <div class="content">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#modallayanan"
+                                                class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -833,44 +664,15 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="row justify-content-center">
-                        <div class="step-item col">
-                            <div class="text-center">
-                                <p class="count">01</p>
-                                <h3 class="mb-3">Pendaftaran Online</h3>
-                                <p class="mb-0">Pengguna layanan melakukan pendaftaran secara daring atau online</p>
+                        @foreach ($mekanisme as $item)
+                            <div class="step-item col">
+                                <div class="text-center">
+                                    <p class="count">{{ $loop->iteration }}</p>
+                                    <h3 class="mb-3">{{ $item->judul }}</h3>
+                                    <p class="mb-0">{!! $item->isi !!}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="step-item col">
-                            <div class="text-center">
-                                <p class="count">02</p>
-                                <h3 class="mb-3">Mengunjungi MPP</h3>
-                                <p class="mb-0">Pengguna layanan mengunjungi MPP Balikpapan menunjukkan bukti
-                                    pendaftaran</p>
-                            </div>
-                        </div>
-                        <div class="step-item col">
-                            <div class="text-center">
-                                <p class="count">03</p>
-                                <h3 class="mb-3">Menuju Loket</h3>
-                                <p class="mb-0">Pengguna layanan menuju loket pelayanan sesuai kebutuhan dan mengisi
-                                    identitas</p>
-                            </div>
-                        </div>
-                        <div class="step-item col">
-                            <div class="text-center">
-                                <p class="count">04</p>
-                                <h3 class="mb-3">Pelayanan</h3>
-                                <p class="mb-0">Pengguna menerima layanan dari petugas sesuai permohonan</p>
-                            </div>
-                        </div>
-                        <div class="step-item col">
-                            <div class="text-center">
-                                <p class="count">05</p>
-                                <h3 class="mb-3">Mengisi Survey</h3>
-                                <p class="mb-0">Pengguna layanan mengisi survey kepuasan masyarakat layanan selesai
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -901,9 +703,8 @@
                                 <div class="col-md-4" data-aos="fade">
                                     <article class="blog-post">
                                         <div class="post-slider slider-sm rounded">
-                                            <img loading="lazy" decoding="async"
-                                                src="tlandingpage/images/berita3.jpeg" alt="Post Thumbnail"
-                                                width="420" height="280"
+                                            <img loading="lazy" decoding="async" src="{{ $item->gambar }}"
+                                                alt="Post Thumbnail" width="420" height="280"
                                                 style="height: 250px; widows: 100%; object-fit: cover;">
                                         </div>
                                         <div class="pt-4">
@@ -1008,120 +809,20 @@
                 <div class="col-lg-8">
                     <div class="accordion shadow rounded py-5 px-0 px-lg-4 bg-white position-relative"
                         id="accordionFAQ">
-                        <div class="accordion-item p-1 mb-2">
-                            <h2 class="accordion-header accordion-button h5 border-0 active"
-                                id="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9"
-                                aria-expanded="true"
-                                aria-controls="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9">
-                                Apa itu Mal Pelayanan Publik ?
-                            </h2>
-                            <div id="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9"
-                                class="accordion-collapse collapse border-0 show"
-                                aria-labelledby="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9"
-                                data-bs-parent="#accordionFAQ">
-                                <div class="accordion-body py-0 content">Mal Pelayanan Publik (MPP) adalah tempat
-                                    berlangsungnya
-                                    kegiatan penyelenggaraan pelayanan publik atas barang, jasa dan/atau pelayanan
-                                    administrasi yang
-                                    merupakan perluasan fungsi pelayanan terpadu daerah serta pelayanan Badan Usaha
-                                    Milik Negara/ Badan
-                                    Usaha Milik Daerah/ Swasta dalam rangka menyediakan pelayanan yang cepat, mudah,
-                                    terjangkau, aman dan
-                                    nyaman dengan mengintegrasikan sistem pelayanan publik dimana pelayanan satusama
-                                    lain terdapat
-                                    keterkaitan dalam satu lokasi atau gedung tertentu yang dikombinasikandengan
-                                    kegiatan jasa dan ekonomi
-                                    lainnya.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item p-1 mb-2">
-                            <h2 class="accordion-header accordion-button h5 border-0 "
-                                id="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#collapse-a443e01b4db47b3f4a1267e10594576d52730ec1"
-                                aria-expanded="false"
-                                aria-controls="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1">Dasar Hukum
-                                Penyelenggaraan Mal
-                                Pelayanan Publik ?
-                            </h2>
-                            <div id="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1"
-                                class="accordion-collapse collapse border-0 "
-                                aria-labelledby="heading-a443e01b4db47b3f4a1267e10594576d52730ec1"
-                                data-bs-parent="#accordionFAQ">
-                                <div class="accordion-body py-0 content">Peraturan Menteri PANRB Nomor 23 Tahun 2017
-                                    tentang
-                                    Penyelenggaraan Mal Pelayanan Publik.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item p-1 mb-2">
-                            <h2 class="accordion-header accordion-button h5 border-0 "
-                                id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
-                                aria-expanded="false"
-                                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">Maksud
-                                Penyelenggaraan Mal Pelayanan
-                                Publik ?
-                            </h2>
-                            <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
-                                class="accordion-collapse collapse border-0 "
-                                aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd"
-                                data-bs-parent="#accordionFAQ">
-                                <div class="accordion-body py-0 content">Untuk meningkatkan kualitas pelayanan publik
-                                    dan
-                                    mengintegrasikan berbagai layanan meliputi Instansi Pusat, Instansi Daerah, BUMN,
-                                    BUMD, Swasta dan
-                                    layanan pendukung lainnya dalam satu lokasi yang sama sehingga dapat memberikan
-                                    pelayanan publik
-                                    menjadi semakin cepat, terjangkau, mudah, aman dan nyaman.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item p-1 mb-2">
-                            <h2 class="accordion-header accordion-button h5 border-0 "
-                                id="heading-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3"
-                                aria-expanded="false"
-                                aria-controls="collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3">Apa Saja Fasilitas
-                                di Mal Pelayanan
-                                Publik Kota Balikpapan ?
-                            </h2>
-                            <div id="collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3"
-                                class="accordion-collapse collapse border-0 "
-                                aria-labelledby="heading-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3"
-                                data-bs-parent="#accordionFAQ">
-                                <div class="accordion-body py-0 content">Berbagai fasilitas yang tersedia di mal
-                                    pelayanan publik kota
-                                    balikpapan meliputi ruang bermain anak, ruang menyusui, peduli disabilitas,
-                                    perbankan, layanan
-                                    mandiri, perpustakaan, koperasi, ruang kesehatan, virtual mpp, balai nikah, dan
-                                    masih banyak lainnya
+                        @foreach ($faq as $item)
+                            <div class="accordion-item p-1 mb-2">
+                                <h2 class="accordion-header accordion-button h5 border-0"
+                                    id="heading-{{ $item->id }}" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-{{ $item->id }}" aria-expanded="true"
+                                    aria-controls="collapse-{{ $item->id }}">
+                                    {{ $item->judul }}
+                                </h2>
+                                <div id="collapse-{{ $item->id }}" class="accordion-collapse collapse border-0"
+                                    aria-labelledby="heading-{{ $item->id }}" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body py-0 content">{!! $item->isi !!}</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item p-1 mb-2">
-                            <h2 class="accordion-header accordion-button h5 border-0 "
-                                id="heading-8fe6730e26db16f15763887c30a614caa075f518" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#collapse-8fe6730e26db16f15763887c30a614caa075f518"
-                                aria-expanded="false"
-                                aria-controls="collapse-8fe6730e26db16f15763887c30a614caa075f518">Dimana Lokasi Mal
-                                Pelayanan Publik
-                                Kota Balikpapan berada ?
-                            </h2>
-                            <div id="collapse-8fe6730e26db16f15763887c30a614caa075f518"
-                                class="accordion-collapse collapse border-0 "
-                                aria-labelledby="heading-8fe6730e26db16f15763887c30a614caa075f518"
-                                data-bs-parent="#accordionFAQ">
-                                <div class="accordion-body py-0 content">Terletak di Dinas Penanaman Modal dan
-                                    Pelayanan Terpadu Satu
-                                    Pintu (DPMPTSP) Kota Balikpapan yang beralamat di Jl. Ruhui Rahayu 1 No.9 Sepinggan
-                                    Baru, Balikpapan
-                                    Selatan, Kota Balikpapan</div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-4 mt-4 mt-lg-0">

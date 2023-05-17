@@ -18,8 +18,13 @@ return new class extends Migration
             $table->string("visi")->nullable();   
             $table->string("misi")->nullable();   
             $table->string("slogan")->nullable();   
-            $table->string("isi")->nullable();   
-            $table->string("logo")->nullable();     
+            $table->text("isi")->nullable();   
+            $table->string("logo")->nullable();
+            $table->text("alamat")->nullable(); 
+            $table->string("senin_kamis")->nullable();
+            $table->string("jumat")->nullable();
+            $table->string("cs1")->nullable();
+            $table->string("cs2")->nullable();
             $table->timestamps();
         });
     }
