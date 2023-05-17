@@ -70,4 +70,10 @@ class LandingpageController extends Controller
         return view('landingpage.kontak', compact('skm'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
+    // page baru
+    public function regis()
+    {
+        return view('landingpage.regis');
+    }
 }
