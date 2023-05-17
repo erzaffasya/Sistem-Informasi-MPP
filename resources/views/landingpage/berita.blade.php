@@ -54,7 +54,7 @@
             </div>
             <div class="col-lg-3">
                 <!-- categories -->
-                <div class="widget widget-categories">
+                {{-- <div class="widget widget-categories">
                     <h5 class="widget-title"><span>Category</span></h5>
                     <ul class="list-unstyled widget-list">
                         <li><a href="#!">Four seasone <small class="ml-auto">(1)</small></a>
@@ -68,27 +68,7 @@
                         <li><a href="#!">Videography <small class="ml-auto">(1)</small></a>
                         </li>
                     </ul>
-                </div>
-                <!-- tags -->
-                <div class="widget widget-tags">
-                    <h4 class="widget-title"><span>Tags</span></h4>
-                    <ul class="list-inline widget-list widget-list-inline taxonomies-list">
-                        <li class="list-inline-item"><a href="#!">Booth</a>
-                        </li>
-                        <li class="list-inline-item"><a href="#!">City</a>
-                        </li>
-                        <li class="list-inline-item"><a href="#!">Image</a>
-                        </li>
-                        <li class="list-inline-item"><a href="#!">New</a>
-                        </li>
-                        <li class="list-inline-item"><a href="#!">Photo</a>
-                        </li>
-                        <li class="list-inline-item"><a href="#!">Seasone</a>
-                        </li>
-                        <li class="list-inline-item"><a href="#!">Video</a>
-                        </li>
-                    </ul>
-                </div>
+                </div> --}}
                 <!-- latest post -->
                 <div class="widget">
                     <h5 class="widget-title"><span>Latest Article</span></h5>
