@@ -3,13 +3,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-8 mx-auto text-center">
-                    <h2 class="mb-3 text-capitalize">Personal loans</h2>
+                    <h2 class="mb-3 text-capitalize">{{ $instansi->nama_instansi }}</h2>
                     <ul class="list-inline breadcrumbs text-capitalize" style="font-weight:500">
                         <li class="list-inline-item"><a href="index.html">Home</a>
                         </li>
                         <li class="list-inline-item">/ &nbsp; <a href="services.html">Services</a>
                         </li>
-                        <li class="list-inline-item">/ &nbsp; <a href="service-details.html">Personal Loans</a>
+                        <li class="list-inline-item">/ &nbsp; <a
+                                href="service-details.html">{{ $instansi->nama_instansi }}</a>
                         </li>
                     </ul>
                 </div>
@@ -69,63 +70,26 @@
             <div class="row g-5">
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <div class="bg-white shadow rounded-lg p-4 sticky-top" style="top: 30px;">
-                        <h4 class="has-line-end">Personal loans</h4>
                         <nav id="TableOfContents">
-                            <ul>
-                                <li><a href="#how-a-payday-loan-online-works">How a Payday Loan Online Works</a>
-                                    <ul>
-                                        <li><a href="#payday-loan-application-processing">Payday Loan Application
-                                                Processing</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="#what-you-know-about-loans">What You Know About Loans</a>
-                                </li>
-                                <li><a href="#what-services-we-render">What Services We Render</a>
-                                </li>
-                            </ul>
+                            <div class=" text-center">
+                                <img src="https://layanan-mpp.balikpapan.go.id/upload/logo/d18ff437ebe6dae7913751fc30bcd036_Untitled design (1).png"
+                                    class="d-inline-block mb-2" width="150px">
+                                <p class="mb-3 text-secondary">{{$instansi->lantai}}</p>
+                            </div>
                         </nav>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="content">
-                        <h2 id="how-a-payday-loan-online-works">How a Payday Loan Online Works</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas at eu purus eleme nergtum.
-                            Nisl turpis consectetur amet, nam arcu at dolor. Nunc, etiam pellentesque facilisis
-                            elementum nisl. Id scelerisque gravida augue senectus dolor nascetur. Aliquet quam ut eget
-                            aliquam ultricr geries volutpat. Enim condimentum quisque at mauris malesuada. Phasellus sed
-                            elemee rgerntdsum in bibendum morbi id phasellus arcu. Tempus, venenatis sagittis volutpat
-                            egestas. Sceler egerisque</p>
-                        <p>pellentesque ut varius gravida aliquet et. Bibendum viverra dictum leo iaculis convallis
-                            lacus, parturient amet ut. Mi et hendrerit sit massa faucibus sed rhoncus. Faucibus dolor in
-                            quis sapien, faucibus sem et. Sagittis nam eu, lorem nam morbi euismod amet et. Non lectus
-                            nibh quis et leo Elementum non pharetra leo ipsum morbi euismod mus. Amet adipiscing est
-                            mauris non dictum. At elementum, fermentum quam odio eros sem. Morbi mattis eu dictum
-                            malesuada. Tellus in.</p>
-                        <h3 id="payday-loan-application-processing">Payday Loan Application Processing</h3>
-                        <ul>
-                            <li>Interest may vary, be fixed, or mixed, will on the lender&rsquo;s and characteristics
-                            </li>
-                            <li>Depending on the granting institution and the amount of the loan, goods</li>
-                            <li>The loan can be granted to anyone, as long as they make the loan application</li>
-                        </ul>
-                        <hr>
-                        <h2 id="what-you-know-about-loans">What You Know About Loans</h2>
-                        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                            <iframe src="https://www.youtube.com/embed/jgAsPXRhTLQ"
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
-                                allowfullscreen title="YouTube Video"></iframe>
-                        </div>
-                        <hr>
-                        <h2 id="what-services-we-render">What Services We Render</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices accumsan ultricies morbi
-                            purus dui pharetra, diam congue. Facilisi sapien eros, a sagittis, at quam dolor elit.
-                            Malesuada elementum leo, ac volud rhtpat integer. Amet, dolor risus lectus platea lectus
-                            faucibus mi, dictum. Ultricies</p>
-                        <p>cursus. Diam risus mauris id pretium vel. Ac amet netus imperdiet scel eerghp iejroin ris
-                            tque elit id sapien.habitant commodo enm at duiaAt consequat facilisi aenean consectetur
-                            dolor cursus at a. Risus auctor amet, iaculis sed mi arcu ante. Sit etiam semper non, nunc
-                            gravida volutpat</p>
+                        {!! $instansi->deskripsi !!}
+
+                        @foreach ($layanan as $item)
+                            <hr>
+                            <h2 id="what-services-we-render">{{ $item->NamaLayanan->nama_layanan }}</h2>
+                            {!! $item->deskripsi !!}
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>

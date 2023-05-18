@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
 
         // $linkTerkait = LinkTerkait::orderBy('urut','ASC')->get();
         // View::share('Menu', Menu::tree()->get()->toTree());
-        // Paginator::useBootstrapFive();
+        Paginator::useBootstrapFive();
         // View::share('getProfileWebsite', ProfileWebsite::find(1));
         View::share('getLinkTerkait', LinkTerkait::orderBy('urut','ASC')->get());
         // View::share('Pengumuman', Pengumuman::latest()->paginate(4));

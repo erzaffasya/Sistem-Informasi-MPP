@@ -37,7 +37,7 @@ class LandingpageController extends Controller
             ];
         }
         // $this->getInstansiKuota(1);
-        // $this->syncInstansi();
+        $this->syncInstansi();
 
         // dd($this->generatePassword());
         return view('landingpage.index', compact('skm', 'berita', 'testimoni', 'fasilitas', 'mekanisme', 'instansi', 'faq', 'dataLayanan'))
@@ -79,7 +79,7 @@ class LandingpageController extends Controller
     {
         $instansi = Instansi::where('slug',$slug)->first();
 
-        $layanan = Layanan::find($instansi->id);
+        $layanan = Layanan::where('instansi_id',$instansi->id)->get();
         // dd($RandomPost);
         return view('landingpage.layanandetail', compact('instansi', 'layanan'))
             ->with('i', (request()->input('page', 1) - 1) * 5);

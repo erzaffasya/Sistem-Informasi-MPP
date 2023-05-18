@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("loket")->nullable();
             $table->text("deskripsi")->nullable();
             $table->string("gambar")->nullable();
+            $table->string("slug")->nullable();
             $table->string("id_instansi_mpp")->nullable();
             $table->timestamps();
         });

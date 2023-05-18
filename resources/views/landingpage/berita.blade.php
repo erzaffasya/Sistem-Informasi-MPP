@@ -30,7 +30,8 @@
                                 <nav class="mt-4">
                                     <!-- pagination -->
                                     <nav class="mb-md-50">
-                                        <ul class="pagination justify-content-center">
+                                        {!! $berita->links() !!}
+                                        {{-- <ul class="pagination justify-content-center">
                                             <li class="page-item active "> <a href="blog.html" class="page-link">
                                                     1
                                                 </a>
@@ -44,7 +45,7 @@
                                                         class="fas fa-angle-right"></i>
                                                 </a>
                                             </li>
-                                        </ul>
+                                        </ul> --}}
                                     </nav>
                                 </nav>
                             </div>
