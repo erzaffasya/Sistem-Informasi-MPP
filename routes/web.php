@@ -32,8 +32,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingpageController::class, 'index'])->name('home');
 Route::get('/berita', [LandingpageController::class, 'berita'])->name('berita');
+Route::get('/berita/{slug}', [LandingpageController::class, 'beritaDetail'])->name('berita-detail');
 Route::get('/tentang', [LandingpageController::class, 'tentang'])->name('tentang');
 Route::get('/layanan', [LandingpageController::class, 'layanan'])->name('layanan');
+Route::get('/layanan/{slug}', [LandingpageController::class, 'layananDetail'])->name('layanan-detail');
 Route::get('/kontak', [LandingpageController::class, 'kontak'])->name('kontak');
 Route::post('/get-kuota', [Controller::class, 'getInstansiKuota'])->name('get-kuota');
 

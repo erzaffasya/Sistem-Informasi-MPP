@@ -7,6 +7,7 @@ use App\Models\Faq;
 use App\Models\Fasilitas;
 use App\Models\Instansi;
 use App\Models\Layanan;
+use App\Models\LinkTerkait;
 use App\Models\Mekanisme;
 use App\Models\Testimoni;
 use Database\Seeders\TestimoniSeeder;
@@ -24,25 +25,20 @@ class LandingpageController extends Controller
         $mekanisme = Mekanisme::orderBy('urut', 'ASC')->get();
         $instansi = Instansi::all();
         $faq = Faq::all();
+        $linkTerkait = LinkTerkait::orderBy('urut','ASC')->get();
 
-        // dd($instansi);
-        // $dataTest = [];
         foreach ($instansi as $item) {
             $dataLayanan[] = [
                 'id' => $item->id,
                 'nama_instansi' => $item->nama_instansi,
                 'data' => Layanan::with(['NamaLayanan' => function ($query) {
-                    $query->select('id','nama_layanan');
+                    $query->select('id', 'nama_layanan');
                 }])->where('instansi_id', $item->id)->get()->toArray()
             ];
         }
-        // dd($dataLayanan);
-        // foreach ($dataLayanan as $item) {
-        //     dd($item);
-        // }
-
         // $this->getInstansiKuota(1);
         // $this->syncInstansi();
+
         // dd($this->generatePassword());
         return view('landingpage.index', compact('skm', 'berita', 'testimoni', 'fasilitas', 'mekanisme', 'instansi', 'faq', 'dataLayanan'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -52,7 +48,19 @@ class LandingpageController extends Controller
     {
         $berita = Berita::latest()->paginate(6);
 
-        return view('landingpage.berita', compact('berita'))
+        $RandomPost = Berita::all()->random(3);
+        // dd($RandomPost);
+        return view('landingpage.berita', compact('berita', 'RandomPost'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function beritaDetail($slug)
+    {
+        $berita = Berita::where('slug',$slug)->first();
+
+        $RandomPost = Berita::all()->random(3);
+        // dd($RandomPost);
+        return view('landingpage.beritadetail', compact('berita', 'RandomPost'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -61,9 +69,19 @@ class LandingpageController extends Controller
     public function layanan()
     {
 
-        $skm = $this->getNilaiSKM();
+        $layanan = Instansi::get();
+        // dd($layanan);
+        return view('landingpage.layanan', compact('layanan'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 
-        return view('landingpage.layanan', compact('skm'))
+    public function layananDetail($slug)
+    {
+        $instansi = Instansi::where('slug',$slug)->first();
+
+        $layanan = Layanan::find($instansi->id);
+        // dd($RandomPost);
+        return view('landingpage.layanandetail', compact('instansi', 'layanan'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

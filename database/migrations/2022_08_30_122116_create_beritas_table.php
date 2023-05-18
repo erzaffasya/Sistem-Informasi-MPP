@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("judul")->nullable();
             $table->text("isi")->nullable();
             $table->string("gambar")->nullable();
+            $table->string("slug")->nullable();
             $table->foreignId("users_id")->nullable()->constrained("users")->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });

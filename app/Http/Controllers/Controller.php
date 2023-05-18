@@ -59,6 +59,7 @@ class Controller extends BaseController
     public function syncInstansi()
     {
         $dataInstansi = $this->postApiMpp('https://antrian-mpp.balikpapan.go.id/dmiapi/antrian/getinstansi', []);
+        // dd($dataInstansi->data);
         foreach ($dataInstansi->data as $item) {
             $dataInstansi = Instansi::where('id_instansi_mpp', $item->id)->exists();
             if (!$dataInstansi) {
@@ -66,10 +67,13 @@ class Controller extends BaseController
                     'id' => $item->id,
                     'nama_instansi' => $item->nama,
                     'gambar' => $item->logo,
-                    'id_instansi_mpp' => $item->id
+                    'deskripsi' => $item->deskripsi,
+                    'id_instansi_mpp' => $item->id,
+                    'slug' => strtolower(str_replace(' ', '-', $item->nama))
                 ]);
             }
         }
+      
     }
 
     public function loginMpp()

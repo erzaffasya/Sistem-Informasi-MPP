@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,6 +60,7 @@ class BeritaController extends Controller
             'isi' => $request->isi,
             'gambar' => $txt,
             'users_id' => Auth::user()->id,
+            'slug' => strtolower(str_replace(' ', '-', $request->judul))
         ]);
 
 
@@ -116,6 +118,7 @@ class BeritaController extends Controller
         $Berita->isi = $request->isi;
         $Berita->gambar = $txt;
         $Berita->users_id = Auth::user()->id;
+        $Berita->slug = strtolower(str_replace(' ', '-', $request->judul));
         $Berita->save();
 
         return redirect()->route('Berita.index')

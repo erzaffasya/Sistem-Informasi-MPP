@@ -24,19 +24,19 @@
                                     @foreach ($item['data'] as $data)
                                         <div class="accordion-item p-1 mb-2">
                                             <h2 class="accordion-header accordion-button h5 border-0"
-                                                id="heading-{{$item['id']}}-{{$data['id']}}" type="button"
+                                                id="heading-{{ $item['id'] }}-{{ $data['id'] }}" type="button"
                                                 data-bs-toggle="collapse"
-                                                data-bs-target="#collapse-{{$item['id']}}-{{$data['id']}}"
+                                                data-bs-target="#collapse-{{ $item['id'] }}-{{ $data['id'] }}"
                                                 aria-expanded="true"
-                                                aria-controls="collapse-{{$item['id']}}-{{$data['id']}}">
-                                                {{$data['nama_layanan']['nama_layanan']}}
+                                                aria-controls="collapse-{{ $item['id'] }}-{{ $data['id'] }}">
+                                                {{ $data['nama_layanan']['nama_layanan'] }}
                                             </h2>
-                                            <div id="collapse-{{$item['id']}}-{{$data['id']}}"
+                                            <div id="collapse-{{ $item['id'] }}-{{ $data['id'] }}"
                                                 class="accordion-collapse collapse border-0 "
-                                                aria-labelledby="heading-{{$item['id']}}-{{$data['id']}}"
+                                                aria-labelledby="heading-{{ $item['id'] }}-{{ $data['id'] }}"
                                                 data-bs-parent="#accordionFAQ">
                                                 <div class="accordion-body py-0 content">
-                                                    {!!$data['deskripsi']!!}
+                                                    {!! $data['deskripsi'] !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -252,6 +252,58 @@
 
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                 aria-labelledby="nav-profile-tab">
+                                <div class="row py-3">
+                                    <div class="col-8">
+                                        <table class="table table-borderless text-dark">
+                                            <tbody>
+                                                <tr class="mb-1">
+                                                    <td>Tanggal</td>
+                                                    <td>:</td>
+                                                    <td>30 Mei 2023</td>
+                                                </tr>
+                                                <tr class="mb-1">
+                                                    <td>Instansi</td>
+                                                    <td>:</td>
+                                                    <td>DPMPTSP Balikpapan</td>
+                                                </tr>
+                                                <tr class="mb-1">
+                                                    <td>Loket</td>
+                                                    <td>:</td>
+                                                    <td>Loket 3 lantai 2</td>
+                                                </tr>
+                                                <tr class="mb-1">
+                                                    <td>Sisa Antrian</td>
+                                                    <td>:</td>
+                                                    <td>3</td>
+                                                </tr>
+                                                <tr class="mb-1">
+                                                    <td>Nama Lengkap</td>
+                                                    <td>:</td>
+                                                    <td>Muhammad Ilham</td>
+                                                </tr>
+                                                <tr class="mb-1">
+                                                    <td>NIK</td>
+                                                    <td>:</td>
+                                                    <td>6472053001000005</td>
+                                                </tr>
+                                                <tr class="mb-1">
+                                                    <td>Nomor HP</td>
+                                                    <td>:</td>
+                                                    <td>085753372841</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-4 bg-danger rounded">
+                                        <div
+                                            class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
+                                            <p class="h4 text-white fw-semibold text-uppercase mb-0">No. Antrian Anda
+                                            </p>
+                                            <p class="display-2 fw-bold text-white mb-0">C0023</p>
+                                            <a href="#" class="btn btn-light w-100 mt-2">Cetak Antrian</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="notices info text-center">
                                     <p class="mb-0 fs-4 fw-bold text-warning text-uppercase">Maaf, Anda Belum Login</p>
 
@@ -678,9 +730,10 @@
                                         <div class="pt-4">
                                             <p class="mb-3">{{ $item->created_at->format('d M, Y') }}</p>
                                             <h2 class="h4"><a class="text-black"
-                                                    href="blog-details.html">{!! $item->judul !!}</a></h2>
+                                                    href="{{ url('berita/' . $item->slug) }}">{!! $item->judul !!}</a>
+                                            </h2>
                                             {!! substr_replace($item->isi, '...', 150) !!}
-                                            <a href="blog-details.html" class="text-primary fw-bold"
+                                            <a href="{{ url('berita/' . $item->slug) }}" class="text-primary fw-bold"
                                                 aria-label="Read the full article by clicking here">Read More</a>
                                         </div>
                                     </article>

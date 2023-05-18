@@ -62,6 +62,7 @@ class InstansiController extends Controller
             'loket' => $request->loket,
             'lantai' => $request->lantai,
             'gambar' => $txt,
+            'slug' => strtolower(str_replace(' ', '-', $request->nama_instansi))
         ]);
 
 
@@ -121,6 +122,8 @@ class InstansiController extends Controller
         $Instansi->deskripsi = $request->deskripsi;
         $Instansi->loket = $request->loket;
         $Instansi->lantai = $request->lantai;
+        
+        $Instansi->slug = strtolower(str_replace(' ', '-', $request->nama_instansi));
         $Instansi->gambar = $txt;
         $Instansi->save();
 

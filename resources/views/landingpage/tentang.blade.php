@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 mt-5 mt-lg-0">
-                    <img loading="lazy" decoding="async" src="images/aboutus.jpg"
+                    <img loading="lazy" decoding="async" src="tlandingpage/images/aboutus.jpg"
                         alt="Business Loans &lt;br&gt; For Daily Expenses" class="rounded w-100"
                         style="height: 350px; object-fit:cover;">
                 </div>
@@ -91,7 +91,7 @@
         <div class="container">
             <div class="row justify-content-around align-items-center">
                 <div class="col-lg-7">
-                    <img class="img-fluid w-100" src="images/maklumat.jpg" alt="Wallet" style="border-radius: 8px;">
+                    <img class="img-fluid w-100" src="tlandingpage/images/maklumat.jpg" alt="Wallet" style="border-radius: 8px;">
                 </div>
                 <div class="col-lg-5">
                     <div class="section-title">
@@ -300,7 +300,7 @@
                         <p class="text-primary text-uppercase fw-bold mb-3">Penjelasan</p>
                         <h2 class="h1">Filosofi Logo MPP Balikpapan</h2>
                         <div class="content">
-                            <img class="img-fluid mb-3 mt-4" width="250" src="images/logo.png" alt="Wallet">
+                            <img class="img-fluid mb-3 mt-4" width="250" src="tlandingpage/images/logo.png" alt="Wallet">
                             <p class="text-capitalize">Logo dari Mal Pelayanan Publik Kota Balikpapan. Sebagai one stop
                                 service area, mpp balikpapan dikemas dengan logo yang simpel dan mudah dipahami.
                                 beberapa filosofi yang terdapat pada logo mpp balikpapan meliputi huruf, warna, dan lain
