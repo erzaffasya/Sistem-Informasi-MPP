@@ -109,4 +109,19 @@ class Controller extends BaseController
             throw $th;
         }
     }
+
+    public function regisMpp(Request $request)
+    {
+        try {
+            $data =  $this->postApiMpp('https://antrian-mpp.balikpapan.go.id/dmiapi/Antrian/Register', [
+                'nik' => $request->nik,
+                'email' => $request->email,
+                'nama' => $request->nama,
+                'password' => $request->password
+            ]);
+            return back()->with('success','Akun Berhasil Dibuat');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }

@@ -50,7 +50,7 @@
                 <a href="{{route('logout-mpp')}}" class="btn btn-danger">Logout</a>
             @else
                 <a data-bs-toggle="modal" data-bs-target="#modallogin" class="btn btn-outline-primary">Masuk</a>
-                <a href="#!" class="btn btn-primary ms-2 ms-lg-3">Daftar</a>
+                <a href="{{route('regis')}}" class="btn btn-primary ms-2 ms-lg-3">Daftar</a>
             @endif
         </div>
     </div>

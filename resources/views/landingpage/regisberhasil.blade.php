@@ -41,76 +41,17 @@
                     <div class="shadow rounded p-5 bg-white">
                         <div class="section-title text-center mb-2">
                             <p class="text-primary text-uppercase fw-bold mb-3">Daftar Akun Website MPP Kota Balikpapan</p>
-                            <h1>Formulir Pendaftaran</h1>
+                            <h1>Pendaftaran Berhasil</h1>
                         </div>
                         <div class="row">
                             <div class="col-12 mb-2">
                                 <!-- <h4>Formulir Pendaftaran</h4> -->
                                 <div class="alert alert-primary" role="alert">
-                                    Mohon lengkapi formulir pendafataran berikut ini dengan data yang valid/benar dan dapat dipertanggung jawabkan. Jika anda mengalami kesulitan karena nomor NIK tidak terdaftar silahkan datang ke MPP, petugas kami akan membantu anda untuk mendaftarkan akun.
+                                   Akun berhasil dibuat, Silahkan cek email untuk konfirmasi
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="contact-form">
-                                    <form action="{{route('post-regis')}}" method="post">
-                                        @csrf
-                                        <div class="form-group mb-4 pb-2">
-                                            <label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
-                                            <input type="text" name="nama" class="form-control shadow-none" id="namalengkap">
-                                        </div>
-                                        <div class="form-group mb-4 pb-2">
-                                            <label for="exampleFormControlInput1" class="form-label">NIK</label>
-                                            <input type="text" name="nik" class="form-control shadow-none" id="nik">
-                                        </div>
-                                        <div class="form-group mb-4 pb-2">
-                                            <label for="exampleFormControlInput1" class="form-label">Alamat Email</label>
-                                            <input type="email" name="email" class="form-control shadow-none" id="email">
-                                        </div>
-                                        <div class="form-group mb-4 pb-2">
-                                            <label for="exampleFormControlInput1" class="form-label">Kata Sandi</label>
-                                            <input name="password" type="password" class="form-control shadow-none" id="katasandi">
-                                        </div>
-                                        <div class="form-group mb-4 pb-2">
-                                            <label for="exampleFormControlInput1" class="form-label">Ulangi Kata Sandi</label>
-                                            <input type="password" class="form-control shadow-none" id="katasandi">
-                                        </div>
-                                        <button class="btn btn-primary w-100" type="submit">DAFTAR AKUN</button>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- <div class="col-lg-6 mt-5 mt-lg-0">
-                                <div class="contact-info">
-                                    <div class="block mt-0">
-                                        <h4 class="h5">Still Have Questions?</h4>
-                                        <div class="content">Call Us We Will Be Happy To Help
-                                            <br> <a href="tel:+3301563965">+3301563965</a> 
-                                            <br>Monday - Friday
-                                            <br>9AM TO 8PM Eastern Time</div>
-                                    </div>
-                                    <div class="block mt-4">
-                                        <h4 class="h5">Canada Office</h4>
-                                        <div class="content">231 Ross Street.
-                                            <br>K7A 1C2.
-                                            <br>Smiths Falls</div>
-                                    </div>
-                                    <div class="block mt-4">
-                                        <h4 class="h5">UK Office</h4>
-                                        <div class="content">57 Folkestone Road.
-                                            <br>AB54 5XQ,
-                                            <br>Winston</div>
-                                    </div>
-                                    <div class="block">
-                                        <ul class="list-unstyled list-inline my-4 social-icons">
-                                            <li class="list-inline-item me-3"><a title="Explorer Facebook Profile" class="text-black" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                            </li>
-                                            <li class="list-inline-item me-3"><a title="Explorer Twitter Profile" class="text-black" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                            </li>
-                                            <li class="list-inline-item me-3"><a title="Explorer Instagram Profile" class="text-black" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> -->
+
+                            <a href="{{route('home')}}" class="btn btn-primary w-100" type="submit">BERANDA</a>
                         </div>
                     </div>
                 </div>

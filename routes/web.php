@@ -47,7 +47,8 @@ Route::get('/logout-mpp', function () {
 
 
 // page baru
-Route::get('/regis', [LandingpageController::class, 'regis'])->name('regis');
+Route::get('/registrasi', [LandingpageController::class, 'regis'])->name('regis');
+Route::post('/regis', [LandingpageController::class, 'tambahRegis'])->name('post-regis');
 
 
 

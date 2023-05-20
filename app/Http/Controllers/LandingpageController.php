@@ -26,7 +26,7 @@ class LandingpageController extends Controller
         $mekanisme = Mekanisme::orderBy('urut', 'ASC')->get();
         $instansi = Instansi::all();
         $faq = Faq::all();
-        $linkTerkait = LinkTerkait::orderBy('urut','ASC')->get();
+        $linkTerkait = LinkTerkait::orderBy('urut', 'ASC')->get();
 
         foreach ($instansi as $item) {
             $dataLayanan[] = [
@@ -57,7 +57,7 @@ class LandingpageController extends Controller
 
     public function beritaDetail($slug)
     {
-        $berita = Berita::where('slug',$slug)->first();
+        $berita = Berita::where('slug', $slug)->first();
 
         $RandomPost = Berita::all()->random(3);
         // dd($RandomPost);
@@ -78,9 +78,9 @@ class LandingpageController extends Controller
 
     public function layananDetail($slug)
     {
-        $instansi = Instansi::where('slug',$slug)->first();
+        $instansi = Instansi::where('slug', $slug)->first();
 
-        $layanan = Layanan::where('instansi_id',$instansi->id)->get();
+        $layanan = Layanan::where('instansi_id', $instansi->id)->get();
         // dd($RandomPost);
         return view('landingpage.layanandetail', compact('instansi', 'layanan'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -112,5 +112,13 @@ class LandingpageController extends Controller
     public function regis()
     {
         return view('landingpage.regis');
+    }
+
+
+    public function tambahRegis(Request $request)
+    {
+        // dd($request->all());
+        $this->regisMpp($request);
+        return view('landingpage.regisberhasil');
     }
 }
