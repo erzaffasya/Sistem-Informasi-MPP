@@ -11,13 +11,14 @@ use App\Models\LinkTerkait;
 use App\Models\Mekanisme;
 use App\Models\Testimoni;
 use Database\Seeders\TestimoniSeeder;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 class LandingpageController extends Controller
 {
     public function index()
     {
-
+        // dd(session('loginMpp'));
         $skm = $this->getNilaiSKM();
         $berita = Berita::latest()->limit(3)->get();
         $testimoni = Testimoni::latest()->limit(15)->get();
@@ -37,7 +38,7 @@ class LandingpageController extends Controller
             ];
         }
         // $this->getInstansiKuota(1);
-        $this->syncInstansi();
+        // $this->syncInstansi();
 
         // dd($this->generatePassword());
         return view('landingpage.index', compact('skm', 'berita', 'testimoni', 'fasilitas', 'mekanisme', 'instansi', 'faq', 'dataLayanan'))

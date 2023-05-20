@@ -71,15 +71,17 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <form>
+                            <form action="{{ route('login-mpp') }}" method="post">
+                                @csrf
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
-                                    <input type="email" class="form-control input-md" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
+                                    <label for="exampleInputEmail1" class="form-label">NIK</label>
+                                    <input name="username" type="text" class="form-control input-md"
+                                        id="exampleInputEmail1" aria-describedby="emailHelp">
                                 </div>
                                 <div class="mb-4">
                                     <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
-                                    <input type="password" class="form-control input-md" id="exampleInputPassword1">
+                                    <input type="password" name="password" class="form-control input-md"
+                                        id="exampleInputPassword1">
                                     <div id="emailHelp" class="form-text">Lupa password akun ? <a href="#">Klik
                                             disini</a></div>
                                 </div>
@@ -246,12 +248,97 @@
                                             });
                                         });
 
+                                        // Batas 
+                                        var formAntrian = '#ambilAntrian';
+
+                                        $(formAntrian).on('submit', function(event) {
+                                            event.preventDefault();
+
+                                            var url = $(this).attr('data-action');
+                                            console.log(url, 'url ni')
+                                            $.ajax({
+                                                url: url,
+                                                method: 'POST',
+                                                data: new FormData(this),
+                                                dataType: 'JSON',
+                                                contentType: false,
+                                                cache: false,
+                                                processData: false,
+                                                success: function(response) {
+                                                    // $(form).trigger("reset");
+                                                    // alert('Antrian menunggu ' + response.antrianmenunggu)
+                                                    if (response.status == 'failed') {
+                                                        swal.fire(
+                                                            // response.nama,
+                                                            'Ambil Antrian',
+                                                            response.pesan,
+                                                            "error",
+                                                        )
+                                                    } else {
+                                                        swal.fire(
+                                                            // response.nama,
+                                                            'Cek Antrian',
+                                                            '<h3 class="mb-0">' + response.nama + '</h3> <br>' +
+                                                            '<h4 class="mb-0 mt-0 fw-normal"> Antrian Menunggu <b>' +
+                                                            response.antrianmenunggu + '</b></h4> ' +
+                                                            '<h4 class="mb-0 mt-0 fw-normal"> Antrian Saat Ini <b>' +
+                                                            response.antriansaatini + '</b></h4> ',
+                                                            "success",
+                                                        )
+                                                    }
+                                                },
+                                                error: function(response) {
+                                                    swal.fire(
+                                                        // response.nama,
+                                                        'Ambil Antrian',
+                                                        '<h3 class="mb-0">' + response.pesan + '</h3> <br>',
+                                                        "error",
+                                                    );
+                                                }
+                                            });
+                                        });
+
                                     });
                                 </script>
                             @endpush
 
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                 aria-labelledby="nav-profile-tab">
+                                @if (session()->has('loginMpp'))
+                                    <form method="post" data-action="{{ route('ambil-antrian') }}"
+                                        id="ambilAntrian">
+                                        @csrf
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                <label for="inputState" class="form-label fs-5">Pilih Instansi</label>
+                                                <select name="instansi_id" id="inputState"
+                                                    class="form-select form-select-lg text-secondary">
+                                                    @foreach ($instansi as $item)
+                                                        <option value="{{ $item->id_instansi_mpp }}">
+                                                            {{ $item->nama_instansi }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 d-flex align-items-end">
+                                                <button type="submit" class="btn btn-primary w-100">Ambil
+                                                    Antrian</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                @else
+                                    <div class="notices info text-center">
+                                        <p class="mb-0 fs-4 fw-bold text-warning text-uppercase">Maaf, Anda Belum Login
+                                        </p>
+
+                                        <p class="fs-6">Untuk mengakses ambil antrian online anda harus
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#modallogin"
+                                                class="text-black">
+                                                Masuk Akun
+                                            </a>terlebih
+                                            dahulu
+                                        </p>
+                                    </div>
+                                @endif
                                 <div class="row py-3">
                                     <div class="col-8">
                                         <table class="table table-borderless text-dark">
@@ -303,17 +390,6 @@
                                             <a href="#" class="btn btn-light w-100 mt-2">Cetak Antrian</a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="notices info text-center">
-                                    <p class="mb-0 fs-4 fw-bold text-warning text-uppercase">Maaf, Anda Belum Login</p>
-
-                                    <p class="fs-6">Untuk mengakses ambil antrian online anda harus
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modallogin"
-                                            class="text-black">
-                                            Masuk Akun
-                                        </a>terlebih
-                                        dahulu
-                                    </p>
                                 </div>
                             </div>
                         </div>

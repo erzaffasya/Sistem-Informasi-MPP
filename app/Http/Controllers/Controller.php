@@ -73,11 +73,40 @@ class Controller extends BaseController
                 ]);
             }
         }
-      
     }
 
-    public function loginMpp()
+    public function ambilAntrian(Request $request)
     {
-        $dataInstansi = $this->postApiMpp('https://antrian-mpp.balikpapan.go.id/dmiapi/antrian/getinstansi', []);
+        try {
+            $data =  $this->postApiMpp('https://antrian-mpp.balikpapan.go.id/dmiapi/Antrian/AmbilAntrian', [
+                'nik' => $request->nik,
+                'layanan_id' => $request->instansi_id,
+                'jnsantrian' => 'hari ini'
+            ]);
+            // $response = json_decode($data->body());
+            return $data;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function loginMpp(Request $request)
+    {
+        try {
+            $data =  Http::withBasicAuth('dmiapiservice', $this->generatePassword())->asForm()->post('https://antrian-mpp.balikpapan.go.id/dmiapi/site/login', [
+                'LoginForm[username]' => $request->username,
+                'LoginForm[password]' => $request->password,
+                'api' => 'login'
+            ]);
+            $response = json_decode($data->body());
+
+            // dd(json_decode($data->body()));
+            if ($response->authenticated) {
+                $request->session()->put('loginMpp', $request->username);
+            }
+            return back()->with('success','Anda telah berhasil login');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

@@ -38,6 +38,13 @@ Route::get('/layanan', [LandingpageController::class, 'layanan'])->name('layanan
 Route::get('/layanan/{slug}', [LandingpageController::class, 'layananDetail'])->name('layanan-detail');
 Route::get('/kontak', [LandingpageController::class, 'kontak'])->name('kontak');
 Route::post('/get-kuota', [Controller::class, 'getInstansiKuota'])->name('get-kuota');
+Route::post('/ambil-antrian', [Controller::class, 'ambilAntrian'])->name('ambil-antrian');
+Route::post('/login-mpp', [Controller::class, 'loginMpp'])->name('login-mpp');
+Route::get('/logout-mpp', function () {
+    session()->forget('loginMpp');
+    return back();
+})->name('logout-mpp');
+
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
