@@ -251,9 +251,9 @@
         </ul>
     </li>
 
-    <li class="menu-header small text-uppercase">
+    {{-- <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Setting Galeri</span>
-    </li>
+    </li> --}}
     {{-- KategoriGaleri --}}
     {{-- <li class="menu-item {{ request()->routeIs('KategoriGaleri.*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
