@@ -18,7 +18,7 @@
                             <td> {{ $loop->iteration }} </td>
                             <td> {{ $item->judul }} </td>
                             <td> 
-                            <img src="{{ $item->gambar }}" height="70">    
+                            <img src="{{ asset($item->gambar) }}" height="70">    
                             </td>
                             <td> {!! \Illuminate\Support\Str::limit($item->isi, $limit = 150, $end = '...') !!} </td>
 
