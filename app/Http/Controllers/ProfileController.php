@@ -8,26 +8,44 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
-/**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $Profile = Profile::all();
-        return view('admin.Profil.index', compact('Profile'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $Profile = Profile::find(1);
+        return view('admin.Profile.index', compact('Profile'));
+    }
+    public function show()
+    {
+        $Profile = Profile::find(1);
+        return view('admin.Profile.kontak', compact('Profile'));
+    }
+    public function kepalaDinas()
+    {
+        $Profile = Profile::find(1);
+        return view('admin.Profile.kepalaDinas', compact('Profile'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function profilWebsite()
     {
-        return view('admin.Profil.tambah');
+        $Profile = Profile::find(1);
+        return view('admin.Profile.profilWebsite', compact('Profile'));
+    }
+
+    public function kontak()
+    {
+        $Profile = Profile::find(1);
+        return view('admin.Profile.kontak', compact('Profile'));
+    }
+
+    public function sosialMedia()
+    {
+        $Profile = Profile::find(1);
+        return view('admin.Profile.sosialMedia', compact('Profile'));
+    }
+
+    public function jadwalPelayanan()
+    {
+        $Profile = Profile::find(1);
+        return view('admin.Profile.jadwalPelayanan', compact('Profile'));
     }
 
     /**
@@ -37,114 +55,75 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        // dd($request->all());
-        $request->validate([
-            'judul' => 'required',
-            'isi' => 'required',
-            'gambar' => 'required',
-        ]);
+    { {
+            $Profile = Profile::find(1);
+            if ($request->logo) {
+                $extention = $request->logo->extension();
+                $file_name = time() . '.' . $extention;
+                $txt = "storage/Profile/logo/" . $file_name;
+                $request->logo->storeAs('public/Profile/logo', $file_name);
 
-        if (isset($request->gambar)) {
-            $extention = $request->gambar->extension();
-            $file_name = time() . '.' . $extention;
-            $txt = "storage/Profile/Gambar/" . $file_name;
-            $request->gambar->storeAs('public/Profile/Gambar', $file_name);
-        } else {
-            $txt = null;
+                $Profile->logo = $txt;
+            }
+
+            if ($request->foto_kadis) {
+                $extention = $request->foto_kadis->extension();
+                $file_name1 = time() . '.' . $extention;
+                $txt1 = "storage/Profile/foto_kadis/" . $file_name1;
+                $request->foto_kadis->storeAs('public/Profile/foto_kadis', $file_name1);
+
+                $Profile->foto_kadis = $txt1;
+            }
+
+            if ($request->nama_kadis != null) {
+                $Profile->nama_kadis = $request->nama_kadis;
+            }
+
+            if ($request->visi != null || $request->misi != null) {
+                $Profile->visi = $request->visi;
+                $Profile->slogan = $request->slogan;
+                $Profile->misi = $request->misi;
+                $Profile->deskripsi = $request->deskripsi;
+                $Profile->video = $request->video;
+            }
+
+            if ($request->alamat != null || $request->email != null) {
+                $Profile->alamat = $request->alamat;
+                $Profile->email = $request->email;
+                $Profile->no_telp = $request->no_telp;
+                $Profile->google_maps = $request->google_maps;
+                $Profile->cs1 = $request->cs1;
+                $Profile->cs2 = $request->cs2;
+            }
+
+            if ($request->facebook != null || $request->youtube != null) {
+                $Profile->instagram = $request->instagram;
+                $Profile->youtube = $request->youtube;
+                $Profile->facebook = $request->facebook;
+            }
+
+            if ($request->slogan_pelayanan != null || $request->deskripsi_pelayanan != null) {
+                $Profile->senin_kamis = $request->senin_kamis;
+                $Profile->jumat = $request->jumat;
+                $Profile->slogan_pelayanan = $request->slogan_pelayanan;
+                $Profile->deskripsi_pelayanan = $request->deskripsi_pelayanan;
+                // $Profile->isLibur = $request->isLibur;
+            }
+
+
+            if ($request->gambar_pelayanan) {
+                $extention = $request->gambar_pelayanan->extension();
+                $file_name12 = time() . '.' . $extention;
+                $txt12 = "storage/Profile/gambar_pelayanan/" . $file_name12;
+                $request->gambar_pelayanan->storeAs('public/Profile/gambar_pelayanan', $file_name12);
+
+                $Profile->gambar_pelayanan = $txt12;
+            }
+
+
+            $Profile->save();
+
+            return back()->with('success', 'Data Berhasil Diubah!');
         }
-
-        $Profile = Profile::create([
-            'visi' => $request->visi,
-            'misi' => $request->misi,
-            'slogan' => $request->slogan,
-            'isi' => $request->isi,
-            'logo' => $txt,
-            'alamat' => $request->alamat,
-            'senin_kamis' => $request->senin_kamis,
-            'jumat' => $request->jumat,
-            'cs1' => $request->cs1,
-            'cs2' => $request->cs2,
-        ]);
-
-
-
-        return redirect()->route('Profile.index')
-            ->with('success', 'Profile Berhasil Ditambahkan');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Profile  $Profile
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Profile $Profile)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Profile  $Profile
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $Profile = Profile::find($id);
-        return view('admin.Profil.edit', compact('Profile'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Profile  $Profile
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $Profile = Profile::find($id);
-
-        if (isset($request->gambar)) {
-            $extention = $request->gambar->extension();
-            $file_name = time() . '.' . $extention;
-            $txt = "storage/Profile/Gambar/" . $file_name;
-            $request->gambar->storeAs('public/Profile/Gambar', $file_name);
-            Storage::delete("public/Profile/Gambar/$Profile->gambar");
-        } else {
-            $txt = $Profile->gambar;
-        }
-
-        $Profile->visi = $request->visi;
-        $Profile->misi = $request->misi;
-        $Profile->slogan = $request->slogan;
-        $Profile->isi = $request->isi;
-        $Profile->logo = $txt;
-        $Profile->alamat = $request->alamat;
-        $Profile->senin_kamis = $request->senin_kamis;
-        $Profile->jumat = $request->jumat;
-        $Profile->cs1 = $request->cs1;
-        $Profile->cs2 = $request->cs2;
-        $Profile->save();
-
-        return redirect()->route('Profile.index')
-            ->with('edit', 'Profile Berhasil Diedit');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Profile  $Profile
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $Profile = Profile::findOrFail($id);
-        Storage::delete("public/Profile/$Profile->gambar");
-        $Profile->delete();
-        return redirect()->route('Profile.index')
-            ->with('delete', 'Profile Berhasil Dihapus');
     }
 }

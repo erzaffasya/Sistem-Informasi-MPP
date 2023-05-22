@@ -70,5 +70,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('Mekanisme', MekanismeController::class);
     Route::resource('Profile', ProfileController::class);
     Route::resource('Testimoni', TestimoniController::class);
+
+
+        Route::get('profile/kepala-dinas', [ProfileController::class, 'kepalaDinas'])->name('kepalaDinas');
+        Route::get('profile/profil-website', [ProfileController::class, 'profilWebsite'])->name('profilWebsite');
+        Route::get('profile/kontak', [ProfileController::class, 'kontak'])->name('kontaks');
+        Route::get('profile/sosial-media', [ProfileController::class, 'sosialMedia'])->name('sosialMedia');
+        Route::get('profile/jadwal-pelayanan', [ProfileController::class, 'jadwalPelayanan'])->name('jadwalPelayanan');
 });
 require __DIR__ . '/auth.php';

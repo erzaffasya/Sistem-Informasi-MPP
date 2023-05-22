@@ -63,6 +63,48 @@
             <div data-i18n="Analytics">Dashboard</div>
         </a>
     </li> --}}
+    <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Setting Profile</span>
+    </li>
+    {{-- Profile --}}
+    <li class="menu-item {{ request()->is('admin/profile*') ? 'active open show' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+            <div data-i18n="Account Settings">Profile Website</div>
+        </a>
+        <ul class="menu-sub">
+            <li class="menu-item  {{ request()->routeIs('kepalaDinas') ? 'active' : '' }}">
+                <a href="{{ route('kepalaDinas') }}"
+                    class="menu-link">
+                    <div data-i18n="Account">Kepala Dinas</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('profilWebsite') ? 'active' : '' }}">
+                <a href="{{ route('profilWebsite') }}"
+                    class="menu-link ">
+                    <div data-i18n="Account">Profile DPMPTSP</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('kontaks') ? 'active' : '' }}">
+                <a href="{{ route('kontaks') }}"
+                    class="menu-link ">
+                    <div data-i18n="Account">Kontak</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('sosialMedia') ? 'active' : '' }}">
+                <a href="{{ route('sosialMedia') }}"
+                    class="menu-link ">
+                    <div data-i18n="Account">Sosial Media</div>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('jadwalPelayanan') ? 'active' : '' }}">
+                <a href="{{ route('jadwalPelayanan') }}"
+                    class="menu-link ">
+                    <div data-i18n="Account">Jadwal Pelayanan</div>
+                </a>
+            </li>
+        </ul>
+    </li>
 
     {{-- Berita --}}
     <li class="menu-header small text-uppercase">
@@ -292,5 +334,7 @@
             </li>
         </ul>
     </li>
+
+
 
 </ul>

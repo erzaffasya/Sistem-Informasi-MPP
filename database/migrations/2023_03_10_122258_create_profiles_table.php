@@ -15,16 +15,37 @@ return new class extends Migration
     {
         Schema::create('profile', function (Blueprint $table) {
             $table->id();
-            $table->string("visi")->nullable();   
-            $table->string("misi")->nullable();   
-            $table->string("slogan")->nullable();   
-            $table->text("isi")->nullable();   
-            $table->string("logo")->nullable();
-            $table->text("alamat")->nullable(); 
-            $table->string("senin_kamis")->nullable();
-            $table->string("jumat")->nullable();
+            
             $table->string("cs1")->nullable();
             $table->string("cs2")->nullable();
+
+
+            $table->string("logo")->nullable();
+            $table->text("slogan")->nullable();
+            $table->text("visi")->nullable();
+            $table->text("misi")->nullable();
+            $table->text("deskripsi")->nullable();
+            $table->text("video")->nullable();
+
+            $table->string("nama_kadis")->nullable();
+            $table->string("foto_kadis")->nullable();
+
+            $table->text("alamat")->nullable();
+            $table->string("email")->nullable();
+            $table->string("no_telp")->nullable();
+            $table->text("google_maps")->nullable();
+
+
+            $table->string("instagram")->nullable();
+            $table->string("youtube")->nullable();
+            $table->string("facebook")->nullable();
+            
+            $table->string('slogan_pelayanan')->nullable();
+            $table->text('deskripsi_pelayanan')->nullable();
+            $table->string('gambar_pelayanan')->nullable();
+            $table->string('senin_kamis')->nullable();
+            $table->string('jumat')->nullable();
+            $table->boolean('isLibur')->default(0);
             $table->timestamps();
         });
     }

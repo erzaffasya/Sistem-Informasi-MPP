@@ -798,7 +798,7 @@
                             @foreach ($berita as $item)
                                 <div class="col-md-4" data-aos="fade">
                                     <article class="blog-post">
-                                        <div class="post-slider slider-sm rounded">
+                                        <div class="post-slider slider-sm r ounded">
                                             <img loading="lazy" decoding="async" src="{{ asset($item->gambar) }}"
                                                 alt="Post Thumbnail" width="420" height="280"
                                                 style="height: 250px; widows: 100%; object-fit: cover;">
