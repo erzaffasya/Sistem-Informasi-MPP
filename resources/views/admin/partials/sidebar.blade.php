@@ -255,7 +255,7 @@
         <span class="menu-header-text">Setting Galeri</span>
     </li>
     {{-- KategoriGaleri --}}
-    {{-- <li class="menu-item {{ request()->routeIs('KategoriGaleri.*') ? 'active open' : '' }}">
+    <li class="menu-item {{ request()->routeIs('KategoriGaleri.*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons bx bx-cube-alt"></i>
             <div data-i18n="Misc">Kategori Galeri</div>
@@ -272,7 +272,7 @@
                 </a>
             </li>
         </ul>
-    </li> --}}
+    </li>
     {{-- Galeri --}}
     <li class="menu-item {{ request()->routeIs('Galeri.*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -297,7 +297,7 @@
         <span class="menu-header-text">Setting Berita</span>
     </li>
     {{-- KategoriBerita --}}
-    <li class="menu-item {{ request()->routeIs('KategoriBerita.*') ? 'active open' : '' }}">
+    {{-- <li class="menu-item {{ request()->routeIs('KategoriBerita.*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons bx bx-cube-alt"></i>
             <div data-i18n="Misc">Kategori Berita</div>
@@ -314,7 +314,7 @@
                 </a>
             </li>
         </ul>
-    </li>
+    </li> --}}
     {{-- Berita --}}
     <li class="menu-item {{ request()->routeIs('Berita.*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
