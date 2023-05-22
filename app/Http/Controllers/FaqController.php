@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FAQ;
+use App\Models\Faq;
 use Illuminate\Http\Request;
 
 class FAQController extends Controller
@@ -14,7 +14,7 @@ class FAQController extends Controller
      */
     public function index()
     {
-        $FAQ = FAQ::all();
+        $FAQ = Faq::all();
         return view('admin.FAQ.index', compact('FAQ'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -41,7 +41,7 @@ class FAQController extends Controller
         $request->validate([
             'judul' => 'required',
         ]);
-        $FAQ = FAQ::create([
+        $FAQ = Faq::create([
             'judul' => $request->judul,
             'isi' => $request->isi,
             'urut' => $request->urut,
@@ -70,7 +70,7 @@ class FAQController extends Controller
      */
     public function edit($id)
     {
-        $FAQ = FAQ::find($id);
+        $FAQ = Faq::find($id);
         return view('admin.FAQ.edit', compact('FAQ'));
     }
 
@@ -83,7 +83,7 @@ class FAQController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $FAQ = FAQ::find($id);
+        $FAQ = Faq::find($id);
         $FAQ->judul = $request->judul;
         $FAQ->isi = $request->isi;
         $FAQ->urut = $request->urut;
@@ -101,7 +101,7 @@ class FAQController extends Controller
      */
     public function destroy($id)
     {
-        $FAQ = FAQ::findOrFail($id);
+        $FAQ = Faq::findOrFail($id);
         $FAQ->delete();
         return back()
             ->with('delete', 'FAQ Berhasil Dihapus');
