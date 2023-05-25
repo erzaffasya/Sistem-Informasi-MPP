@@ -344,9 +344,19 @@
                                         <table class="table table-borderless text-dark">
                                             <tbody>
                                                 <tr class="mb-1">
+                                                    <td>NIK</td>
+                                                    <td>:</td>
+                                                    <td>6472053001000005</td>
+                                                </tr>   
+                                                <tr class="mb-1">
                                                     <td>Tanggal</td>
                                                     <td>:</td>
                                                     <td>30 Mei 2023</td>
+                                                </tr>
+                                                <tr class="mb-1">
+                                                    <td>Jam</td>
+                                                    <td>:</td>
+                                                    <td>08:00</td>
                                                 </tr>
                                                 <tr class="mb-1">
                                                     <td>Instansi</td>
@@ -362,21 +372,6 @@
                                                     <td>Sisa Antrian</td>
                                                     <td>:</td>
                                                     <td>3</td>
-                                                </tr>
-                                                <tr class="mb-1">
-                                                    <td>Nama Lengkap</td>
-                                                    <td>:</td>
-                                                    <td>Muhammad Ilham</td>
-                                                </tr>
-                                                <tr class="mb-1">
-                                                    <td>NIK</td>
-                                                    <td>:</td>
-                                                    <td>6472053001000005</td>
-                                                </tr>
-                                                <tr class="mb-1">
-                                                    <td>Nomor HP</td>
-                                                    <td>:</td>
-                                                    <td>085753372841</td>
                                                 </tr>
                                             </tbody>
                                         </table>
