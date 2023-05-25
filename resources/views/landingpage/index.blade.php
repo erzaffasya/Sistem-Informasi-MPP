@@ -54,50 +54,7 @@
         </div>
     @endforeach
 
-    <!-- Modal -->
-    <div class="modal fade" id="modallogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="text-center mb-5">
-                        <img loading="prelaod" decoding="async" class="img-fluid" width="60%"
-                            src="tlandingpage/images/logo.png" alt="Wallet">
-                        <h4 class="title mt-4" id="exampleModalLabel">Selamat Datang</h4>
-                        <h5 class="subtitle fw-normal text-secondary" id="exampleModalLabel">Masukkan data akun anda
-                            dengan benar</h5>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <form action="{{ route('login-mpp') }}" method="post">
-                                @csrf
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">NIK</label>
-                                    <input name="username" type="text" class="form-control input-md"
-                                        id="exampleInputEmail1" aria-describedby="emailHelp">
-                                </div>
-                                <div class="mb-4">
-                                    <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
-                                    <input type="password" name="password" class="form-control input-md"
-                                        id="exampleInputPassword1">
-                                    <div id="emailHelp" class="form-text">Lupa password akun ? <a href="#">Klik
-                                            disini</a></div>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100 mb-3">MASUK AKUN</button>
-                                <a type="submit" class="btn btn-outline-primary w-100 mb-3">DAFTAR AKUN</a>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
-            </div>
-        </div>
-    </div>
+    
     <section class="banner bg-tertiary position-relative overflow-hidden pt-5 pb-0">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-12 mb-5 mb-3">
@@ -285,7 +242,11 @@
                                                             '<h4 class="mb-0 mt-0 fw-normal"> Antrian Menunggu <b>' +
                                                             response.data.antriantunggu + '</b></h4> ',
                                                             "success",
-                                                        )
+                                                        ).then((result) => {
+                                                            if (result.value) {
+                                                                window.location.reload(); // Reload the current page
+                                                            }
+                                                        });
                                                     }
                                                 },
                                                 error: function(response) {
@@ -340,53 +301,65 @@
                                         </p>
                                     </div>
                                 @endif
-                                <div class="row py-3">
-                                    <div class="col-8">
-                                        <table class="table table-borderless text-dark">
-                                            <tbody>
-                                                <tr class="mb-1">
-                                                    <td>NIK</td>
-                                                    <td>:</td>
-                                                    <td>6472053001000005</td>
-                                                </tr>
-                                                <tr class="mb-1">
-                                                    <td>Tanggal</td>
-                                                    <td>:</td>
-                                                    <td>30 Mei 2023</td>
-                                                </tr>
-                                                <tr class="mb-1">
-                                                    <td>Jam</td>
-                                                    <td>:</td>
-                                                    <td>08:00</td>
-                                                </tr>
-                                                <tr class="mb-1">
-                                                    <td>Instansi</td>
-                                                    <td>:</td>
-                                                    <td>DPMPTSP Balikpapan</td>
-                                                </tr>
-                                                <tr class="mb-1">
-                                                    <td>Loket</td>
-                                                    <td>:</td>
-                                                    <td>Loket 3 lantai 2</td>
-                                                </tr>
-                                                <tr class="mb-1">
-                                                    <td>Sisa Antrian</td>
-                                                    <td>:</td>
-                                                    <td>3</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="col-4 bg-danger rounded">
-                                        <div
-                                            class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
-                                            <p class="h4 text-white fw-semibold text-uppercase mb-0">No. Antrian Anda
-                                            </p>
-                                            <p class="display-2 fw-bold text-white mb-0">C0023</p>
-                                            <a href="#" class="btn btn-light w-100 mt-2">Cetak Antrian</a>
+
+                                @if ($antrianTerakhir != null)
+                                    <div class="row py-3">
+                                        <div class="col-8">
+                                            <table class="table table-borderless text-dark">
+                                                <tbody>
+                                                    <tr class="mb-1">
+                                                        <td>NIK</td>
+                                                        <td>:</td>
+                                                        <td>{{ $antrianTerakhir->nik }}</td>
+                                                    </tr>
+                                                    <tr class="mb-1">
+                                                        <td>Nama Penerima</td>
+                                                        <td>:</td>
+                                                        <td>{{ $antrianTerakhir->nama_penerima }}</td>
+                                                    </tr>
+                                                    <tr class="mb-1">
+                                                        <td>Tanggal</td>
+                                                        <td>:</td>
+                                                        <td>{{ $antrianTerakhir->tgl }}</td>
+                                                    </tr>
+                                                    <tr class="mb-1">
+                                                        <td>Jam</td>
+                                                        <td>:</td>
+                                                        <td>{{ $antrianTerakhir->jam }}</td>
+                                                    </tr>
+                                                    <tr class="mb-1">
+                                                        <td>Nama Instansi</td>
+                                                        <td>:</td>
+                                                        <td>{{ $antrianTerakhir->nama_instansi }}</td>
+                                                    </tr>
+                                                    <tr class="mb-1">
+                                                        <td>Nama loket</td>
+                                                        <td>:</td>
+                                                        <td>{{ $antrianTerakhir->nama_loket }}</td>
+                                                    </tr>
+                                                    <tr class="mb-1">
+                                                        <td>Status Antrian</td>
+                                                        <td>:</td>
+                                                        <td>{{ $antrianTerakhir->stsantrian }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-4 bg-danger rounded">
+                                            <div
+                                                class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
+                                                <p class="h4 text-white fw-semibold text-uppercase mb-0">No. Antrian
+                                                    Anda
+                                                </p>
+                                                <p class="display-2 fw-bold text-white mb-0">
+                                                    {{ $antrianTerakhir->noantrian }}</p>
+                                                <a href="{{ $antrianTerakhir->qrcode }}" target="_blank"
+                                                    class="btn btn-light w-100 mt-2">Cetak Antrian</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
+
                             </div>
                         </div>
                     </div>
@@ -543,7 +516,7 @@
                         role="tablist">
                         @foreach ($fasilitas as $item)
                             <li class="nav-item m-2" role="presentation">
-                                <a class="nav-link btn btn-outline-primary effect-none text-dark @if($loop->index == 0) active @endif "
+                                <a class="nav-link btn btn-outline-primary effect-none text-dark @if ($loop->index == 0) active @endif "
                                     id="pills-how-do-i-repay-tab" data-bs-toggle="pill"
                                     href="#{{ preg_replace('/\s+/', '', $item->judul) }}" role="tab"
                                     aria-controls="{{ preg_replace('/\s+/', '', $item->judul) }}"
@@ -556,8 +529,9 @@
                     <div class="rounded shadow bg-white p-5 tab-content" id="pills-tabContent">
 
                         @foreach ($fasilitas as $item)
-                            <div class="tab-pane fade @if($loop->index == 0) show active @endif" id="{{ preg_replace('/\s+/', '', $item->judul) }}"
-                                role="tabpanel" aria-labelledby="pills-how-much-does-it-costs-tab">
+                            <div class="tab-pane fade @if ($loop->index == 0) show active @endif"
+                                id="{{ preg_replace('/\s+/', '', $item->judul) }}" role="tabpanel"
+                                aria-labelledby="pills-how-much-does-it-costs-tab">
                                 <div class="row align-items-center">
                                     <div class="col-md-6 order-1 order-md-0">
                                         <div class="content-block">

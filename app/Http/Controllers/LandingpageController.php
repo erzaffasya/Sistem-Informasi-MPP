@@ -27,6 +27,9 @@ class LandingpageController extends Controller
         $instansi = Instansi::all();
         $faq = Faq::all();
         $linkTerkait = LinkTerkait::orderBy('urut', 'ASC')->get();
+        $dataAntrian = $this->getRiwayatAntrian();
+        $antrianTerakhir = $dataAntrian->data[0] ?? null;
+        // dd($dataAntrian->data[0]);
 
         foreach ($instansi as $item) {
             $dataLayanan[] = [
@@ -41,7 +44,7 @@ class LandingpageController extends Controller
         // $this->syncInstansi();
 
         // dd($this->generatePassword());
-        return view('landingpage.index', compact('skm', 'berita', 'testimoni', 'fasilitas', 'mekanisme', 'instansi', 'faq', 'dataLayanan'))
+        return view('landingpage.index', compact('skm', 'berita', 'testimoni', 'fasilitas', 'mekanisme', 'instansi', 'faq', 'dataLayanan', 'antrianTerakhir'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

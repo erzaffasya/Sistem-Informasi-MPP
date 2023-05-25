@@ -42,7 +42,7 @@ class TestimoniController extends Controller
         $request->validate([
             'judul' => 'required',
             'isi' => 'required',
-            'gambar' => 'required',
+            // 'gambar' => 'required',
         ]);
 
         if (isset($request->gambar)) {

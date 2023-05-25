@@ -91,7 +91,7 @@ class Controller extends BaseController
         }
     }
 
-    public function getRiwayatAntrian(Request $request)
+    public function getRiwayatAntrian()
     {
         try {
             $data =  $this->postApiMpp('https://antrian-mpp.balikpapan.go.id/dmiapi/Antrian/HistoryAntrian', [
