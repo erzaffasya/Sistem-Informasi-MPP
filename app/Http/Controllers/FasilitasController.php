@@ -6,10 +6,11 @@ use App\Models\Fasilitas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class FasilitasController extends Controller
 {
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -43,14 +44,19 @@ class FasilitasController extends Controller
         $request->validate([
             'judul' => 'required',
             'isi' => 'required',
-            'gambar' => 'required',
+            'gambar' => 'required'
         ]);
-
+        // dd($request->all());
         if (isset($request->gambar)) {
             $extention = $request->gambar->extension();
             $file_name = time() . '.' . $extention;
             $txt = "storage/Fasilitas/Gambar/" . $file_name;
-            $request->gambar->storeAs('public/Fasilitas/Gambar', $file_name);
+            $image = $request->file('gambar');
+            $image = Image::make($request->file('gambar'));
+            $image->resize(720, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $image->save(public_path('storage/Fasilitas/Gambar/' . $file_name), 80);
         } else {
             $txt = null;
         }
@@ -102,10 +108,17 @@ class FasilitasController extends Controller
         $Fasilitas = Fasilitas::find($id);
 
         if (isset($request->gambar)) {
+
             $extention = $request->gambar->extension();
             $file_name = time() . '.' . $extention;
             $txt = "storage/Fasilitas/Gambar/" . $file_name;
-            $request->gambar->storeAs('public/Fasilitas/Gambar', $file_name);
+            $image = $request->file('gambar');
+            $image = Image::make($request->file('gambar'));
+            $image->resize(720, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $image->save(public_path('storage/Fasilitas/Gambar/' . $file_name), 80);
+
             Storage::delete("public/Fasilitas/Gambar/$Fasilitas->gambar");
         } else {
             $txt = $Fasilitas->gambar;

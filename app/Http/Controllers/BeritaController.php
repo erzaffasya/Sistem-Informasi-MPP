@@ -6,6 +6,7 @@ use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class BeritaController extends Controller
 {
@@ -47,10 +48,17 @@ class BeritaController extends Controller
         ]);
 
         if (isset($request->gambar)) {
+
             $extention = $request->gambar->extension();
             $file_name = time() . '.' . $extention;
             $txt = "storage/Berita/Gambar/" . $file_name;
-            $request->gambar->storeAs('public/Berita/Gambar', $file_name);
+            $image = $request->file('gambar');
+            $image = Image::make($request->file('gambar'));
+            $image->resize(720, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $image->save(public_path('storage/Berita/Gambar/' . $file_name), 80);
+
         } else {
             $txt = null;
         }
@@ -107,7 +115,13 @@ class BeritaController extends Controller
             $extention = $request->gambar->extension();
             $file_name = time() . '.' . $extention;
             $txt = "storage/Berita/Gambar/" . $file_name;
-            $request->gambar->storeAs('public/Berita/Gambar', $file_name);
+            $image = $request->file('gambar');
+            $image = Image::make($request->file('gambar'));
+            $image->resize(720, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $image->save(public_path('storage/Berita/Gambar/' . $file_name), 80);
+
             Storage::delete("public/Berita/Gambar/$Berita->gambar");
         } else {
             $txt = $Berita->gambar;
