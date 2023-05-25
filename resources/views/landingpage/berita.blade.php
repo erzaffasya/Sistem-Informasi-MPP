@@ -9,7 +9,7 @@
                                 <div class="col-md-6" data-aos="fade">
                                     <article class="blog-post">
                                         <div class="post-slider slider-sm rounded">
-                                            <img loading="lazy" decoding="async" src="{{asset($item->gambar)}}"
+                                            <img loading="lazy" decoding="async" src="{{url($item->gambar)}}"
                                                 alt="Post Thumbnail"
                                                 style="height: 250px; widows: 100%; object-fit: cover;">
                                         </div>
@@ -79,7 +79,7 @@
                                     <a class="text-black" href="/blog/post-2/">
                                         <div class="widget-post-image flex-shrink-0 me-3">
                                             <img class="rounded" loading="lazy" decoding="async"
-                                                src="{{asset($item->gambar)}}" alt="Post Thumbnail">
+                                                src="{{url($item->gambar)}}" alt="Post Thumbnail">
                                         </div>
                                     </a>
                                     <div class="flex-grow-1">

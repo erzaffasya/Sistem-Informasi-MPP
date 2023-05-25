@@ -15,7 +15,7 @@
                   <img loading="lazy" decoding="async" src="images/blog/post-5.jpg" alt="Post Thumbnail">
                   <img loading="lazy" decoding="async" src="images/blog/post-3.jpg" alt="Post Thumbnail">
                 </div> -->
-                        <img loading="lazy" decoding="async" src="{{$berita->gambar}}" alt="Post Thumbnail">
+                        <img loading="lazy" decoding="async" src="{{url($item->gambar)}}" alt="Post Thumbnail">
                     </div>
                     <div class="content">
 

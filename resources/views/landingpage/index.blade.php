@@ -278,11 +278,12 @@
                                                         swal.fire(
                                                             // response.nama,
                                                             'Cek Antrian',
-                                                            '<h3 class="mb-0">' + response.nama + '</h3> <br>' +
+                                                            '<h3 class="mb-0">' + response.data.tblantriangroup_nama +
+                                                            '</h3> <br>' +
+                                                            '<h4 class="mb-0 mt-0 fw-normal"> Nomor Antrian <b>' +
+                                                            response.data.noantrian + '</b></h4> ' +
                                                             '<h4 class="mb-0 mt-0 fw-normal"> Antrian Menunggu <b>' +
-                                                            response.antrianmenunggu + '</b></h4> ' +
-                                                            '<h4 class="mb-0 mt-0 fw-normal"> Antrian Saat Ini <b>' +
-                                                            response.antriansaatini + '</b></h4> ',
+                                                            response.data.antriantunggu + '</b></h4> ',
                                                             "success",
                                                         )
                                                     }
@@ -347,7 +348,7 @@
                                                     <td>NIK</td>
                                                     <td>:</td>
                                                     <td>6472053001000005</td>
-                                                </tr>   
+                                                </tr>
                                                 <tr class="mb-1">
                                                     <td>Tanggal</td>
                                                     <td>:</td>
@@ -541,8 +542,8 @@
                     <ul class="payment_info_tab nav nav-pills justify-content-center mb-4" id="pills-tab"
                         role="tablist">
                         @foreach ($fasilitas as $item)
-                            <li class="nav-item m-2" role="presentation"> <a
-                                    class="nav-link btn btn-outline-primary effect-none text-dark "
+                            <li class="nav-item m-2" role="presentation">
+                                <a class="nav-link btn btn-outline-primary effect-none text-dark @if($loop->index == 0) active @endif "
                                     id="pills-how-do-i-repay-tab" data-bs-toggle="pill"
                                     href="#{{ preg_replace('/\s+/', '', $item->judul) }}" role="tab"
                                     aria-controls="{{ preg_replace('/\s+/', '', $item->judul) }}"
@@ -555,7 +556,7 @@
                     <div class="rounded shadow bg-white p-5 tab-content" id="pills-tabContent">
 
                         @foreach ($fasilitas as $item)
-                            <div class="tab-pane fade " id="{{ preg_replace('/\s+/', '', $item->judul) }}"
+                            <div class="tab-pane fade @if($loop->index == 0) show active @endif" id="{{ preg_replace('/\s+/', '', $item->judul) }}"
                                 role="tabpanel" aria-labelledby="pills-how-much-does-it-costs-tab">
                                 <div class="row align-items-center">
                                     <div class="col-md-6 order-1 order-md-0">
@@ -794,7 +795,7 @@
                                 <div class="col-md-4" data-aos="fade">
                                     <article class="blog-post">
                                         <div class="post-slider slider-sm r ounded">
-                                            <img loading="lazy" decoding="async" src="{{ asset($item->gambar) }}"
+                                            <img loading="lazy" decoding="async" src="{{ url($item->gambar) }}"
                                                 alt="Post Thumbnail" width="420" height="280"
                                                 style="height: 250px; widows: 100%; object-fit: cover;">
                                         </div>

@@ -10,6 +10,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 
 class Controller extends BaseController
 {
@@ -79,9 +80,22 @@ class Controller extends BaseController
     {
         try {
             $data =  $this->postApiMpp('https://antrian-mpp.balikpapan.go.id/dmiapi/Antrian/AmbilAntrian', [
-                'nik' => $request->nik,
+                'nik' => Session::get('loginMpp'),
                 'layanan_id' => $request->instansi_id,
                 'jnsantrian' => 'hari ini'
+            ]);
+            // $response = json_decode($data->body());
+            return $data;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function getRiwayatAntrian(Request $request)
+    {
+        try {
+            $data =  $this->postApiMpp('https://antrian-mpp.balikpapan.go.id/dmiapi/Antrian/HistoryAntrian', [
+                'nik' => Session::get('loginMpp')
             ]);
             // $response = json_decode($data->body());
             return $data;
