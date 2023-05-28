@@ -17,7 +17,7 @@ class TentangController extends Controller
     public function indexDetail()
     {
         $FilosofiDetail = FilosofiDetail::orderBy('urut','ASC')->get();
-        return view('admin.profile.tentangDetail', compact('FilosofiDetail'));
+        return view('admin.Profile.tentangDetail', compact('FilosofiDetail'));
     }
 
     public function store(Request $request)
