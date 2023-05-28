@@ -70,16 +70,12 @@
                         <p class="text-primary text-uppercase fw-bold mb-3">Tentang MPP</p>
                         <h2 class="h1 mb-4">Sejarah Mal Pelayanan Publik Balikpapan</h2>
                         <div class="content pe-0 pe-lg-5">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            </p>
+                           {{$tentang->sejarah}}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 mt-5 mt-lg-0">
-                    <img loading="lazy" decoding="async" src="tlandingpage/images/aboutus.jpg"
+                    <img loading="lazy" decoding="async" src="{{$tentang->sejarah_foto}}"
                         alt="Business Loans &lt;br&gt; For Daily Expenses" class="rounded w-100"
                         style="height: 350px; object-fit:cover;">
                 </div>
@@ -142,35 +138,16 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="row position-relative gy-4">
+                        @foreach ($filosofi as $item)
                         <div class="icon-box-item col-md-6">
                             <div class="block bg-white">
-                                <div class="icon rounded-number">01</div>
-                                <h3 class="mb-3">Huruf</h3>
-                                <p class="mb-0 text-capitalize">Logo mal pelayanan publik jika diperhatikan terdiri
-                                    dari huruf 'MPP'</p>
+                                <div class="icon rounded-number">{{$loop->iteration}}</div>
+                                <h3 class="mb-3">{{$item->judul}}</h3>
+                                <p class="mb-0 text-capitalize">{!!$item->deskripsi!!}</p>
                             </div>
                         </div>
-                        <div class="icon-box-item col-md-6">
-                            <div class="block bg-white">
-                                <div class="icon rounded-number">02</div>
-                                <h3 class="mb-3">Menyerupai Bangunan</h3>
-                                <p class="mb-0 text-capitalize">mengartikan tempat pusat Pelayanan publik</p>
-                            </div>
-                        </div>
-                        <div class="icon-box-item col-md-6">
-                            <div class="block bg-white">
-                                <div class="icon rounded-number">03</div>
-                                <h3 class="mb-3">Miring Keatas</h3>
-                                <p class="mb-0 text-capitalize">Menandakan Peningkatan Pelayanan Publik</p>
-                            </div>
-                        </div>
-                        <div class="icon-box-item col-md-6">
-                            <div class="block bg-white">
-                                <div class="icon rounded-number">04</div>
-                                <h3 class="mb-3">Warna</h3>
-                                <p class="mb-0 text-capitalize">warna biru logo yang mengartikan kepercayaan</p>
-                            </div>
-                        </div>
+                        @endforeach
+
                         <div class="has-shapes">
                             <svg class="shape shape-1 text-primary" width="71" height="71"
                                 viewBox="0 0 119 119" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -300,11 +277,10 @@
                         <p class="text-primary text-uppercase fw-bold mb-3">Penjelasan</p>
                         <h2 class="h1">Filosofi Logo MPP Balikpapan</h2>
                         <div class="content">
-                            <img class="img-fluid mb-3 mt-4" width="250" src="tlandingpage/images/logo.png" alt="Wallet">
-                            <p class="text-capitalize">Logo dari Mal Pelayanan Publik Kota Balikpapan. Sebagai one stop
-                                service area, mpp balikpapan dikemas dengan logo yang simpel dan mudah dipahami.
-                                beberapa filosofi yang terdapat pada logo mpp balikpapan meliputi huruf, warna, dan lain
-                                sebagainya</p>
+                            <img class="img-fluid mb-3 mt-4" width="250" src="{{$tentang->filosofi_foto}}" alt="Wallet">
+                            <p class="text-capitalize">
+                                {{$tentang->filosofi}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -316,14 +292,13 @@
         <div class="container">
             <div class="section-title text-center">
                 <p class="text-primary text-uppercase fw-bold mb-3">Inovasi MPP</p>
-                <h1>SIAP DITEMPA</h1>
-                <p class="mb-0">Strategi Pelayanan Publik Melalui Digitalisasi Sistem Pelayanan di <br> Mal Pelayanan
-                    Publik Kota Balikpapan</p>
+                <h1>{{$tentang->inovasi_judul}}</h1>
+                <p class="mb-0">{{$tentang->inovasi_detail}}</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-9">
                     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe src="https://www.youtube.com/embed/uitykBHaNZc"
+                        <iframe src="{{$tentang->inovasi_video}}"
                             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
                             allowfullscreen title="YouTube Video"></iframe>
                     </div>

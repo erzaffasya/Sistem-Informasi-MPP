@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\Faq;
 use App\Models\Fasilitas;
+use App\Models\FilosofiDetail;
 use App\Models\Instansi;
 use App\Models\Layanan;
 use App\Models\LinkTerkait;
@@ -108,8 +109,9 @@ class LandingpageController extends Controller
 
     public function tentang()
     {
-        $profile = Tentang::find(1);
-        return view('landingpage.tentang',compact('1'))
+        $tentang = Tentang::find(1);
+        $filosofi = FilosofiDetail::orderBy('urut','ASC')->get();
+        return view('landingpage.tentang',compact('tentang','filosofi'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

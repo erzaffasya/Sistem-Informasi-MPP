@@ -103,6 +103,12 @@
                     <div data-i18n="Account">Jadwal Pelayanan</div>
                 </a>
             </li>
+            <li class="menu-item {{ request()->routeIs('ubah-tentang') ? 'active' : '' }}">
+                <a href="{{ route('ubah-tentang') }}"
+                    class="menu-link ">
+                    <div data-i18n="Account">Tentang</div>
+                </a>
+            </li>
         </ul>
     </li>
 

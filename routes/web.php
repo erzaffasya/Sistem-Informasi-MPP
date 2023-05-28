@@ -75,10 +75,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 
     Route::get('profile/tentang', [TentangController::class, 'index'])->name('ubah-tentang');
+    Route::get('profile/filosofi-detail', [TentangController::class, 'indexDetail'])->name('filosofi-detail');
     Route::get('profile/kepala-dinas', [ProfileController::class, 'kepalaDinas'])->name('kepalaDinas');
     Route::get('profile/profil-website', [ProfileController::class, 'profilWebsite'])->name('profilWebsite');
     Route::get('profile/kontak', [ProfileController::class, 'kontak'])->name('kontaks');
     Route::get('profile/sosial-media', [ProfileController::class, 'sosialMedia'])->name('sosialMedia');
     Route::get('profile/jadwal-pelayanan', [ProfileController::class, 'jadwalPelayanan'])->name('jadwalPelayanan');
+
+
+    Route::POST('add-filosofi-detail', [TentangController::class, 'addFilosofiDetail'])->name('tambah-filosofi-detail');
+    Route::DELETE('delete-filosofi-detail/{id}', [TentangController::class, 'deleteFilosofiDetail'])->name('delete-filosofi-detail');
 });
 require __DIR__ . '/auth.php';
