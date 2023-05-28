@@ -15,6 +15,7 @@ use App\Http\Controllers\LinkTerkaitController;
 use App\Http\Controllers\MekanismeController;
 use App\Http\Controllers\NamaLayananController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TentangController;
 use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Route;
 
@@ -70,12 +71,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('Mekanisme', MekanismeController::class);
     Route::resource('Profile', ProfileController::class);
     Route::resource('Testimoni', TestimoniController::class);
+    Route::resource('Tentang', TentangController::class);
 
 
-        Route::get('profile/kepala-dinas', [ProfileController::class, 'kepalaDinas'])->name('kepalaDinas');
-        Route::get('profile/profil-website', [ProfileController::class, 'profilWebsite'])->name('profilWebsite');
-        Route::get('profile/kontak', [ProfileController::class, 'kontak'])->name('kontaks');
-        Route::get('profile/sosial-media', [ProfileController::class, 'sosialMedia'])->name('sosialMedia');
-        Route::get('profile/jadwal-pelayanan', [ProfileController::class, 'jadwalPelayanan'])->name('jadwalPelayanan');
+    Route::get('profile/tentang', [TentangController::class, 'index'])->name('ubah-tentang');
+    Route::get('profile/kepala-dinas', [ProfileController::class, 'kepalaDinas'])->name('kepalaDinas');
+    Route::get('profile/profil-website', [ProfileController::class, 'profilWebsite'])->name('profilWebsite');
+    Route::get('profile/kontak', [ProfileController::class, 'kontak'])->name('kontaks');
+    Route::get('profile/sosial-media', [ProfileController::class, 'sosialMedia'])->name('sosialMedia');
+    Route::get('profile/jadwal-pelayanan', [ProfileController::class, 'jadwalPelayanan'])->name('jadwalPelayanan');
 });
 require __DIR__ . '/auth.php';

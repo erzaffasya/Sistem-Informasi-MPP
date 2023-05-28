@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Profile;
+use App\Models\Tentang;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 

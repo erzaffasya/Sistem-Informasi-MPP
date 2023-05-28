@@ -9,16 +9,16 @@
                                 <div class="col-md-6" data-aos="fade">
                                     <article class="blog-post">
                                         <div class="post-slider slider-sm rounded">
-                                            <img loading="lazy" decoding="async" src="{{url($item->gambar)}}"
+                                            <img loading="lazy" decoding="async" src="{{ url($item->gambar) }}"
                                                 alt="Post Thumbnail"
                                                 style="height: 250px; widows: 100%; object-fit: cover;">
                                         </div>
                                         <div class="pt-4">
                                             <p class="mb-3">{{ $item->created_at->format('d M Y') }}</p>
                                             <h2 class="h4"><a class="text-black"
-                                                    href="{{url('berita/'.$item->slug)}}">{{ $item->judul }}</a></h2>
+                                                    href="{{ url('berita/' . $item->slug) }}">{{ $item->judul }}</a></h2>
                                             {!! substr_replace($item->isi, '...', 150) !!}
-                                            <a href="{{url('berita/'.$item->slug)}}" class="text-primary fw-bold"
+                                            <a href="{{ url('berita/' . $item->slug) }}" class="text-primary fw-bold"
                                                 aria-label="Read the full article by clicking here">Read More</a>
                                         </div>
                                     </article>
@@ -79,12 +79,13 @@
                                     <a class="text-black" href="/blog/post-2/">
                                         <div class="widget-post-image flex-shrink-0 me-3">
                                             <img class="rounded" loading="lazy" decoding="async"
-                                                src="{{url($item->gambar)}}" alt="Post Thumbnail">
+                                                src="{{ url($item->gambar) }}" alt="Post Thumbnail">
                                         </div>
                                     </a>
                                     <div class="flex-grow-1">
-                                        <h5 class="h6 mb-0"><a class="text-black" href="{{url('berita/'.$item->slug)}}">{{$item->judul}}</a></h5>
-                                        <small>{{$item->created_at->format('M d, Y')}}</small>
+                                        <h5 class="h6 mb-0"><a class="text-black"
+                                                href="{{ url('berita/' . $item->slug) }}">{{ $item->judul }}</a></h5>
+                                        <small>{{ $item->created_at->format('M d, Y') }}</small>
                                     </div>
                                 </li>
                             </ul>
@@ -96,13 +97,15 @@
                         <h4 class="widget-title"><span>Social Links</span></h4>
                         <ul class="list-unstyled list-inline mb-0 social-icons">
                             <li class="list-inline-item me-3"><a title="Explorer Facebook Profile" class="text-black"
-                                    href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                    target="_blank" href="{{ $profile->facebook }}"><i
+                                        class="fab fa-facebook-f"></i></a>
                             </li>
                             <li class="list-inline-item me-3"><a title="Explorer Twitter Profile" class="text-black"
-                                    href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                                    target="_blank" href="{{ $profile->youtube }}"><i class="fab fa-youtube"></i></a>
                             </li>
                             <li class="list-inline-item me-3"><a title="Explorer Instagram Profile" class="text-black"
-                                    href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                    target="_blank" href="{{ $profile->instagram }}"><i
+                                        class="fab fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>

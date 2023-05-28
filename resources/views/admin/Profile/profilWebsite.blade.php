@@ -18,25 +18,22 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">visi</label>
-                    <input type="text" class="form-control" id="basic-default-fullname"
-                        value="{{ $Profile->visi ?? null }}" name="visi">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="visi" rows="3">{{ $Profile->visi ?? null }}</textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">misi</label>
-                    <input type="text" class="form-control" id="basic-default-fullname"
-                        value="{{ $Profile->misi ?? null }}" name="misi">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="misi" rows="3">{{ $Profile->misi ?? null }}</textarea>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="basic-default-fullname">deskripsi</label>
-                    <input type="text" class="form-control" id="basic-default-fullname"
-                        value="{{ $Profile->deskripsi ?? null }}" name="deskripsi">
+                    <label class="form-label" for="basic-default-fullname">Deskripsi</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="deskripsi" rows="3">{{ $Profile->deskripsi ?? null }}</textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">video</label>
                     <input type="text" class="form-control" id="basic-default-fullname"
                         value="{{ $Profile->video ?? null }}" name="video">
                 </div>
-               
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

@@ -54,12 +54,12 @@
         </div>
     @endforeach
 
-    
+
     <section class="banner bg-tertiary position-relative overflow-hidden pt-5 pb-0">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-12 mb-5 mb-3">
                 <div class="text-center">
-                    <p class="text-primary text-uppercase fw-bold mb-2 fs-3">ONE STOP SERVICE AREA</p>
+                    <p class="text-primary text-uppercase fw-bold mb-2 fs-3">{{ $profile->slogan }}</p>
                     <h1 class="text-capitalize mb-2"><span class="text-uppercase">Mal Pelayanan Publik</span><br><span
                             class="fs-1">Kota Balikpapan</span></h1>
                     <p class="fs-5 mb-4">Dapatkan berbagai macam pelayanan publik dinas, kantor, instansi secara cepat
@@ -442,23 +442,7 @@
                         <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Tentang Mal Pelayanan Publik
                             Balikpapan</p>
                         <h1>Berbagai Pelayanan Dalam 1 Tempat</h1>
-                        <p>
-                            MPP dirancang oleh KEMEPAN RB sebagai bagian dari perbaikan menyeluruh dan transformasi tata
-                            kelola
-                            pelayanan publik. Menggabungkan berbagai jenis pelayanan pada satu tempat, penyederhaan dan
-                            prosedur serta
-                            integrasi pelayanan pada Mal Pelayanan Publik akan memudahkan akses masyarakat dalam
-                            mendapat berbagai
-                            jenis pelayanan, serta meningkatkan kepercayaan masyarakat kepada penyelenggara pelayanan
-                            publik.
-                        </p>
-                        <div class="content">
-                            <ul>
-                                <li>Transparansi Pelayanan</li>
-                                <li>Efisiensi Pelayanan</li>
-                                <li>Kenyamanan Pelayanan</li>
-                            </ul>
-                        </div>
+                        {!! $profile->deskripsi !!}
                     </div>
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0">
@@ -467,7 +451,7 @@
                             alt="video thumb" class="rounded-lg w-100"
                             style="object-fit: cover; height: 400px; object-position: left;">
                         <button type="button" class="video-play-btn border-0 bg-transparent" data-bs-toggle="modal"
-                            data-src="tlandingpage/https://www.youtube.com/embed/9rQcOeBRQkI?VQ=HD720"
+                            data-src="https://www.youtube.com/embed/9rQcOeBRQkI?VQ=HD720"
                             data-bs-target="#videoModal">
                             <svg class="text-primary" viewBox="0 0 90 90" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -494,7 +478,7 @@
                 </div>
                 <div class="modal-body p-0">
                     <div class="ratio ratio-16x9 rounded-bottom overflow-hidden">
-                        <iframe src="tlandingpage/" id="showVideo" allowscriptaccess="always" allow="autoplay"
+                        <iframe src="{{$profile->video}}" id="showVideo" allowscriptaccess="always" allow="autoplay"
                             allowfullscreen></iframe>
                     </div>
                 </div>
@@ -899,26 +883,24 @@
                             <div class="content">Tidak perlu ragu hubungi kami
                                 <!-- <br> <a href="tel:+3301563965">+3301563965</a> -->
                                 <ul>
-                                    <li>Customer Service 1 <br> 0815-450000-10</li>
-                                    <li>Customer Service 2 <br> 0815-450000-12</li>
+                                    <li>Customer Service 1 <br> {{$profile->cs1}}</li>
+                                    <li>Customer Service 2 <br> {{$profile->cs2}}</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="block mx-0 mx-lg-3 mt-4">
                             <h4 class="h5">Kantor DPMPTSP Balikpan</h4>
-                            <div class="content">Jl Ruhui Rahayu 1.
-                                <br>RT.08 NO.9 Sepinggan Baru,
-                                <br>Balikpapan Selatan
+                            <div class="content">{{$profile->alamat}}
                             </div>
                         </div>
                         <div class="block mx-0 mx-lg-3 mt-4">
                             <h4 class="h5">Jadwal Pelayanan</h4>
                             <div class="content">
                                 <p class="mb-0">Senin-Kamis
-                                    <br>08.15-14.00 WITA
+                                    <br>{{$profile->senin_kamis}}
                                 </p>
                                 <p class="mb-0">Jum'at
-                                    <br>08.15-11.00 WITA
+                                    <br>{{$profile->jumat}}
                                 </p>
                             </div>
                         </div>
@@ -943,7 +925,7 @@
                 <div class="col-lg-12 mb-5 mb-3 text-center">
                     <h1 class="text-white text-uppercase fw-bold mb-1">MAL PELAYANAN PUBLIK KOTA BALIKPAPAN</h1>
                     <p class="text-capitalize mb-2 fw-bold text-white fs-2"><span class="text-uppercase"
-                            style="font-style: italic;">"ONE STOP SERVICE AREA"</span></p>
+                            style="font-style: italic;">"{{ $profile->slogan }}"</span></p>
                 </div>
             </div>
         </section>

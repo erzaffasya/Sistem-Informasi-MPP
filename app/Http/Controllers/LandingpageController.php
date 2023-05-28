@@ -9,6 +9,8 @@ use App\Models\Instansi;
 use App\Models\Layanan;
 use App\Models\LinkTerkait;
 use App\Models\Mekanisme;
+use App\Models\Profile;
+use App\Models\Tentang;
 use App\Models\Testimoni;
 use Database\Seeders\TestimoniSeeder;
 use Illuminate\Contracts\Session\Session;
@@ -29,6 +31,7 @@ class LandingpageController extends Controller
         $linkTerkait = LinkTerkait::orderBy('urut', 'ASC')->get();
         $dataAntrian = $this->getRiwayatAntrian();
         $antrianTerakhir = $dataAntrian->data[0] ?? null;
+        $profile = Profile::find(1);
         // dd($dataAntrian->data[0]);
 
         foreach ($instansi as $item) {
@@ -44,17 +47,29 @@ class LandingpageController extends Controller
         // $this->syncInstansi();
 
         // dd($this->generatePassword());
-        return view('landingpage.index', compact('skm', 'berita', 'testimoni', 'fasilitas', 'mekanisme', 'instansi', 'faq', 'dataLayanan', 'antrianTerakhir'))
+        return view('landingpage.index', compact(
+            'skm',
+            'berita',
+            'testimoni',
+            'fasilitas',
+            'mekanisme',
+            'instansi',
+            'faq',
+            'dataLayanan',
+            'antrianTerakhir',
+            'profile'
+        ))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function berita()
     {
         $berita = Berita::latest()->paginate(6);
+        $profile = Profile::find(1);
 
         $RandomPost = Berita::all()->random(3);
         // dd($RandomPost);
-        return view('landingpage.berita', compact('berita', 'RandomPost'))
+        return view('landingpage.berita', compact('berita', 'RandomPost','profile'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -93,10 +108,8 @@ class LandingpageController extends Controller
 
     public function tentang()
     {
-
-        $skm = $this->getNilaiSKM();
-
-        return view('landingpage.tentang', compact('skm'))
+        $profile = Tentang::find(1);
+        return view('landingpage.tentang',compact('1'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -104,10 +117,8 @@ class LandingpageController extends Controller
 
     public function kontak()
     {
-
-        $skm = $this->getNilaiSKM();
-
-        return view('landingpage.kontak', compact('skm'))
+        $profile = Profile::find(1);
+        return view('landingpage.kontak', compact('profile'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
