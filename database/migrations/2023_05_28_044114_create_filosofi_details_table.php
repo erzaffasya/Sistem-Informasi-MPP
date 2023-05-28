@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('filosofi_detail', function (Blueprint $table) {
             $table->id();
             $table->string("judul")->nullable();   
-            $table->string("deskripsi")->nullable();   
+            $table->text("deskripsi")->nullable();   
             $table->integer("urut")->nullable();   
             $table->timestamps();
         });

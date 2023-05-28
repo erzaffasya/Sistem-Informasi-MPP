@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('tentang', function (Blueprint $table) {
             $table->id();
-            $table->string("sejarah")->nullable();   
+            $table->text("sejarah")->nullable();   
             $table->string("sejarah_foto")->nullable();   
-            $table->string("filosofi")->nullable();   
+            $table->text("filosofi")->nullable();   
             $table->string("filosofi_foto")->nullable();   
             $table->string("inovasi_judul")->nullable();   
-            $table->string("inovasi_detail")->nullable();
+            $table->text("inovasi_detail")->nullable();
             $table->string("inovasi_video")->nullable();      
             $table->timestamps();
         });
