@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <section class="page-header bg-tertiary">
+    <section class="page-header bg-tertiary  mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-8 mx-auto text-center">

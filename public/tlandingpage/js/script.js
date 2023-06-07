@@ -1,8 +1,11 @@
 $('.slick-layanan').slick({
   infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
+  slidesToShow: 4,
+  slidesToScroll: 2,
   arrows: true,
+  adaptiveHeight: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
 });
 $('.slick-testimoni').slick({
   infinite: true,

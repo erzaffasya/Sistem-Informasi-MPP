@@ -34,7 +34,7 @@
         </div>
     </section>
      -->
-    <section class="section">
+    <section class="section mt-5">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-6">

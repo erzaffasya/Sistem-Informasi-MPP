@@ -1,8 +1,7 @@
-<nav class="navbar navbar-expand-xl navbar-light text-center py-3">
+<nav class="navbar fixed-top bg-white navbar-expand-xl navbar-light text-center shadow-sm py-3">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <img loading="prelaod" decoding="async" class="img-fluid" width="160" src="tlandingpage/images/logo.png"
-                alt="Wallet">
+        <a class="navbar-brand" href="/">
+            <img loading="prelaod" decoding="async" class="img-fluid" width="160" src="tlandingpage/images/logo.png">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
@@ -25,24 +24,6 @@
                 <li class="nav-item {{ request()->routeIs('kontak') ? 'active' : '' }}"> <a class="nav-link"
                         href="{{ route('kontak') }}">Kontak</a>
                 </li>
-                <!-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lainnya</a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item " href="blog.html">Blog</a>
-                          </li>
-                          <li><a class="dropdown-item " href="blog-details.html">Blog Details</a>
-                          </li>
-                          <li><a class="dropdown-item ">Service Details</a>
-                          </li>
-                          <li><a class="dropdown-item " href="faq.html">FAQ&#39;s</a>
-                          </li>
-                          <li><a class="dropdown-item " href="legal.html">Legal</a>
-                          </li>
-                          <li><a class="dropdown-item " href="terms.html">Terms &amp; Condition</a>
-                          </li>
-                          <li><a class="dropdown-item " href="privacy-policy.html">Privacy &amp; Policy</a>
-                          </li>
-                      </ul>
-                  </li> -->
             </ul>
             <!-- account btn -->
             @if (session()->has('loginMpp'))

@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <section class="section">
+    <section class="section mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">

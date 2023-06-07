@@ -30,10 +30,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        // $linkTerkait = LinkTerkait::orderBy('urut','ASC')->get();
+        $linkTerkait = LinkTerkait::orderBy('urut','ASC')->get();
         // View::share('Menu', Menu::tree()->get()->toTree());
         Paginator::useBootstrapFive();
-        // View::share('getProfile', Profile::find(1));
+        View::share('getProfile', Profile::find(1));
         View::share('getLinkTerkait', LinkTerkait::orderBy('urut','ASC')->get());
         // View::share('Pengumuman', Pengumuman::latest()->paginate(4));
     }

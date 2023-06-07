@@ -3,24 +3,46 @@
     @foreach ($dataLayanan as $item)
         <div class="modal fade" id="modallayanan-{{ $item['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Informasi Layanan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-3">
+                                <img src="#" class="d-inline-block mb-2" width="100%">
+                            </div>
+                            <div class="col-9">
                                 <div class="section-title text-left mb-0 pb-2">
-                                    <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Layanan</p>
-                                    <h4>{{ $item['nama_instansi'] }}</h4>
+                                    <p class="text-primary text-uppercase fw-bold mb-0 fs-5">Layanan</p>
+                                    <h4 class="fs-2">{{ $item['nama_instansi'] }}</h4>
+                                    <div class="mt-4 d-flex">
+                                        <div class="me-4">
+                                            <h4 class="h5">Jadwal Pelayanan</h4>
+                                            <div class="content d-flex">
+                                                <p class="mb-0 me-4">Senin-Kamis
+                                                    <br>08.15 - 14.00 WITA
+                                                </p>
+                                                <p class="mb-0 me-4">Jum'at
+                                                    <br>08.15 - 11.00 WITA
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="me-4">
+                                            <h4 class="h5">Kontak</h4>
+                                            <div class="content d-flex">
+                                                <p class="mb-0 me-4">Whatsapp
+                                                    <br>6285758892841</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <div class="accordion shadow rounded py-5 px-0 px-lg-4 bg-white position-relative"
+                                <div class="accordion shadow rounded py-2 px-2 bg-white position-relative"
                                     id="accordionFAQ">
-
                                     @foreach ($item['data'] as $data)
                                         <div class="accordion-item p-1 mb-2">
                                             <h2 class="accordion-header accordion-button h5 border-0"
@@ -55,14 +77,14 @@
     @endforeach
 
 
-    <section class="banner bg-tertiary position-relative overflow-hidden pt-5 pb-0">
+    <section class="banner bg-tertiary position-relative overflow-hidden pt-6 pb-0">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-12 mb-5 mb-3">
                 <div class="text-center">
-                    <p class="text-primary text-uppercase fw-bold mb-2 fs-3">{{ $profile->slogan }}</p>
+                    <p class="text-primary text-uppercase fw-bold mb-2 fs-3 mt-4">{{ $profile->slogan }}</p>
                     <h1 class="text-capitalize mb-2"><span class="text-uppercase">Mal Pelayanan Publik</span><br><span
                             class="fs-1">Kota Balikpapan</span></h1>
-                    <p class="fs-5 mb-4">Dapatkan berbagai macam pelayanan publik dinas, kantor, instansi secara cepat
+                    <p class="fs-5 mb-0">Dapatkan berbagai macam pelayanan publik dinas, kantor, instansi secara cepat
                         dan mudah
                         hanya dalam 1 tempat</p>
                     <!-- <a type="button"
@@ -133,8 +155,8 @@
         <div class="container rounded-lg">
             <div class="row">
                 <div class="col-9">
-                    <div class="bg-white rounded-lg">
-                        <nav>
+                    <div class="bg-white rounded-lg shadow-sm">
+                        <nav id="tab-antrian">
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                 <button class="nav-link fs-4 active" id="nav-home-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-home" type="button" role="tab"
@@ -588,29 +610,21 @@
                     </div>
                 </div>
             </div>
-            <div class="slick-layanan">
-
-                <div>
-                    <div class="row gap-5 justify-content-around">
-                        @foreach ($instansi as $item)
-                            <div class="col-md-3 bg-white service-item px-1 py-1 rounded">
+            <div class="slick-layanan h-100">
+                @foreach ($instansi as $item)
+                    <div class="bg-white py-1 rounded mx-3">
+                        <div class="block text-center px-3 py-3" style="flex: 1;">
+                            <img src="{{ $item->gambar }}" class="d-inline-block mb-2" width="150px">
+                            <h3 class="mb-0 service-title">{{ $item->nama_instansi }}</h3>
+                            <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
+                            <div class="content">
                                 <a href="#" data-bs-toggle="modal"
-                                    data-bs-target="#modallayanan-{{ $item->id }}" class="text-black">
-                                    <div class="block text-center">
-                                        <img src="{{ $item->gambar }}" class="d-inline-block mb-2" width="100px">
-                                        <h3 class="mb-0 service-title">{{ $item->nama_instansi }}</h3>
-                                        <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
-                                        <div class="content">
-                                            <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#modallayanan-{{ $item->id }}"
-                                                class="btn btn-outline-primary w-100 mt-2">LIHAT JENIS LAYANAN</a>
-                                        </div>
-                                    </div>
-                                </a>
+                                    data-bs-target="#modallayanan-{{ $item->id }}"
+                                    class="btn btn-outline-primary w-100 mt-2">DETAIL LAYANAN</a>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -859,7 +873,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="accordion shadow rounded py-5 px-0 px-lg-4 bg-white position-relative"
-                        id="accordionFAQ">
+                        id="dropfaq">
                         @foreach ($faq as $item)
                             <div class="accordion-item p-1 mb-2">
                                 <h2 class="accordion-header accordion-button h5 border-0"
@@ -869,7 +883,7 @@
                                     {{ $item->judul }}
                                 </h2>
                                 <div id="collapse-{{ $item->id }}" class="accordion-collapse collapse border-0"
-                                    aria-labelledby="heading-{{ $item->id }}" data-bs-parent="#accordionFAQ">
+                                    aria-labelledby="heading-{{ $item->id }}" data-bs-parent="#dropfaq">
                                     <div class="accordion-body py-0 content">{!! $item->isi !!}</div>
                                 </div>
                             </div>
@@ -883,8 +897,10 @@
                             <div class="content">Tidak perlu ragu hubungi kami
                                 <!-- <br> <a href="tel:+3301563965">+3301563965</a> -->
                                 <ul>
-                                    <li>Customer Service 1 <br> {{$profile->cs1}}</li>
-                                    <li>Customer Service 2 <br> {{$profile->cs2}}</li>
+                                    <li>Customer Service 1 <br> 
+                                        <a class="link-success" href="https://wa.me/{{$profile->cs1}}">{{$profile->cs1}} (WA)</a></li>
+                                    <li>Customer Service 2 <br>
+                                        <a class="link-success" href="https://wa.me/{{$profile->cs2}}">{{$profile->cs2}} (WA)</a></li>
                                 </ul>
                             </div>
                         </div>
