@@ -13,6 +13,7 @@ use App\Models\Mekanisme;
 use App\Models\Profile;
 use App\Models\Tentang;
 use App\Models\Testimoni;
+use Barryvdh\DomPDF\PDF;
 use Database\Seeders\TestimoniSeeder;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -63,6 +64,15 @@ class LandingpageController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    public function cetakAntrian()
+    {
+        $dataAntrian = $this->getRiwayatAntrian();
+        $antrianTerakhir = $dataAntrian->data[0] ?? null;
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('landingpage.cetakantrian', compact('antrianTerakhir'));
+        return $pdf->download('cetak-antrian.pdf');
+    }
+
     public function berita()
     {
         $berita = Berita::latest()->paginate(6);
@@ -70,7 +80,7 @@ class LandingpageController extends Controller
 
         $RandomPost = Berita::all()->random(3);
         // dd($RandomPost);
-        return view('landingpage.berita', compact('berita', 'RandomPost','profile'))
+        return view('landingpage.berita', compact('berita', 'RandomPost', 'profile'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -110,8 +120,8 @@ class LandingpageController extends Controller
     public function tentang()
     {
         $tentang = Tentang::find(1);
-        $filosofi = FilosofiDetail::orderBy('urut','ASC')->get();
-        return view('landingpage.tentang',compact('tentang','filosofi'))
+        $filosofi = FilosofiDetail::orderBy('urut', 'ASC')->get();
+        return view('landingpage.tentang', compact('tentang', 'filosofi'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

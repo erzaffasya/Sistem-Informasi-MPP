@@ -379,7 +379,7 @@
                                                 </p>
                                                 <p class="display-2 fw-bold text-white mb-0">
                                                     {{ $antrianTerakhir->noantrian }}</p>
-                                                <a href="{{ $antrianTerakhir->qrcode }}" target="_blank"
+                                                <a href="{{route('cetak-antrian')}}" target="_blank"
                                                     class="btn btn-light w-100 mt-2">Cetak Antrian</a>
                                             </div>
                                         </div>

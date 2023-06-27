@@ -41,6 +41,7 @@ Route::get('/kontak', [LandingpageController::class, 'kontak'])->name('kontak');
 Route::post('/get-kuota', [Controller::class, 'getInstansiKuota'])->name('get-kuota');
 Route::post('/ambil-antrian', [Controller::class, 'ambilAntrian'])->name('ambil-antrian');
 Route::post('/login-mpp', [Controller::class, 'loginMpp'])->name('login-mpp');
+Route::get('cetak-antrian', [LandingpageController::class, 'cetakAntrian'])->name('cetak-antrian');
 Route::get('/logout-mpp', function () {
     session()->forget('loginMpp');
     return back();
