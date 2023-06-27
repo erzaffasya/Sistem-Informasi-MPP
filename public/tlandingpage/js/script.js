@@ -3,7 +3,7 @@ $('.slick-layanan').slick({
   slidesToShow: 4,
   slidesToScroll: 2,
   arrows: true,
-  adaptiveHeight: true,
+  // adaptiveHeight: true,
   autoplay: true,
   autoplaySpeed: 2000,
 });
@@ -13,13 +13,6 @@ $('.slick-testimoni').slick({
   slidesToScroll: 1,
   arrows: true,
 });
-
-/**
- * WEBSITE: https://themefisher.com
- * TWITTER: https://twitter.com/themefisher
- * FACEBOOK: https://www.facebook.com/themefisher
- * GITHUB: https://github.com/themefisher/
- */
 
 // Preloader js
 $(window).on("load", function () {

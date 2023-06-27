@@ -71,7 +71,7 @@
                 </div> --}}
                     <!-- latest post -->
                     <div class="widget">
-                        <h5 class="widget-title"><span>Random Article</span></h5>
+                        <h5 class="widget-title"><span>Berita Populer</span></h5>
                         <!-- post-item -->
                         @foreach ($RandomPost as $item)
                             <ul class="list-unstyled widget-list">
@@ -94,7 +94,7 @@
                     </div>
                     <!-- Social -->
                     <div class="widget">
-                        <h4 class="widget-title"><span>Social Links</span></h4>
+                        <h4 class="widget-title"><span>Social Media</span></h4>
                         <ul class="list-unstyled list-inline mb-0 social-icons">
                             <li class="list-inline-item me-3"><a title="Explorer Facebook Profile" class="text-black"
                                     target="_blank" href="{{ $profile->facebook }}"><i

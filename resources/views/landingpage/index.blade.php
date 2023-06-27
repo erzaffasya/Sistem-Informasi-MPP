@@ -1,7 +1,7 @@
 <x-guest-layout>
     <!-- Modal -->
     @foreach ($dataLayanan as $item)
-        <div class="modal fade" id="modallayanan-{{ $item['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modallayanan-{{ $item['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"x
             aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -81,21 +81,25 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-12 mb-5 mb-3">
                 <div class="text-center">
-                    <p class="text-primary text-uppercase fw-bold mb-2 fs-3 mt-4">{{ $profile->slogan }}</p>
-                    <h1 class="text-capitalize mb-2"><span class="text-uppercase">Mal Pelayanan Publik</span><br><span
-                            class="fs-1">Kota Balikpapan</span></h1>
-                    <p class="fs-5 mb-0">Dapatkan berbagai macam pelayanan publik dinas, kantor, instansi secara cepat
+                    <p class="text-dark text-uppercase fw-bold mb-1 fs-4 mt-4">MAL PELAYANAN PUBLIK KOTA BALIKPAPAN</p>
+                    <div id="wrap-text-animate" class="text-dark fs-1">
+                        URUS BERMACAM PELAYANAN PUBLIK
+                        <div id="flip-animate">
+                            <div><div>KTP</div></div>
+                            <div><div>BPJS</div></div>
+                            <div><div>LISTRIK</div></div>
+                        </div>
+                        <br>
+                    </div>
+                    <p class="text-primary text-uppercase fw-bold mb-1 fs-3">{{ $profile->slogan }}</p>
+                    {{-- <h1 class="text-capitalize mb-2"><span class="text-uppercase">Mal Pelayanan Publik</span><br><span
+                            class="fs-1">Kota Balikpapan</span></h1> --}}
+                    {{-- <p class="fs-5 mb-0">Dapatkan berbagai macam pelayanan publik dinas, kantor, instansi secara cepat
                         dan mudah
-                        hanya dalam 1 tempat</p>
-                    <!-- <a type="button"
-          class="btn btn-lg btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#applyLoan">Ambil Antrian<span style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span>
-        </a> -->
+                        hanya dalam 1 tempat</p> --}}
                 </div>
             </div>
             <div class="col-lg-12" style="position: relative;">
-                <!-- <img src="tlandingpage/images/rahmad.png"
-          style="width: 320px; position: absolute; left: 0; bottom: 0;z-index: 99!important;">
-        <img src="tlandingpage/images/budi.png" style="width: 320px; position: absolute; right: 0; bottom: 0;z-index: 99!important;"> -->
                 <div class="text-center">
                     <img loading="lazy" decoding="async" src="tlandingpage/images/mpp2.png" alt="banner image"
                         width="80%">
@@ -399,6 +403,7 @@
             </div>
         </div>
     </section>
+
     <section class="section py-0" style="position: relative; top: -50px; z-index: 99;">
         <div class="container">
             <div class="row">
@@ -453,18 +458,17 @@
         </div>
     </section>
 
-
-
-
-    <section class="section">
+    <section class="section bg-primary">
         <div class="container">
             <div class="row justify-content-around align-items-center">
                 <div class="col-lg-6">
-                    <div class="section-title">
-                        <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Tentang Mal Pelayanan Publik
+                    <div class="section-title text-white">
+                        <p class="text-uppercase fw-bold mb-1 fs-5 opacity-75">Tentang Mal Pelayanan Publik
                             Balikpapan</p>
-                        <h1>Berbagai Pelayanan Dalam 1 Tempat</h1>
-                        {!! $profile->deskripsi !!}
+                        <h1 class="text-white">Berbagai Pelayanan Dalam 1 Tempat</h1>
+                        <p class="">
+                            {!! $profile->deskripsi !!}
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0">
@@ -613,10 +617,12 @@
             <div class="slick-layanan h-100">
                 @foreach ($instansi as $item)
                     <div class="bg-white py-1 rounded mx-3">
-                        <div class="block text-center px-3 py-3" style="flex: 1;">
-                            <img src="{{ $item->gambar }}" class="d-inline-block mb-2" width="150px">
-                            <h3 class="mb-0 service-title">{{ $item->nama_instansi }}</h3>
-                            <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
+                        <div class="wrapper-layanan block text-center px-3 py-3">
+                            <div>
+                                <img src="{{ $item->gambar }}" class="d-inline-block mb-2" width="150px">
+                                <h3 class="mb-0 service-title">{{ $item->nama_instansi }}</h3>
+                                <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
+                            </div>
                             <div class="content">
                                 <a href="#" data-bs-toggle="modal"
                                     data-bs-target="#modallayanan-{{ $item->id }}"
@@ -715,7 +721,7 @@
     </section>
     <br>
     <br>
-    <section class="section loan-steps mt-5">
+    <section class="section loan-steps mt-5 bg-tertiary">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-9">
@@ -806,8 +812,8 @@
             <div class="slick-testimoni row position-relative">
                 @foreach ($testimoni as $item)
                     <div class="col mx-2 pt-1">
-                        <div class="shadow rounded bg-white p-4 mt-4">
-                            <div class="content mb-3">{!! $item->isi !!}</div>
+                        <div class="wrapper-layanan shadow rounded bg-white p-4 mt-4">
+                            <div class="content">{!! $item->isi !!}</div>
                             <div class="d-block d-sm-flex align-items-center">
                                 <div class="mt-3 mt-sm-0">
                                     <h4 class="h5 mb-0">{{ $item->judul }}</h4>
@@ -924,7 +930,7 @@
                             <h4 class="h5">Pengaduan Masyarakat</h4>
                             <a href="https://www.lapor.go.id/">
                                 <figure class="py-2">
-                                    <img src="tlandingpage/https://kemensos.go.id/uploads/topics/16551961877203.png"
+                                    <img src="https://kemensos.go.id/uploads/topics/16551961877203.png"
                                         alt="" width="80%">
                                 </figure>
                             </a>

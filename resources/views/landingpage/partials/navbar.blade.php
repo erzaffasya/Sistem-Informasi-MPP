@@ -18,9 +18,9 @@
                 <li class="nav-item {{ request()->routeIs('berita') ? 'active' : '' }}"> <a class="nav-link"
                         href="{{ route('berita') }}">Berita</a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('layanan') ? 'active' : '' }}"> <a class="nav-link"
+                {{-- <li class="nav-item {{ request()->routeIs('layanan') ? 'active' : '' }}"> <a class="nav-link"
                         href="{{ route('layanan') }}">Layanan</a>
-                </li>
+                </li> --}}
                 <li class="nav-item {{ request()->routeIs('kontak') ? 'active' : '' }}"> <a class="nav-link"
                         href="{{ route('kontak') }}">Kontak</a>
                 </li>
@@ -35,8 +35,9 @@
             @endif
         </div>
     </div>
+</nav>
     <!-- Modal -->
-    <div class="modal fade" id="modallogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modallogin" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header border-0">
@@ -72,11 +73,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
             </div>
         </div>
     </div>
-</nav>

@@ -54,7 +54,7 @@
             </li>
             <li class="nav-item "> <a class="nav-link" href="blog.html">Berita</a>
             </li>
-            <li class="nav-item "> <a class="nav-link" href="#layanan-mpp">Layanan</a>
+            {{-- <li class="nav-item "> <a class="nav-link" href="#layanan-mpp">Layanan</a> --}}
             </li>
             <li class="nav-item "> <a class="nav-link" href="#kontak-mpp">Kontak</a>
             </li>

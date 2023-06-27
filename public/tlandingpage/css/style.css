@@ -11107,7 +11107,7 @@ blockquote::before,
   position: absolute;
   left: 0;
   top: 2px;
-  color: #097EE4;
+  color: #ffc107;
 }
 
 blockquote::before {
@@ -12189,3 +12189,78 @@ textarea.form-control {
   border-radius: 50%;
   background: transparent;
 }
+.slick-layanan .slick-track,
+.slick-testimoni .slick-track{
+  display:flex!important;
+}
+.slick-layanan .slick-slide,
+.slick-testimoni .slick-slide{
+  height: auto!important;
+}
+.wrapper-layanan{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#wrap-text-animate {
+  text-transform: uppercase;
+  font-size:36px;
+  font-weight:bold;
+  padding-top:200px;  
+  /* position:fixed; */
+  width:100%;
+  bottom:45%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:0;
+}
+
+#flip-animate {
+  height:60px;
+  overflow:hidden;
+}
+
+#flip-animate > div > div {
+  color:#fff;
+  padding:0 12px;
+  height:50px;
+  margin-bottom:45px;
+  display:inline-block;
+}
+
+#flip-animate div:first-child {
+  animation: show 5s linear infinite;
+}
+
+#flip-animate div div {
+  background:#42c58a;
+}
+#flip-animate div:first-child div {
+  background:#4ec7f3;
+}
+#flip-animate div:last-child div {
+  background:#DC143C;
+}
+
+@keyframes show {
+  0% {margin-top:-270px;}
+  5% {margin-top:-180px;}
+  33% {margin-top:-180px;}
+  38% {margin-top:-90px;}
+  66% {margin-top:-90px;}
+  71% {margin-top:0px;}
+  99.99% {margin-top:0px;}
+  100% {margin-top:-270px;}
+}
+
+/* .wrap-text-animate p {
+  position:fixed;
+  width:100%;
+  bottom:30px;
+  font-size:12px;
+  color:#999;
+  margin-top:200px;
+} */
