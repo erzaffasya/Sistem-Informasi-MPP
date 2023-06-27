@@ -13,15 +13,20 @@ use App\Models\Mekanisme;
 use App\Models\Profile;
 use App\Models\Tentang;
 use App\Models\Testimoni;
+use App\Models\Visitor;
+use Shetabit\Visitor\Traits\Visitable;
 use Barryvdh\DomPDF\PDF;
+use Carbon\Carbon;
 use Database\Seeders\TestimoniSeeder;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LandingpageController extends Controller
 {
     public function index()
     {
+        visitor()->visit();
         // dd(session('loginMpp'));
         $skm = $this->getNilaiSKM();
         $berita = Berita::latest()->limit(3)->get();
@@ -35,7 +40,35 @@ class LandingpageController extends Controller
         $antrianTerakhir = $dataAntrian->data[0] ?? null;
         $profile = Profile::find(1);
         // dd($dataAntrian->data[0]);
+        $currentYear = Carbon::now()->year;
 
+        $dataPengunjung = DB::table('shetabit_visits')
+            ->select(DB::raw('MONTH(created_at) as month'), DB::raw('COUNT(*) as total'))
+            ->whereYear('created_at', $currentYear)
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->get();
+
+        // dd($dataPengunjung);
+        $arrayPengunjung = [
+            0 => 0,
+            1 => 0,
+            2 => 0,
+            3 => 0,
+            4 => 0,
+            5 => 0,
+            6 => 0,
+            7 => 0,
+            8 => 0,
+            9 => 0,
+            10 => 0,
+            11 => 0,
+            12 => 0,
+        ];
+        foreach ($dataPengunjung as $item) {
+            $arrayPengunjung[$item->month] = $item->total;
+        }
+        $arrayStatistik = implode(', ', $arrayPengunjung);
+        // dd($arrayStatistik);
         foreach ($instansi as $item) {
             $dataLayanan[] = [
                 'id' => $item->id,
@@ -59,6 +92,7 @@ class LandingpageController extends Controller
             'faq',
             'dataLayanan',
             'antrianTerakhir',
+            'arrayStatistik',
             'profile'
         ))
             ->with('i', (request()->input('page', 1) - 1) * 5);

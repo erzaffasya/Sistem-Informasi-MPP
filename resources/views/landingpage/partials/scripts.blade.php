@@ -24,29 +24,5 @@
 	AOS.init();
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script>
 
-    const ctx = document.getElementById('myChart');
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
-                'Oktober', 'November', 'Desember'
-            ],
-            datasets: [{
-                label: 'Kunjungan Harian',
-                data: [12, 19, 3, 5, 2, 3, 9, 12, 20, 10, 11, 8],
-                borderWidth: 3
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
 @stack('scripts')
