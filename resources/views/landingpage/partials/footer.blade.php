@@ -37,7 +37,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-lg-4 col-md-12 newsletter-form">
+        {{-- <div class="col-lg-4 col-md-12 newsletter-form">
             <div style="background-color: #F4F4F4; padding: 35px;">
                 <h5 class="mb-4 text-primary font-secondary">Subscribe</h5>
                 <div class="pe-0 pe-xl-5">
@@ -55,9 +55,8 @@
                         </div>
                     </form>
                 </div>
-                <!-- p class="mb-0">Lorem ipsum dolor sit amet, rdghds consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p> -->
             </div>
-        </div>
+        </div> --}}
     </div>
     <div class="row align-items-center mt-5 text-center text-md-start">
         <div class="col-lg-4">

@@ -4379,7 +4379,8 @@ fieldset:disabled .btn {
 }
 
 .nav-pills .nav-link {
-  background: none;
+  background: #d4e7ff;
+  color: #097EE4;
   border: 0;
   border-radius: 0.25rem;
 }
@@ -10697,7 +10698,7 @@ a:hover {
 }
 
 .bg-tertiary {
-  background: #FBFBFB !important;
+  background: #EFFBF7 !important
 }
 
 .bg-blues {
@@ -11525,7 +11526,7 @@ blockquote::before {
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #FBFBFB;
+  background-color: #EFFBF7;
   z-index: -2;
   border-radius: 18px;
 }

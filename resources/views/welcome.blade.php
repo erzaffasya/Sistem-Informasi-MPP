@@ -1432,7 +1432,7 @@
     </section>
   </div>
 
-  <footer class="section-sm bg-tertiary">
+  <footer class="section-sm">
     <div class="container">
       <div class="row justify-content-between">
         <div class="col-lg-2 col-md-4 col-6 mb-4">
