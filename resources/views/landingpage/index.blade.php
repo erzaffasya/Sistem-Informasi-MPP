@@ -34,7 +34,8 @@
                                             <h4 class="h5">Kontak</h4>
                                             <div class="content d-flex">
                                                 <p class="mb-0 me-4">Whatsapp
-                                                    <br>6285758892841</p>
+                                                    <br>6285758892841
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -85,9 +86,15 @@
                     <div id="wrap-text-animate" class="text-dark fs-1">
                         URUS BERMACAM PELAYANAN PUBLIK
                         <div id="flip-animate">
-                            <div><div>KTP</div></div>
-                            <div><div>BPJS</div></div>
-                            <div><div>LISTRIK</div></div>
+                            <div>
+                                <div>KTP</div>
+                            </div>
+                            <div>
+                                <div>BPJS</div>
+                            </div>
+                            <div>
+                                <div>LISTRIK</div>
+                            </div>
                         </div>
                         <br>
                     </div>
@@ -155,7 +162,8 @@
         </div>
     </section>
 
-    <section id="card-antrian" class="section py-0 mb-5 rounded-lg" style="position: relative; top: -70px; z-index: 99;">
+    <section id="card-antrian" class="section py-0 mb-5 rounded-lg"
+        style="position: relative; top: -70px; z-index: 99;">
         <div class="container rounded-lg">
             <div class="row">
                 <div class="col-9">
@@ -187,8 +195,14 @@
                                             </select>
                                         </div>
                                         <div class="col-md-4 d-flex align-items-end">
-                                            <button type="submit" class="btn btn-primary w-100">CEK ANTRIAN
-                                                LAYANAN</button>
+                                            @if (session()->has('loginMpp'))
+                                                <button type="submit" class="btn btn-primary w-100">CEK ANTRIAN
+                                                    LAYANAN</button>
+                                            @else
+                                                <a data-bs-toggle="modal" data-bs-target="#modallogin"
+                                                    class="btn btn-primary w-100">CEK ANTRIAN LAYANAN</a>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </form>
@@ -379,7 +393,7 @@
                                                 </p>
                                                 <p class="display-2 fw-bold text-white mb-0">
                                                     {{ $antrianTerakhir->noantrian }}</p>
-                                                <a href="{{route('cetak-antrian')}}" target="_blank"
+                                                <a href="{{ route('cetak-antrian') }}" target="_blank"
                                                     class="btn btn-light w-100 mt-2">Cetak Antrian</a>
                                             </div>
                                         </div>
@@ -394,8 +408,7 @@
                     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
                         <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
                         <p class="display-2 fw-bold text-white mb-0">{{ $skm->nilai }}</p>
-                        <a href="https://skm-mpp.balikpapan.go.id/" class="btn btn-outline-primary w-100 mt-2">DETAIL
-                            NILAI SKM</a>
+
                         <!-- <a href="#!" class="btn btn-outline-primary">Masuk</a> -->
                         <!-- <p class="h5 text-white fw-normal mb-0 text-lowercase">( Sangat Baik )</p> -->
                     </div>
@@ -440,18 +453,23 @@
                     </a>
                 </div>
                 <div class="col-lg-4">
-                    <a href="https://skm-mpp.balikpapan.go.id">
-                        <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
-                            <div>
-                                <div class="text-center">
-                                    <figure class="mb-4">
-                                        <img src="tlandingpage/images/layanan2.png" alt="" width="45%">
-                                    </figure>
-                                    <h4 class="mb-4">SURVEY KEPUASAN MASYARAKAT</h4>
-                                    <button class="btn btn-success w-100"> KUNJUNGI</button>
-                                </div>
+                    @if (session()->has('loginMpp'))
+                        <a href="https://skm-mpp.balikpapan.go.id/">
+                        @else
+                            <a data-bs-toggle="modal" data-bs-target="#modallogin">
+                    @endif
+                    <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
+                        <div>
+                            <div class="text-center">
+                                <figure class="mb-4">
+                                    <img src="tlandingpage/images/layanan2.png" alt="" width="45%">
+                                </figure>
+                                <h4 class="mb-4">SURVEY KEPUASAN MASYARAKAT</h4>
+
+                                <button class="btn btn-success w-100"> KUNJUNGI</button>
                             </div>
                         </div>
+                    </div>
                     </a>
                 </div>
             </div>
@@ -504,8 +522,8 @@
                 </div>
                 <div class="modal-body p-0">
                     <div class="ratio ratio-16x9 rounded-bottom overflow-hidden">
-                        <iframe src="{{$profile->video}}" id="showVideo" allowscriptaccess="always" allow="autoplay"
-                            allowfullscreen></iframe>
+                        <iframe src="{{ $profile->video }}" id="showVideo" allowscriptaccess="always"
+                            allow="autoplay" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -734,17 +752,17 @@
                             @foreach ($berita as $item)
                                 <div class="col-md-4" data-aos="fade">
                                     <article class="card blog-post h-100 shadow">
-                                        <img class="card-img-top mb-0" loading="lazy" decoding="async" src="{{ url($item->gambar) }}"
-                                                alt="Post Thumbnail" width="420" height="280"
-                                                style="height: 250px; widows: 100%; object-fit: cover;">
+                                        <img class="card-img-top mb-0" loading="lazy" decoding="async"
+                                            src="{{ url($item->gambar) }}" alt="Post Thumbnail" width="420"
+                                            height="280" style="height: 250px; widows: 100%; object-fit: cover;">
                                         <div class="card-body">
-                                                <p class="mb-3">{{ $item->created_at->format('d M, Y') }}</p>
-                                                <h2 class="h4"><a class="text-black"
-                                                        href="{{ url('berita/' . $item->slug) }}">{!! substr_replace($item->judul, '...', 60) !!}</a>
-                                                </h2>
-                                                {!! substr_replace($item->isi, '...', 150) !!}
-                                                <a href="{{ url('berita/' . $item->slug) }}" class="text-primary fw-bold"
-                                                    aria-label="Read the full article by clicking here">Read More</a>
+                                            <p class="mb-3">{{ $item->created_at->format('d M, Y') }}</p>
+                                            <h2 class="h4"><a class="text-black"
+                                                    href="{{ url('berita/' . $item->slug) }}">{!! substr_replace($item->judul, '...', 60) !!}</a>
+                                            </h2>
+                                            {!! substr_replace($item->isi, '...', 150) !!}
+                                            <a href="{{ url('berita/' . $item->slug) }}" class="text-primary fw-bold"
+                                                aria-label="Read the full article by clicking here">Read More</a>
                                         </div>
                                     </article>
                                 </div>
@@ -790,7 +808,13 @@
                         <textarea class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
                         <label for="floatingTextarea2">Testimoni Anda</label>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Tambah Testimoni</button>
+                    @if (session()->has('loginMpp'))
+                        <button type="submit" class="btn btn-primary w-100">Tambah Testimoni</button>
+                    @else
+                        <a data-bs-toggle="modal" data-bs-target="#modallogin" class="btn btn-primary w-100">Tambah
+                            Testimoni</a>
+                    @endif
+
                 </div>
             </div>
         </div>
@@ -838,17 +862,20 @@
             </div>
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="pills-harian-tab" data-bs-toggle="pill" data-bs-target="#pills-harian" type="button" role="tab" aria-controls="pills-harian" aria-selected="true">KUNJUNGAN HARIAN</button>
+                    <button class="nav-link active" id="pills-harian-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-harian" type="button" role="tab" aria-controls="pills-harian"
+                        aria-selected="true">KUNJUNGAN HARIAN</button>
                 </li>
-                <li class="nav-item" role="presentation">
+                {{-- <li class="nav-item" role="presentation">
                   <button class="nav-link" id="pills-bulanan-tab" data-bs-toggle="pill" data-bs-target="#pills-bulanan" type="button" role="tab" aria-controls="pills-bulanan" aria-selected="false">KUNJUNGAN BULANAN</button>
                 </li>
                 <li class="nav-item" role="presentation">
                   <button class="nav-link" id="pills-instansi-tab" data-bs-toggle="pill" data-bs-target="#pills-instansi" type="button" role="tab" aria-controls="pills-instansi" aria-selected="false">KUNJUGAN PER INSTANSI</button>
-                </li>
-              </ul>
-              <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-harian" role="tabpanel" aria-labelledby="pills-harian-tab">
+                </li> --}}
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-harian" role="tabpanel"
+                    aria-labelledby="pills-harian-tab">
                     <canvas id="myChart"></canvas>
                 </div>
                 <div class="tab-pane fade" id="pills-bulanan" role="tabpanel" aria-labelledby="pills-bulanan-tab">
@@ -857,7 +884,7 @@
                 <div class="tab-pane fade" id="pills-instansi" role="tabpanel" aria-labelledby="pills-instansi-tab">
                     ...
                 </div>
-              </div>
+            </div>
         </div>
     </section>
 
@@ -871,8 +898,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="accordion shadow rounded py-5 px-0 px-lg-4 bg-white position-relative"
-                        id="dropfaq">
+                    <div class="accordion shadow rounded py-5 px-0 px-lg-4 bg-white position-relative" id="dropfaq">
                         @foreach ($faq as $item)
                             <div class="accordion-item p-1 mb-2">
                                 <h2 class="accordion-header accordion-button h5 border-0"
@@ -896,26 +922,30 @@
                             <div class="content">Tidak perlu ragu hubungi kami
                                 <!-- <br> <a href="tel:+3301563965">+3301563965</a> -->
                                 <ul>
-                                    <li>Customer Service 1 <br> 
-                                        <a class="link-success" href="https://wa.me/{{$profile->cs1}}">{{$profile->cs1}} (WA)</a></li>
+                                    <li>Customer Service 1 <br>
+                                        <a class="link-success"
+                                            href="https://wa.me/{{ $profile->cs1 }}">{{ $profile->cs1 }} (WA)</a>
+                                    </li>
                                     <li>Customer Service 2 <br>
-                                        <a class="link-success" href="https://wa.me/{{$profile->cs2}}">{{$profile->cs2}} (WA)</a></li>
+                                        <a class="link-success"
+                                            href="https://wa.me/{{ $profile->cs2 }}">{{ $profile->cs2 }} (WA)</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="block mx-0 mx-lg-3 mt-4">
                             <h4 class="h5">Kantor DPMPTSP Balikpan</h4>
-                            <div class="content">{{$profile->alamat}}
+                            <div class="content">{{ $profile->alamat }}
                             </div>
                         </div>
                         <div class="block mx-0 mx-lg-3 mt-4">
                             <h4 class="h5">Jadwal Pelayanan</h4>
                             <div class="content">
                                 <p class="mb-0">Senin-Kamis
-                                    <br>{{$profile->senin_kamis}}
+                                    <br>{{ $profile->senin_kamis }}
                                 </p>
                                 <p class="mb-0">Jum'at
-                                    <br>{{$profile->jumat}}
+                                    <br>{{ $profile->jumat }}
                                 </p>
                             </div>
                         </div>
@@ -923,8 +953,8 @@
                             <h4 class="h5">Pengaduan Masyarakat</h4>
                             <a href="https://www.lapor.go.id/">
                                 <figure class="py-2">
-                                    <img src="https://kemensos.go.id/uploads/topics/16551961877203.png"
-                                        alt="" width="80%">
+                                    <img src="https://kemensos.go.id/uploads/topics/16551961877203.png" alt=""
+                                        width="80%">
                                 </figure>
                             </a>
                         </div>
@@ -947,30 +977,29 @@
     </div>
 
     @push('scripts')
-    <script>
+        <script>
+            const ctx = document.getElementById('myChart');
 
-        const ctx = document.getElementById('myChart');
-    
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
-                    'Oktober', 'November', 'Desember'
-                ],
-                datasets: [{
-                    label: 'Kunjungan Harian',
-                    data: [{{$arrayStatistik}}],
-                    borderWidth: 3
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
+                        'Oktober', 'November', 'Desember'
+                    ],
+                    datasets: [{
+                        label: 'Kunjungan Harian',
+                        data: [{{ $arrayStatistik }}],
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
-    </script>
+            });
+        </script>
     @endpush
 </x-guest-layout>
