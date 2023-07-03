@@ -64,11 +64,11 @@
                                     <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
                                     <input type="password" name="password" class="form-control input-md"
                                         id="exampleInputPassword1">
-                                    <div id="emailHelp" class="form-text">Lupa password akun ? <a href="#">Klik
+                                    <div id="emailHelp" class="form-text">Lupa password akun ? <a href="{{route('lupa-password')}}">Klik
                                             disini</a></div>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100 mb-3">MASUK AKUN</button>
-                                <a type="submit" class="btn btn-outline-primary w-100 mb-3">DAFTAR AKUN</a>
+                                <a href="{{route('regis')}}" class="btn btn-outline-primary w-100 mb-3">DAFTAR AKUN</a>
                             </form>
                         </div>
                     </div>
