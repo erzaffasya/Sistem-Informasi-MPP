@@ -407,7 +407,7 @@
                 <div class="col-3 bg-primary rounded">
                     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
                         <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
-                        <p class="display-2 fw-bold text-white mb-0">{{ $skm }}</p>
+                        <p class="display-2 fw-bold text-white mb-0">{{ $skm->nilai }}</p>
 
                         <!-- <a href="#!" class="btn btn-outline-primary">Masuk</a> -->
                         <!-- <p class="h5 text-white fw-normal mb-0 text-lowercase">( Sangat Baik )</p> -->
