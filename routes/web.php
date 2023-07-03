@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\PortalController;
 use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\KategoriGaleriController;
@@ -31,7 +32,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [LandingpageController::class, 'index'])->name('home');
+Route::get('/', [LandingpageController::class, 'portal'])->name('portal');
+Route::get('/home', [LandingpageController::class, 'index'])->name('home');
 Route::get('/berita', [LandingpageController::class, 'berita'])->name('berita');
 Route::get('/berita/{slug}', [LandingpageController::class, 'beritaDetail'])->name('berita-detail');
 Route::get('/tentang', [LandingpageController::class, 'tentang'])->name('tentang');
@@ -64,6 +66,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 
     Route::resource('FAQ', FaqController::class);
+    Route::resource('Portal', PortalController::class);
     Route::resource('Fasilitas', FasilitasController::class);
     Route::resource('Galeri', GaleriController::class);
     Route::resource('NamaLayanan', NamaLayananController::class);

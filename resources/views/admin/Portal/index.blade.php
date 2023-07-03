@@ -1,31 +1,28 @@
 <x-app-layout>
     <div class="card">
-        <h5 class="card-header">Testimoni Table</h5>
+        <h5 class="card-header">Portal Table</h5>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>
                     <tr class="text-nowrap">
                         <th>#</th>
                         <th>Judul</th>
-                        <th>Perusahaan</th>
-                        <th>Jabatan</th>
+                        <th>Link</th>
+                        <th>Urut</th>
                         <th>Gambar</th>
-                        <th>Deskripsi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($Testimoni as $item)
+                    @foreach ($Portal as $item)
                         <tr>
                             <td> {{ $loop->iteration }} </td>
                             <td> {{ $item->judul }} </td>
-                            <td> {{ $item->perusahaan }} </td>
-                            <td> {{ $item->jabatan }} </td>
+                            <td> {{ $item->link }} </td>
+                            <td> {{ $item->urut }} </td>
                             <td> 
-                            <img src="{{ $item->gambar }}" height="70">    
+                            <img src="{{ asset($item->gambar) }}" height="70">    
                             </td>
-                            <td> {!! \Illuminate\Support\Str::limit($item->isi, $limit = 150, $end = '...') !!} </td>
-
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow "
@@ -34,9 +31,9 @@
                                     </button>
                                     <div class="dropdown-menu " data-popper-placement="bottom-start"
                                         style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 27px);">
-                                        <a class="dropdown-item" href="{{route('Testimoni.edit',$item->id)}}"><i
+                                        <a class="dropdown-item" href="{{route('Portal.edit',$item->id)}}"><i
                                                 class="bx bx-edit-alt me-1"></i> Edit</a>
-                                        <form action="{{ route('Testimoni.destroy', $item->id) }}" method="post">
+                                        <form action="{{ route('Portal.destroy', $item->id) }}" method="post">
                                             @method('DELETE')
                                             @csrf
 
