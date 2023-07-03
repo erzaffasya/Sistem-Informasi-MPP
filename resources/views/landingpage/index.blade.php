@@ -12,7 +12,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-3">
-                                <img src="#" class="d-inline-block mb-2" width="100%">
+                                <img src="{{$item['gambar']}}" class="d-inline-block mb-2" width="100%">
                             </div>
                             <div class="col-9">
                                 <div class="section-title text-left mb-0 pb-2">
@@ -23,10 +23,10 @@
                                             <h4 class="h5">Jadwal Pelayanan</h4>
                                             <div class="content d-flex">
                                                 <p class="mb-0 me-4">Senin-Kamis
-                                                    <br>08.15 - 14.00 WITA
+                                                    <br>{{ $item['senin_kamis']}}
                                                 </p>
                                                 <p class="mb-0 me-4">Jum'at
-                                                    <br>08.15 - 11.00 WITA
+                                                    <br>{{ $item['jumat']}}
                                                 </p>
                                             </div>
                                         </div>
@@ -34,7 +34,7 @@
                                             <h4 class="h5">Kontak</h4>
                                             <div class="content d-flex">
                                                 <p class="mb-0 me-4">Whatsapp
-                                                    <br>6285758892841
+                                                    <br>{{ $item['kontak']}}
                                                 </p>
                                             </div>
                                         </div>

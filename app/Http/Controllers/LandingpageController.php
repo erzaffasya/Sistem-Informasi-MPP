@@ -83,14 +83,18 @@ class LandingpageController extends Controller
         foreach ($instansi as $item) {
             $dataLayanan[] = [
                 'id' => $item->id,
+                'gambar' => $item->gambar,
                 'nama_instansi' => $item->nama_instansi,
+                'senin_kamis' => $item->senin_kamis,
+                'jumat' => $item->jumat,
+                'kontak' => $item->kontak,
                 'data' => Layanan::with(['NamaLayanan' => function ($query) {
                     $query->select('id', 'nama_layanan');
                 }])->where('instansi_id', $item->id)->get()->toArray()
             ];
         }
         // $this->getInstansiKuota(1);
-        // $this->syncInstansi();
+        $this->syncInstansi();
 
         // dd($this->generatePassword());
         return view('landingpage.index', compact(

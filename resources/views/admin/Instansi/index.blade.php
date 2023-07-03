@@ -10,6 +10,9 @@
                         <th>Gambar</th>
                         <th>Lantai</th>
                         <th>Loket</th>
+                        <th>Senin - Kamis</th>
+                        <th>Jumat</th>
+                        <th>Kontak</th>
                         <th>Deskripsi</th>
                         <th>Aksi</th>
                     </tr>
@@ -24,6 +27,9 @@
                             </td>                            
                             <td> {{ $item->lantai }} </td>                            
                             <td> {{ $item->loket }} </td>
+                            <td> {{ $item->senin_kamis }} </td>
+                            <td> {{ $item->jumat }} </td>
+                            <td> {{ $item->kontak }} </td>
                             <td> {!! \Illuminate\Support\Str::limit($item->deskripsi, $limit = 150, $end = '...') !!} </td>
 
                             <td>

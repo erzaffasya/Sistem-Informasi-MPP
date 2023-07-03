@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string("nama_instansi")->nullable();            
             $table->string("lantai")->nullable();
             $table->string("loket")->nullable();
+            $table->string("senin_kamis")->nullable();
+            $table->string("jumat")->nullable();
+            $table->string("kontak")->nullable();
             $table->text("deskripsi")->nullable();
             $table->string("gambar")->nullable();
             $table->string("slug")->nullable();

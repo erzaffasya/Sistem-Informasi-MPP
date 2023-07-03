@@ -20,6 +20,18 @@
                     <input type="text" class="form-control" id="basic-default-fullname" name="lantai">
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Senin - Kamis</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" name="senin_kamis">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Jumat</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" name="jumat">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Kontak</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" name="kontak">
+                </div>
+                <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">deskripsi</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="deskripsi" rows="3"></textarea>
                 </div>
