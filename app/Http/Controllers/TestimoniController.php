@@ -59,6 +59,7 @@ class TestimoniController extends Controller
             'isi' => $request->isi,
             'jabatan' => $request->jabatan,
             'perusahaan' => $request->perusahaan,
+            'status' => false,
             'gambar' => $txt,
         ]);
 
@@ -117,6 +118,7 @@ class TestimoniController extends Controller
         $Testimoni->isi = $request->isi;
         $Testimoni->jabatan = $request->jabatan;
         $Testimoni->perusahaan = $request->perusahaan;
+        $Testimoni->status = $request->status;
         $Testimoni->gambar = $txt;
         $Testimoni->save();
 

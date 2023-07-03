@@ -38,6 +38,7 @@ Route::get('/tentang', [LandingpageController::class, 'tentang'])->name('tentang
 Route::get('/layanan', [LandingpageController::class, 'layanan'])->name('layanan');
 Route::get('/layanan/{slug}', [LandingpageController::class, 'layananDetail'])->name('layanan-detail');
 Route::get('/kontak', [LandingpageController::class, 'kontak'])->name('kontak');
+Route::post('/tambah-testimoni', [LandingpageController::class, 'tambahTestimoni'])->name('tambah-testimoni');
 Route::post('/get-kuota', [Controller::class, 'getInstansiKuota'])->name('get-kuota');
 Route::post('/ambil-antrian', [Controller::class, 'ambilAntrian'])->name('ambil-antrian');
 Route::post('/login-mpp', [Controller::class, 'loginMpp'])->name('login-mpp');

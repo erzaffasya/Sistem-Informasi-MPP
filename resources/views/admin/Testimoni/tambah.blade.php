@@ -25,6 +25,11 @@
                     <label class="form-label" for="basic-default-fullname">isi</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="isi" rows="3"></textarea>
                 </div>
+                <select class="form-select mb-3" name="status" id="exampleFormControlSelect1"
+                    aria-label="Default select example">
+                        <option value="1">Aktif</option>
+                        <option value="0">Tidak Aktif</option>
+                </select>
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">gambar</label>
                     <input class="form-control" type="file" name="gambar" id="formFile">

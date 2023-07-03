@@ -9,6 +9,7 @@
                         <th>Judul</th>
                         <th>Perusahaan</th>
                         <th>Jabatan</th>
+                        <th>Status</th>
                         <th>Gambar</th>
                         <th>Deskripsi</th>
                         <th>Aksi</th>
@@ -21,8 +22,15 @@
                             <td> {{ $item->judul }} </td>
                             <td> {{ $item->perusahaan }} </td>
                             <td> {{ $item->jabatan }} </td>
-                            <td> 
-                            <img src="{{ $item->gambar }}" height="70">    
+                            <td>
+                                @if ($item->status == true)
+                                    Aktif
+                                @else
+                                    Tidak Aktif
+                                @endif
+                            </td>
+                            <td>
+                                <img src="{{ $item->gambar }}" height="70">
                             </td>
                             <td> {!! \Illuminate\Support\Str::limit($item->isi, $limit = 150, $end = '...') !!} </td>
 
@@ -34,7 +42,7 @@
                                     </button>
                                     <div class="dropdown-menu " data-popper-placement="bottom-start"
                                         style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 27px);">
-                                        <a class="dropdown-item" href="{{route('Testimoni.edit',$item->id)}}"><i
+                                        <a class="dropdown-item" href="{{ route('Testimoni.edit', $item->id) }}"><i
                                                 class="bx bx-edit-alt me-1"></i> Edit</a>
                                         <form action="{{ route('Testimoni.destroy', $item->id) }}" method="post">
                                             @method('DELETE')

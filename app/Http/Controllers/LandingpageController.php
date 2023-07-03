@@ -30,7 +30,7 @@ class LandingpageController extends Controller
         // dd(session('loginMpp'));
         $skm = $this->getNilaiSKM();
         $berita = Berita::latest()->limit(3)->get();
-        $testimoni = Testimoni::latest()->limit(15)->get();
+        $testimoni = Testimoni::where('status', true)->latest()->limit(15)->get();
         $fasilitas = Fasilitas::all();
         $mekanisme = Mekanisme::orderBy('urut', 'ASC')->get();
         $instansi = Instansi::all();
@@ -105,6 +105,38 @@ class LandingpageController extends Controller
         $pdf = app('dompdf.wrapper');
         $pdf->loadView('landingpage.cetakantrian', compact('antrianTerakhir'));
         return $pdf->download('cetak-antrian.pdf');
+    }
+
+    public function tambahTestimoni(Request $request)
+    {
+        $request->validate([
+            // 'judul' => 'required',
+            'isi' => 'required',
+            // 'gambar' => 'required',
+        ]);
+
+        // if (isset($request->gambar)) {
+        //     $extention = $request->gambar->extension();
+        //     $file_name = time() . '.' . $extention;
+        //     $txt = "storage/Testimoni/Gambar/" . $file_name;
+        //     $request->gambar->storeAs('public/Testimoni/Gambar', $file_name);
+        // } else {
+        //     $txt = null;
+        // }
+            // dd($request);
+        $Testimoni = Testimoni::create([
+            'judul' => 'Masyarakat',
+            'isi' => $request->isi,
+            // 'jabatan' => $request->jabatan,
+            // 'perusahaan' => $request->perusahaan,
+            'status' => false,
+            // 'gambar' => $txt,
+        ]);
+
+
+
+        return back()
+            ->with('success', 'Testimoni Berhasil Ditambahkan');
     }
 
     public function berita()

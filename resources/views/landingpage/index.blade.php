@@ -421,14 +421,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <a href="https://s.id/siapditempa-android">
+                    <a href="https://play.google.com/store/apps/details?id=dmi.mpp.balikpapan&pli=1" target="_blank">
                         <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
                             <div>
                                 <div class="text-center">
                                     <figure class="mb-4">
                                         <img src="tlandingpage/images/layanan3.png" alt="" width="45%">
                                     </figure>
-                                    <h4 class="mb-1">ANTRIAN ONLINE</h4>
+                                    <h4 class="mb-1">APLIKASI ANTRIAN ONLINE</h4>
                                     <p class="text-secondary">Ambil antrian online dengan mudah</p>
                                     <button class="btn btn-primary w-100"> KUNJUNGI</button>
                                 </div>
@@ -663,7 +663,8 @@
                     </div>
                     <div class="d-flex">
                         <div class="me-3">
-                            <a href="https://play.google.com/store/apps/details?id=dmi.mpp.balikpapan&pli=1">
+                            <a href="https://play.google.com/store/apps/details?id=dmi.mpp.balikpapan&pli=1"
+                                target="_blank">
                                 <img src="tlandingpage/images/playstore.png" class="img-fluid" width="170px">
                             </a>
                         </div>
@@ -802,21 +803,25 @@
                 @endforeach
             </div>
             <br>
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-6">
-                    <div class="form-floating mb-2">
-                        <textarea class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Testimoni Anda</label>
-                    </div>
-                    @if (session()->has('loginMpp'))
-                        <button type="submit" class="btn btn-primary w-100">Tambah Testimoni</button>
-                    @else
-                        <a data-bs-toggle="modal" data-bs-target="#modallogin" class="btn btn-primary w-100">Tambah
-                            Testimoni</a>
-                    @endif
+            <form method="POST" action="{{ route('tambah-testimoni') }}" class="row justify-content-center mt-5">
+                {{-- <form method="POST" action="{{ route('tambah-testimoni') }}"> --}}
+                    @csrf
+                    <div class="col-md-6">
+                        <div class="form-floating mb-2">
+                            <textarea class="form-control" name="isi" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Testimoni Anda</label>
+                        </div>
+                        @if (session()->has('loginMpp'))
+                            <button type="submit" class="btn btn-primary w-100">Tambah Testimoni</button>
+                        @else
+                            <a data-bs-toggle="modal" data-bs-target="#modallogin"
+                                class="btn btn-primary w-100">Tambah
+                                Testimoni</a>
+                        @endif
 
-                </div>
-            </div>
+                    </div>
+                {{-- </form> --}}
+            </form>
         </div>
         <div class="has-shapes">
             <svg class="shape shape-left text-light" width="290" height="709" viewBox="0 0 290 709"

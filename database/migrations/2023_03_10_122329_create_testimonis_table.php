@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("jabatan")->nullable();   
             $table->string("perusahaan")->nullable();   
             $table->string("gambar")->nullable();   
+            $table->boolean("status")->nullable();   
             $table->timestamps();
         });
     }
