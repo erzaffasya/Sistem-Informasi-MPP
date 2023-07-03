@@ -10,7 +10,6 @@ use App\Models\Instansi;
 use App\Models\Layanan;
 use App\Models\LinkTerkait;
 use App\Models\Mekanisme;
-use App\Models\Portal;
 use App\Models\Profile;
 use App\Models\Tentang;
 use App\Models\Testimoni;
@@ -25,11 +24,6 @@ use Illuminate\Support\Facades\DB;
 
 class LandingpageController extends Controller
 {
-    public function portal(){
-        $Portal = Portal::orderBy('urut', 'DESC')->get();
-        return view('portal', compact('Portal'));
-    }
-
     public function getPassword()
     {
         return view('landingpage.lupapassword');
