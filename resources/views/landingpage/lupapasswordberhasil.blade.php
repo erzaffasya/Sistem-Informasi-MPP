@@ -5,14 +5,14 @@
                 <div class="col-lg-6">
                     <div class="shadow rounded p-5 bg-white">
                         <div class="section-title text-center mb-2">
-                            <p class="text-primary text-uppercase fw-bold mb-3">Daftar Akun Website MPP Kota Balikpapan</p>
-                            <h1>Pendaftaran Berhasil</h1>
+                            <p class="text-primary text-uppercase fw-bold mb-3"> Lupa Password Akun Website MPP Kota Balikpapan</p>
+                            <h1>Lupa Password Berhasil</h1>
                         </div>
                         <div class="row">
                             <div class="col-12 mb-2">
                                 <!-- <h4>Formulir Pendaftaran</h4> -->
                                 <div class="alert alert-primary" role="alert">
-                                   Akun berhasil dibuat, Silahkan cek email untuk konfirmasi
+                                   Lupa password berhasil dilakukan, Silahkan cek email untuk konfirmasi
                                 </div>
                             </div>
 

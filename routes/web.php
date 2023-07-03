@@ -54,6 +54,8 @@ Route::get('/logout-mpp', function () {
 // page baru
 Route::get('/registrasi', [LandingpageController::class, 'regis'])->name('regis');
 Route::post('/regis', [LandingpageController::class, 'tambahRegis'])->name('post-regis');
+Route::get('/lupa-password', [LandingpageController::class, 'getPassword'])->name('lupa-password');
+Route::post('/lupa-password', [LandingpageController::class, 'postLupaPassword'])->name('post-lupa-password');
 
 
 

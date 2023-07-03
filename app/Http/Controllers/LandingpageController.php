@@ -30,6 +30,17 @@ class LandingpageController extends Controller
         return view('portal', compact('Portal'));
     }
 
+    public function getPassword()
+    {
+        return view('landingpage.lupapassword');
+    }
+
+    public function postLupaPassword(Request $request){
+        // dd('sukses');
+        $this->lupaPassword($request);
+        return view('landingpage.lupapasswordberhasil');
+    }
+
     public function index()
     {
         visitor()->visit();

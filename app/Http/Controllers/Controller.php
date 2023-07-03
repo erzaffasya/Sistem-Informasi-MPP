@@ -138,4 +138,16 @@ class Controller extends BaseController
             throw $th;
         }
     }
+
+    public function lupaPassword(Request $request)
+    {
+        try {
+            $data =  $this->postApiMpp('https://antrian-mpp.balikpapan.go.id/dmiapi/Antrian/ResetPass', [
+                'email' => $request->email
+            ]);
+            return back()->with('success','Akun Berhasil Dibuat');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }
