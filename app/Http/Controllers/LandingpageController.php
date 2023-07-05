@@ -94,7 +94,7 @@ class LandingpageController extends Controller
             ];
         }
         // $this->getInstansiKuota(1);
-        $this->syncInstansi();
+        // $this->syncInstansi();
 
         // dd($this->generatePassword());
         $skm = 99.7;
