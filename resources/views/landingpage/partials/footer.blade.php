@@ -76,13 +76,13 @@
         <div class="col-lg-4 col-md-6 text-md-end mt-4 mt-md-0">
             <ul class="list-unstyled list-inline mb-0 social-icons">
                 <li class="list-inline-item me-3"><a title="Explorer Facebook Profile" class="text-black"
-                        href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        href="{{$getTentang->facebook??null}}"><i class="fab fa-facebook-f"></i></a>
                 </li>
                 <li class="list-inline-item me-3"><a title="Explorer Twitter Profile" class="text-black"
-                        href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                        href="{{$getTentang->twitter??null}}"><i class="fab fa-twitter"></i></a>
                 </li>
                 <li class="list-inline-item me-3"><a title="Explorer Instagram Profile" class="text-black"
-                        href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                        href="{{$getTentang->instagram??null}}"><i class="fab fa-instagram"></i></a>
                 </li>
             </ul>
         </div>

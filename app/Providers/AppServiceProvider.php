@@ -6,6 +6,7 @@ use App\Models\LinkTerkait;
 use App\Models\Menu;
 use App\Models\Pengumuman;
 use App\Models\Profile;
+use App\Models\Tentang;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -35,6 +36,8 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
         View::share('getProfile', Profile::find(1));
         View::share('getLinkTerkait', LinkTerkait::orderBy('urut','ASC')->get());
+
+        View::share('getTentang',Tentang::find(1));
         // View::share('Pengumuman', Pengumuman::latest()->paginate(4));
     }
 }

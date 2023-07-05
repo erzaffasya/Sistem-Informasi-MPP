@@ -73,16 +73,16 @@
             <div data-i18n="Account Settings">Profile Website</div>
         </a>
         <ul class="menu-sub">
-            <li class="menu-item  {{ request()->routeIs('kepalaDinas') ? 'active' : '' }}">
+            {{-- <li class="menu-item  {{ request()->routeIs('kepalaDinas') ? 'active' : '' }}">
                 <a href="{{ route('kepalaDinas') }}"
                     class="menu-link">
                     <div data-i18n="Account">Kepala Dinas</div>
                 </a>
-            </li>
+            </li> --}}
             <li class="menu-item {{ request()->routeIs('profilWebsite') ? 'active' : '' }}">
                 <a href="{{ route('profilWebsite') }}"
                     class="menu-link ">
-                    <div data-i18n="Account">Profile DPMPTSP</div>
+                    <div data-i18n="Account">Profile</div>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('kontaks') ? 'active' : '' }}">
@@ -97,12 +97,12 @@
                     <div data-i18n="Account">Sosial Media</div>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('jadwalPelayanan') ? 'active' : '' }}">
+            {{-- <li class="menu-item {{ request()->routeIs('jadwalPelayanan') ? 'active' : '' }}">
                 <a href="{{ route('jadwalPelayanan') }}"
                     class="menu-link ">
                     <div data-i18n="Account">Jadwal Pelayanan</div>
                 </a>
-            </li>
+            </li> --}}
             <li class="menu-item {{ request()->routeIs('ubah-tentang') ? 'active' : '' }}">
                 <a href="{{ route('ubah-tentang') }}"
                     class="menu-link ">
