@@ -82,7 +82,7 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-12 mb-5 mb-3">
                 <div class="text-center">
-                    <p class="text-dark text-uppercase fw-bold mb-1 fs-4 mt-4">MAL PELAYANAN PUBLIK KOTA BALIKPAPAN</p>
+                    <p class="text-danger text-uppercase fw-bold mb-1 fs-4 mt-4">MAL PELAYANAN PUBLIK KOTA BALIKPAPAN</p>
                     <div id="wrap-text-animate" class="text-dark fs-1">
                         URUS BERMACAM PELAYANAN PUBLIK
                         <div id="flip-animate">
@@ -167,7 +167,7 @@
         <div class="container rounded-lg">
             <div class="row">
                 <div class="col-9">
-                    <div class="bg-white rounded-lg shadow-sm">
+                    <div class="bg-white rounded-lg shadow border border-primary border-top-0 border-2">
                         <nav id="tab-antrian">
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                 <button class="nav-link fs-4 active" id="nav-home-tab" data-bs-toggle="tab"
@@ -304,7 +304,7 @@
                                 </script>
                             @endpush
 
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                            <div class="tab-pane fade " id="nav-profile" role="tabpanel"
                                 aria-labelledby="nav-profile-tab">
                                 @if (session()->has('loginMpp'))
                                     <form method="post" data-action="{{ route('ambil-antrian') }}"
@@ -329,12 +329,12 @@
                                     </form>
                                 @else
                                     <div class="notices info text-center">
-                                        <p class="mb-0 fs-4 fw-bold text-warning text-uppercase">Maaf, Anda Belum Login
+                                        <p class="mb-0 fs-4 fw-bold text-danger text-uppercase">Maaf, Anda Belum Login
                                         </p>
 
                                         <p class="fs-6">Untuk mengakses ambil antrian online anda harus
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#modallogin"
-                                                class="text-black">
+                                                class="text-primary">
                                                 Masuk Akun
                                             </a>terlebih
                                             dahulu
@@ -404,10 +404,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3 bg-primary rounded">
+                <div class="col-3 bg-blues2 rounded">
                     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
                         <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
                         <p class="display-2 fw-bold text-white mb-0">{{ $skm }}</p>
+                        <p class="fs-5 text-white mb-0">Total Responden <span class="fw-semibold">452</span></p>
 
                         <!-- <a href="#!" class="btn btn-outline-primary">Masuk</a> -->
                         <!-- <p class="h5 text-white fw-normal mb-0 text-lowercase">( Sangat Baik )</p> -->
@@ -420,13 +421,13 @@
     <section class="section py-0" style="position: relative; top: -50px; z-index: 99;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <a href="https://play.google.com/store/apps/details?id=dmi.mpp.balikpapan&pli=1" target="_blank">
-                        <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
+                <div class="col-lg-4 ">
+                    <a class="card rounded shadow-lg" href="https://play.google.com/store/apps/details?id=dmi.mpp.balikpapan&pli=1" target="_blank">
+                        <div class="bg-white difference-of-us-item p-3 rounded mr-0">
                             <div>
                                 <div class="text-center">
                                     <figure class="mb-4">
-                                        <img src="tlandingpage/images/layanan3.png" alt="" width="45%">
+                                        <img src="tlandingpage/images/layanan3.png" alt="" style="height: 150px">
                                     </figure>
                                     <h4 class="mb-1">APLIKASI ANTRIAN ONLINE</h4>
                                     <p class="text-secondary">Ambil antrian online dengan mudah</p>
@@ -437,12 +438,12 @@
                     </a>
                 </div>
                 <div class="col-lg-4">
-                    <a href="https://layanan-mpp.balikpapan.go.id/tracking">
-                        <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
+                    <a class="card rounded shadow-lg" href="https://layanan-mpp.balikpapan.go.id/tracking">
+                        <div class="bg-white difference-of-us-item p-3 rounded mr-0">
                             <div>
                                 <div class="text-center">
                                     <figure class="mb-4">
-                                        <img src="tlandingpage/images/layanan.png" alt="" width="45%">
+                                        <img src="tlandingpage/images/layanan.png" alt="" style="height: 150px">
                                     </figure>
                                     <h4 class="mb-1">TRACKING LAYANAN</h4>
                                     <p class="text-secondary">Ketahui status layanan/permohonan</p>
@@ -454,17 +455,17 @@
                 </div>
                 <div class="col-lg-4">
                     @if (session()->has('loginMpp'))
-                        <a href="https://skm-mpp.balikpapan.go.id/">
+                        <a class="card rounded shadow-lg h-100" href="https://skm-mpp.balikpapan.go.id/">
                         @else
-                            <a data-bs-toggle="modal" data-bs-target="#modallogin">
+                            <a class="card rounded shadow-lg h-100" data-bs-toggle="modal" data-bs-target="#modallogin">
                     @endif
-                    <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
+                    <div class="bg-white h-100 difference-of-us-item p-3 rounded mr-0">
                         <div>
                             <div class="text-center">
                                 <figure class="mb-4">
-                                    <img src="tlandingpage/images/layanan2.png" alt="" width="45%">
+                                    <img src="tlandingpage/images/layanan2.png" alt="" style="height: 150px">
                                 </figure>
-                                <h4 class="mb-4">SURVEY KEPUASAN MASYARAKAT</h4>
+                                <h4 class="mb-4">SURVEY KEPUASAN <br> MASYARAKAT</h4>
 
                                 <button class="btn btn-success w-100"> KUNJUNGI</button>
                             </div>
@@ -476,7 +477,7 @@
         </div>
     </section>
 
-    <section class="section bg-primary py-4">
+    <section class="section bg-blues2 py-4">
         <div class="container">
             <div class="row justify-content-around align-items-center">
                 <div class="col-lg-6">
@@ -620,7 +621,7 @@
         </div>
     </section>
 
-    <section class="section bg-primary py-4" id="layanan-mpp">
+    <section class="section bg-blues2 py-4" id="layanan-mpp">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-9">
@@ -652,7 +653,7 @@
         </div>
     </section>
 
-    <section class="about-section section position-relative pt-5">
+    <section class="about-section section position-relative py-5">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-8">
@@ -680,33 +681,68 @@
         </div>
         <div class="container mt-3" style="left: 0; right: 0;">
             <div class="row justify-content-center gx-5">
-                <div class="icon-box-item col-lg-4 col-md-6">
-                    <div class="block bg-white text-center" style="border: 1px solid rgba(0,0,0,0.07)">
-                        <h1 class="mb-2 text-primary display-4 fw-bold">31</h1>
-                        <p class="mb-0 fs-5 fw-bold text-dark">JUMLAH INSTANSI</p>
+                <div class="icon-box-item col-lg-3 col-md-6">
+                    <div class="block py-3 bg-blues2 text-center">
+                        <h1 class="mb-2 text-white display-4 fw-bold">31</h1>
+                        <p class="mb-0 fs-5 fw-bold text-white">JUMLAH INSTANSI</p>
                     </div>
                 </div>
-                <div class="icon-box-item col-lg-4 col-md-6">
-                    <div class="block bg-white text-center" style="border: 1px solid rgba(0,0,0,0.07)">
-                        <h1 class="mb-2 text-primary display-4 fw-bold">120</h1>
-                        <p class="mb-0 fs-5 fw-bold text-dark">JUMLAH LAYANAN</p>
+                <div class="icon-box-item col-lg-3 col-md-6">
+                    <div class="block py-3 bg-blues2 text-center">
+                        <h1 class="mb-2 text-white display-4 fw-bold">120</h1>
+                        <p class="mb-0 fs-5 fw-bold text-white">JUMLAH LAYANAN</p>
                     </div>
                 </div>
-                <div class="icon-box-item col-lg-4 col-md-6">
-                    <div class="block bg-white text-center" style="border: 1px solid rgba(0,0,0,0.07)">
-                        <h1 class="mb-2 text-primary display-4 fw-bold">40</h1>
-                        <p class="mb-0 fs-5 fw-bold text-dark">KUNJUNGAN HARI INI</p>
+                <div class="icon-box-item col-lg-3 col-md-6">
+                    <div class="block py-3 bg-blues2 text-center">
+                        <h1 class="mb-2 text-white display-4 fw-bold">40</h1>
+                        <p class="mb-0 fs-5 fw-bold text-white">KUNJUNGAN HARI INI</p>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="has-shapes">
+            <svg class="shape shape-left text-primary opacity-75" width="290" height="709" viewBox="0 0 290 709"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M-119.511 58.4275C-120.188 96.3185 -92.0001 129.539 -59.0325 148.232C-26.0649 166.926 11.7821 174.604 47.8274 186.346C83.8726 198.088 120.364 215.601 141.281 247.209C178.484 303.449 153.165 377.627 149.657 444.969C144.34 546.859 197.336 649.801 283.36 704.673"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M-141.434 72.0899C-142.111 109.981 -113.923 143.201 -80.9554 161.895C-47.9878 180.588 -10.1407 188.267 25.9045 200.009C61.9497 211.751 98.4408 229.263 119.358 260.872C156.561 317.111 131.242 391.29 127.734 458.631C122.417 560.522 175.414 663.463 261.437 718.335"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M-163.379 85.7578C-164.056 123.649 -135.868 156.869 -102.901 175.563C-69.9331 194.256 -32.086 201.934 3.9592 213.677C40.0044 225.419 76.4955 242.931 97.4127 274.54C134.616 330.779 109.296 404.957 105.789 472.299C100.472 574.19 153.468 677.131 239.492 732.003"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M-185.305 99.4208C-185.982 137.312 -157.794 170.532 -124.826 189.226C-91.8589 207.919 -54.0118 215.597 -17.9666 227.34C18.0787 239.082 54.5697 256.594 75.4869 288.203C112.69 344.442 87.3706 418.62 83.8633 485.962C78.5463 587.852 131.542 690.794 217.566 745.666"
+                    stroke="currentColor" stroke-miterlimit="10" />
+            </svg>
+            <svg class="shape shape-right text-primary opacity-75" width="731" height="429" viewBox="0 0 731 429"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M12.1794 428.14C1.80036 390.275 -5.75764 349.015 8.73984 312.537C27.748 264.745 80.4729 237.968 131.538 231.843C182.604 225.703 234.032 235.841 285.323 239.748C336.615 243.64 391.543 240.276 433.828 210.964C492.452 170.323 511.701 91.1227 564.607 43.2553C608.718 3.35334 675.307 -9.81661 731.29 10.323"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M51.0253 428.14C41.2045 392.326 34.0538 353.284 47.7668 318.783C65.7491 273.571 115.623 248.242 163.928 242.449C212.248 236.641 260.884 246.235 309.4 249.931C357.916 253.627 409.887 250.429 449.879 222.701C505.35 184.248 523.543 109.331 573.598 64.0588C615.326 26.3141 678.324 13.8532 731.275 32.9066"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M89.8715 428.14C80.6239 394.363 73.8654 357.568 86.8091 325.028C103.766 282.396 150.788 258.515 196.347 253.054C241.906 247.578 287.767 256.629 333.523 260.099C379.278 263.584 428.277 260.567 465.976 234.423C518.279 198.172 535.431 127.525 582.62 84.8317C621.964 49.2292 681.356 37.4924 731.291 55.4596"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M128.718 428.14C120.029 396.414 113.678 361.838 125.837 331.274C141.768 291.221 185.939 268.788 228.737 263.659C271.536 258.515 314.621 267.008 357.6 270.282C400.58 273.556 446.607 270.719 482.028 246.16C531.163 212.111 547.275 145.733 591.612 105.635C628.572 72.19 684.375 61.1622 731.276 78.0432"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M167.564 428.14C159.432 398.451 153.504 366.107 164.863 337.519C179.753 300.046 221.088 279.062 261.126 274.265C301.164 269.452 341.473 277.402 381.677 280.465C421.88 283.527 464.95 280.872 498.094 257.896C544.061 226.035 559.146 163.942 600.617 126.423C635.194 95.1355 687.406 84.8167 731.276 100.612"
+                    stroke="currentColor" stroke-miterlimit="10" />
+            </svg>
         </div>
     </section>
 
     <section class="section loan-steps py-4 bg-tertiary">
         <div class="container">
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center mb-0">
                 <div class="col-lg-9">
-                    <div class="section-title text-center">
+                    <div class="section-title text-center mb-0">
                         <p class="text-primary text-uppercase fw-bold mb-0 fs-4">Mekanisme Pelayanan</p>
                         <h1>Urus Kebutuhan Dengan 5 Langkah Mudah di MPP Balikpapan</h1>
                     </div>
@@ -716,7 +752,7 @@
                 <div class="col-lg-12">
                     <div class="row justify-content-center">
                         @foreach ($mekanisme as $item)
-                            <div class="step-item col">
+                            <div class="step-item col mt-0">
                                 <div class="text-center">
                                     <p class="count">{{ $loop->iteration }}</p>
                                     <h3 class="mb-3">{{ $item->judul }}</h3>
@@ -752,7 +788,7 @@
                             </div>
                             @foreach ($berita as $item)
                                 <div class="col-md-4" data-aos="fade">
-                                    <article class="card blog-post h-100 shadow">
+                                    <article class="card blog-post h-100 shadow-lg">
                                         <img class="card-img-top mb-0" loading="lazy" decoding="async"
                                             src="{{ url($item->gambar) }}" alt="Post Thumbnail" width="420"
                                             height="280" style="height: 250px; widows: 100%; object-fit: cover;">
@@ -862,26 +898,33 @@
 
     <section class="section py-4">
         <div class="container">
-            <div class="section-title text-center mb-3 pb-2">
-                <p class="text-primary text-uppercase fw-bold mb-1 fs-4">STATISTIK KUNJUNGAN MPP BALIKPAPAN</p>
+            <div class="section-title text-center mb-1 pb-2">
+                <p class="text-primary text-uppercase fw-bold mb-0 fs-4">STATISTIK KUNJUNGAN PELAYANAN MPP BALIKPAPAN</p>
             </div>
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
+            <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item me-3" role="presentation">
                     <button class="nav-link active" id="pills-harian-tab" data-bs-toggle="pill"
                         data-bs-target="#pills-harian" type="button" role="tab" aria-controls="pills-harian"
                         aria-selected="true">KUNJUNGAN HARIAN</button>
                 </li>
-                {{-- <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="pills-bulanan-tab" data-bs-toggle="pill" data-bs-target="#pills-bulanan" type="button" role="tab" aria-controls="pills-bulanan" aria-selected="false">KUNJUNGAN BULANAN</button>
+                <li class="nav-item me-3" role="presentation">
+                    <button class="nav-link" id="pills-bulanan-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-bulanan" type="button" role="tab" aria-controls="pills-bulanan"
+                        aria-selected="true">KUNJUNGAN BULANAN</button>
                 </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="pills-instansi-tab" data-bs-toggle="pill" data-bs-target="#pills-instansi" type="button" role="tab" aria-controls="pills-instansi" aria-selected="false">KUNJUGAN PER INSTANSI</button>
-                </li> --}}
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-harian" role="tabpanel"
                     aria-labelledby="pills-harian-tab">
-                    <canvas id="myChart"></canvas>
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <div class="card shadow-lg border border-primary border-2">
+                                <div class="card-body">
+                                    <canvas id="myChart" style="height: 100px"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="pills-bulanan" role="tabpanel" aria-labelledby="pills-bulanan-tab">
                     ...
@@ -897,13 +940,13 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <div class="section-title text-center mb-3 pb-2">
+                    <div class="section-title text-center mb-1 pb-2">
                         <p class="text-primary text-uppercase fw-bold mb-1 fs-4">Kontak Kami</p>
                         <h1>Pertanyaan-Pertanyaan terkait MPP Balikpapan</h1>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="accordion shadow rounded py-5 px-0 px-lg-4 bg-white position-relative" id="dropfaq">
+                    <div class="accordion shadow border-light border-1 rounded py-5 px-0 px-lg-4 bg-white position-relative" id="dropfaq">
                         @foreach ($faq as $item)
                             <div class="accordion-item p-1 mb-2">
                                 <h2 class="accordion-header accordion-button h5 border-0"
@@ -921,7 +964,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 mt-4 mt-lg-0">
-                    <div class="shadow rounded py-5 px-4 ms-0 ms-lg-4 bg-white position-relative">
+                    <div class="shadow border-light border-1 rounded py-5 px-4 ms-0 ms-lg-4 bg-white position-relative">
                         <div class="block mx-0 mx-lg-3 mt-0">
                             <h4 class="h5">Masih memiliki Pertanyaan?</h4>
                             <div class="content">Tidak perlu ragu hubungi kami

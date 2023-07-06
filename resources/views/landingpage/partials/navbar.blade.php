@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top bg-white navbar-expand-xl navbar-light text-center shadow-sm py-3">
+<nav class="navbar fixed-top bg-white navbar-expand-xl navbar-light text-center shadow-sm py-1">
     <div class="container">
         <a class="navbar-brand" href="/">
             <img loading="prelaod" decoding="async" class="img-fluid" width="160" src="tlandingpage/images/logo.png">
