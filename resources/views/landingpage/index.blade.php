@@ -407,7 +407,7 @@
                 <div class="col-3 bg-blues2 rounded">
                     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
                         <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
-                        <p class="display-2 fw-bold text-white mb-0">{{ $skm }}</p>
+                        <p class="display-2 fw-bold text-white mb-0">{{ $skm->nilai }}</p>
                         <p class="fs-5 text-white mb-0">Total Responden <span class="fw-semibold">452</span></p>
 
                         <!-- <a href="#!" class="btn btn-outline-primary">Masuk</a> -->
