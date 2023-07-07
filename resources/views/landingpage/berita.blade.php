@@ -7,16 +7,15 @@
                         <div class="row gy-5">
                             @foreach ($berita as $item)
                                 <div class="col-md-6" data-aos="fade">
-                                    <article class="blog-post">
-                                        <div class="post-slider slider-sm rounded">
-                                            <img loading="lazy" decoding="async" src="{{ url($item->gambar) }}"
-                                                alt="Post Thumbnail"
-                                                style="height: 250px; widows: 100%; object-fit: cover;">
-                                        </div>
-                                        <div class="pt-4">
-                                            <p class="mb-3">{{ $item->created_at->format('d M Y') }}</p>
+                                    <article class="card blog-post h-100 shadow-lg">
+                                        <img class="card-img-top mb-0" loading="lazy" decoding="async"
+                                            src="{{ url($item->gambar) }}" alt="Post Thumbnail" width="420"
+                                            height="280" style="height: 250px; widows: 100%; object-fit: cover;">
+                                        <div class="card-body">
+                                            <p class="mb-3">{{ $item->created_at->format('d M, Y') }}</p>
                                             <h2 class="h4"><a class="text-black"
-                                                    href="{{ url('berita/' . $item->slug) }}">{{ $item->judul }}</a></h2>
+                                                    href="{{ url('berita/' . $item->slug) }}">{!! substr_replace($item->judul, '...', 60) !!}</a>
+                                            </h2>
                                             {!! substr_replace($item->isi, '...', 150) !!}
                                             <a href="{{ url('berita/' . $item->slug) }}" class="text-primary fw-bold"
                                                 aria-label="Read the full article by clicking here">Read More</a>
@@ -73,9 +72,9 @@
                     <div class="widget">
                         <h5 class="widget-title"><span>Berita Populer</span></h5>
                         <!-- post-item -->
+                        <ul class="list-unstyled widget-list">
                         @foreach ($RandomPost as $item)
-                            <ul class="list-unstyled widget-list">
-                                <li class="d-flex widget-post align-items-center">
+                                <li class="shadow-lg border border-light py-2 px-2 rounded d-flex widget-post align-items-center mb-3">
                                     <a class="text-black" href="/blog/post-2/">
                                         <div class="widget-post-image flex-shrink-0 me-3">
                                             <img class="rounded" loading="lazy" decoding="async"
@@ -84,12 +83,12 @@
                                     </a>
                                     <div class="flex-grow-1">
                                         <h5 class="h6 mb-0"><a class="text-black"
-                                                href="{{ url('berita/' . $item->slug) }}">{{ $item->judul }}</a></h5>
+                                                href="{{ url('berita/' . $item->slug) }}">{!! substr_replace($item->judul, '...', 60) !!}</a></h5>
                                         <small>{{ $item->created_at->format('M d, Y') }}</small>
                                     </div>
                                 </li>
+                                @endforeach
                             </ul>
-                        @endforeach
 
                     </div>
                     <!-- Social -->

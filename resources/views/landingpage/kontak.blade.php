@@ -1,21 +1,18 @@
 <x-guest-layout>
-    <section class="section">
+    <section class="section pb-5 bg-blues2 mt-0">
         <div class="container">
             <div class="row justify-content-center align-items-center">
-                <div class="col-lg-6">
-                    <div class="section-title text-center">
-                        <p class="text-primary text-uppercase fw-bold mb-3">Kontak Kami</p>
-                        <h1>Kontak Kami</h1>
-                        <p>Anda dapat menghubungi kami mengenai pelayanan terkait pada kontak berikut</p>
-                    </div>
-                </div>
                 <div class="col-lg-10">
-                    <div class="shadow rounded p-5 bg-white">
+                    <div class="shadow-lg border border-primary rounded p-5 pt-0 bg-white">
+                        <div class="text-center py-3">
+                            <h2 class="text-primary mb-0">Kontak Kami</h2>
+                            <p class="text-dark">Anda dapat menghubungi kami mengenai pelayanan terkait pada kontak berikut</p>
+                        </div>
                         <div class="row">   
                             <div class="col-lg-6 pe-0 me-0">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8795625288067!2d116.89192527445266!3d-1.242929135579187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df145d2ca07469f%3A0xbeaa42901e1bc977!2sMal%20Pelayanan%20Publik%20(MPP)%20Kota%20Balikpapan!5e0!3m2!1sid!2sid!4v1687807835052!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
-                            <div class="col-lg-6 mt-5 mt-lg-0">
+                            <div class="col-lg-6 ps-0 mt-5 mt-lg-0">
                                 <div class="contact-info">
                                     <div class="block mt-0">
                                         <h4 class="h5">Hubungi Kami</h4>

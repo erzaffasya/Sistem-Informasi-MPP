@@ -621,7 +621,7 @@
         </div>
     </section>
 
-    <section class="section bg-blues2 py-4" id="layanan-mpp">
+    <section class="section bg-blues2 bg-img-overlay py-4" id="layanan-mpp">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-9">

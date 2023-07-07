@@ -1,11 +1,11 @@
 <x-guest-layout>
-    <div class="section mt-5 bg-primary">
+    <div class="section mt-0 pb-3 bg-blues2">
         <div class="container">
             <div class="card">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
-                        <div class="mb-5">
-                            <h2 class="mb-4" style="line-height:1.5">{{$berita->judul}}</h2>
+                        <div class="mb-2">
+                            <h2 class="mb-2" style="line-height:1.5">{{$berita->judul}}</h2>
                             <span>{{$berita->created_at->format('M d, Y')}}<span class="mx-2">/</span> </span>
                             <p class="list-inline-item">Category : <a href="#!" class="ml-1">Photography </a>
                             </p>
