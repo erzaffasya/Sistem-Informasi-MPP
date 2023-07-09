@@ -20,11 +20,11 @@
         </div>
     </section>
 
-    <section class="about-section section bg-blues2 py-5 position-relative overflow-hidden">
+    <section class="about-section section bg-blues2 bg-img-overlay item1-img py-5 position-relative overflow-hidden">
         <div class="container">
             <div class="row justify-content-around align-items-center">
-                <div class="col-lg-7">
-                    <img class="img-fluid w-100" src="tlandingpage/images/maklumat.jpg" alt="Wallet" style="border-radius: 8px;">
+                <div class="col-lg-6">
+                    <img class="img-fluid w-100" src="tlandingpage/images/maklumat.png" alt="Wallet" style="border-radius: 8px;">
                 </div>
                 <div class="col-lg-5">
                     <div class="section-title">
@@ -77,9 +77,9 @@
                     <div class="row position-relative gy-4">
                         @foreach ($filosofi as $item)
                         <div class="icon-box-item col-md-6">
-                            <div class="block bg-white">
+                            <div class="block bg-white shadow-lg rounded py-3 px-3 h-100">
                                 <div class="icon rounded-number">{{$loop->iteration}}</div>
-                                <h3 class="mb-3">{{$item->judul}}</h3>
+                                <h3 class="mb-1">{{$item->judul}}</h3>
                                 <p class="mb-0 text-capitalize">{!!$item->deskripsi!!}</p>
                             </div>
                         </div>
@@ -211,7 +211,7 @@
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0">
                     <div class="section-title ps-0 ps-lg-5">
-                        <p class="text-primary text-uppercase fw-bold mb-3">Penjelasan</p>
+                        <p class="text-primary text-uppercase fw-bold mb-0">Penjelasan</p>
                         <h2 class="h1">Filosofi Logo MPP Balikpapan</h2>
                         <div class="content">
                             <img class="img-fluid mb-3 mt-4" width="250" src="{{$tentang->filosofi_foto}}" alt="Wallet">
@@ -227,10 +227,10 @@
 
     <section class="section py-5">
         <div class="container">
-            <div class="section-title text-center">
-                <p class="text-primary text-uppercase fw-bold mb-3">Inovasi MPP</p>
+            <div class="section-title text-center mb-2">
+                <p class="text-primary text-uppercase fw-bold mb-0">Inovasi MPP</p>
                 <h1>{{$tentang->inovasi_judul}}</h1>
-                <p class="mb-0">{{$tentang->inovasi_detail}}</p>
+                <p class="mb-2">{{$tentang->inovasi_detail}}</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-9">

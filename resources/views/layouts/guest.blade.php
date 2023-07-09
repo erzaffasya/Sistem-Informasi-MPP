@@ -22,7 +22,7 @@
   <!-- /navigation -->
   {{$slot}}
 
-  <footer class="section-sm">
+  <footer class="section py-4">
     @include('landingpage.partials.footer')
   </footer>
 

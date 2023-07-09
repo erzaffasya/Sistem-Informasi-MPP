@@ -1,8 +1,8 @@
 <x-guest-layout>
-    <section class="section pb-5 bg-blues2 mt-0">
+    <section class="section pb-5 bg-blues2 bg-img-overlay item4-img mt-0">
         <div class="container">
             <div class="row justify-content-center align-items-center">
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <div class="shadow-lg border border-primary rounded p-5 pt-0 bg-white">
                         <div class="text-center py-3">
                             <h2 class="text-primary mb-0">Kontak Kami</h2>

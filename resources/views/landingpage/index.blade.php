@@ -77,33 +77,139 @@
         </div>
     @endforeach
 
-
-    <section class="banner position-relative overflow-hidden pt-6 pb-0">
+    <section class="banner position-relative overflow-hidden pt-6 pb-0" style="background: #02062e; position: relative;">
+        <canvas id="dots-canvas" class="w-100 h-100" style="position: absolute; z-index: -1; top:0; left:0;"></canvas>
+        <div class="wrap-dots w-100 h-100" style="position: absolute;">
+            <div class="left-side">
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+            </div>
+            <div class="right-side">
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+            </div>
+          </div>
         <div class="row align-items-center justify-content-center">
-            <div class="col-lg-12 mb-5 mb-3">
+            <div class="col-lg-12 my-4">
                 <div class="text-center">
-                    <p class="text-danger text-uppercase fw-bold mb-1 fs-4 mt-4">MAL PELAYANAN PUBLIK KOTA BALIKPAPAN</p>
-                    <div id="wrap-text-animate" class="text-dark fs-1">
-                        URUS BERMACAM PELAYANAN PUBLIK
-                        <div id="flip-animate">
-                            <div>
-                                <div>KTP</div>
-                            </div>
-                            <div>
-                                <div>BPJS</div>
-                            </div>
-                            <div>
-                                <div>LISTRIK</div>
-                            </div>
-                        </div>
-                        <br>
-                    </div>
-                    <p class="text-primary text-uppercase fw-bold mb-1 fs-3">{{ $profile->slogan }}</p>
-                    {{-- <h1 class="text-capitalize mb-2"><span class="text-uppercase">Mal Pelayanan Publik</span><br><span
-                            class="fs-1">Kota Balikpapan</span></h1> --}}
-                    {{-- <p class="fs-5 mb-0">Dapatkan berbagai macam pelayanan publik dinas, kantor, instansi secara cepat
-                        dan mudah
-                        hanya dalam 1 tempat</p> --}}
+                    <p class="text-white d-inline px-2 bg-blues2 text-uppercase fw-bold mb-0 fs-4 mt-4">MAL PELAYANAN PUBLIK KOTA BALIKPAPAN</p>
+                    
+                    <h1 class=" text-white mb-0">CARA MUDAH MENGURUS
+                    <span
+                        class="txt-rotate text-danger"
+                        data-period="500"
+                        data-rotate='[ "PASPOR", "BPJS", "STNK", "PERIZINAN" ]'></span>
+                    </h1>
+                    <p class="text-primary text-uppercase mb-0 fs-4">{{ $profile->slogan }}</p>
                 </div>
             </div>
             <div class="col-lg-12" style="position: relative;">
@@ -112,53 +218,6 @@
                         width="80%">
                 </div>
             </div>
-        </div>
-        <div class="has-shapes">
-            <svg class="shape shape-left text-light" viewBox="0 0 192 752" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M-30.883 0C-41.3436 36.4248 -22.7145 75.8085 4.29154 102.398C31.2976 128.987 65.8677 146.199 97.6457 166.87C129.424 187.542 160.139 213.902 172.162 249.847C193.542 313.799 149.886 378.897 129.069 443.036C97.5623 540.079 122.109 653.229 191 728.495"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M-55.5959 7.52271C-66.0565 43.9475 -47.4274 83.3312 -20.4214 109.92C6.58466 136.51 41.1549 153.722 72.9328 174.393C104.711 195.064 135.426 221.425 147.449 257.37C168.829 321.322 125.174 386.42 104.356 450.559C72.8494 547.601 97.3965 660.752 166.287 736.018"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M-80.3302 15.0449C-90.7909 51.4697 -72.1617 90.8535 -45.1557 117.443C-18.1497 144.032 16.4205 161.244 48.1984 181.915C79.9763 202.587 110.691 228.947 122.715 264.892C144.095 328.844 100.439 393.942 79.622 458.081C48.115 555.123 72.6622 668.274 141.552 743.54"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M-105.045 22.5676C-115.506 58.9924 -96.8766 98.3762 -69.8706 124.965C-42.8646 151.555 -8.29436 168.767 23.4835 189.438C55.2615 210.109 85.9766 236.469 98.0001 272.415C119.38 336.367 75.7243 401.464 54.9072 465.604C23.4002 562.646 47.9473 675.796 116.838 751.063"
-                    stroke="currentColor" stroke-miterlimit="10" />
-            </svg>
-            <svg class="shape shape-right text-light" viewBox="0 0 731 746" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M12.1794 745.14C1.80036 707.275 -5.75764 666.015 8.73984 629.537C27.748 581.745 80.4729 554.968 131.538 548.843C182.604 542.703 234.032 552.841 285.323 556.748C336.615 560.64 391.543 557.276 433.828 527.964C492.452 487.323 511.701 408.123 564.607 360.255C608.718 320.353 675.307 307.183 731.29 327.323"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M51.0253 745.14C41.2045 709.326 34.0538 670.284 47.7668 635.783C65.7491 590.571 115.623 565.242 163.928 559.449C212.248 553.641 260.884 563.235 309.4 566.931C357.916 570.627 409.887 567.429 449.879 539.701C505.35 501.247 523.543 426.331 573.598 381.059C615.326 343.314 678.324 330.853 731.275 349.906"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M89.8715 745.14C80.6239 711.363 73.8654 674.568 86.8091 642.028C103.766 599.396 150.788 575.515 196.347 570.054C241.906 564.578 287.767 573.629 333.523 577.099C379.278 580.584 428.277 577.567 465.976 551.423C518.279 515.172 535.431 444.525 582.62 401.832C621.964 366.229 681.356 354.493 731.291 372.46"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M128.718 745.14C120.029 713.414 113.678 678.838 125.837 648.274C141.768 608.221 185.939 585.788 228.737 580.659C271.536 575.515 314.621 584.008 357.6 587.282C400.58 590.556 446.607 587.719 482.028 563.16C531.163 529.111 547.275 462.733 591.612 422.635C628.572 389.19 684.375 378.162 731.276 395.043"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M167.564 745.14C159.432 715.451 153.504 683.107 164.863 654.519C179.753 617.046 221.088 596.062 261.126 591.265C301.164 586.452 341.473 594.402 381.677 597.465C421.88 600.527 464.95 597.872 498.094 574.896C544.061 543.035 559.146 480.942 600.617 443.423C635.194 412.135 687.406 401.817 731.276 417.612"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M817.266 289.466C813.108 259.989 787.151 237.697 759.261 227.271C731.372 216.846 701.077 215.553 671.666 210.904C642.254 206.24 611.795 197.156 591.664 175.224C555.853 136.189 566.345 75.5336 560.763 22.8649C552.302 -56.8256 498.487 -130.133 425 -162.081"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M832.584 276.159C828.427 246.683 802.469 224.391 774.58 213.965C746.69 203.539 716.395 202.246 686.984 197.598C657.573 192.934 627.114 183.85 606.982 161.918C571.172 122.883 581.663 62.2275 576.082 9.55873C567.62 -70.1318 513.806 -143.439 440.318 -175.387"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M847.904 262.853C843.747 233.376 817.789 211.084 789.9 200.659C762.011 190.233 731.716 188.94 702.304 184.292C672.893 179.627 642.434 170.544 622.303 148.612C586.492 109.577 596.983 48.9211 591.402 -3.74766C582.94 -83.4382 529.126 -156.746 455.638 -188.694"
-                    stroke="currentColor" stroke-miterlimit="10" />
-                <path
-                    d="M863.24 249.547C859.083 220.07 833.125 197.778 805.236 187.353C777.347 176.927 747.051 175.634 717.64 170.986C688.229 166.321 657.77 157.237 637.639 135.306C601.828 96.2707 612.319 35.6149 606.738 -17.0538C598.276 -96.7443 544.462 -170.052 470.974 -202"
-                    stroke="currentColor" stroke-miterlimit="10" />
-            </svg>
         </div>
     </section>
 
@@ -404,14 +463,12 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-3 bg-blues2 rounded">
                     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
                         <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
                         <p class="display-2 fw-bold text-white mb-0">{{ $skm->nilai }}</p>
                         <p class="fs-5 text-white mb-0">Total Responden <span class="fw-semibold">452</span></p>
-
-                        <!-- <a href="#!" class="btn btn-outline-primary">Masuk</a> -->
-                        <!-- <p class="h5 text-white fw-normal mb-0 text-lowercase">( Sangat Baik )</p> -->
                     </div>
                 </div>
             </div>
@@ -477,7 +534,7 @@
         </div>
     </section>
 
-    <section class="section bg-blues2 py-4">
+    <section class="section bg-blues2 bg-img-overlay item3-img py-4">
         <div class="container">
             <div class="row justify-content-around align-items-center">
                 <div class="col-lg-6">
@@ -552,8 +609,6 @@
                                     aria-selected="true">{{ $item->judul }} </a>
                             </li>
                         @endforeach
-
-
                     </ul>
                     <div class="rounded shadow bg-white p-3 tab-content" id="pills-tabContent">
 
@@ -583,51 +638,16 @@
                     </div>
                 </div>
             </div>
-            <div class="has-shapes">
-                <svg class="shape shape-left text-light" width="290" height="709" viewBox="0 0 290 709"
-                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M-119.511 58.4275C-120.188 96.3185 -92.0001 129.539 -59.0325 148.232C-26.0649 166.926 11.7821 174.604 47.8274 186.346C83.8726 198.088 120.364 215.601 141.281 247.209C178.484 303.449 153.165 377.627 149.657 444.969C144.34 546.859 197.336 649.801 283.36 704.673"
-                        stroke="currentColor" stroke-miterlimit="10" />
-                    <path
-                        d="M-141.434 72.0899C-142.111 109.981 -113.923 143.201 -80.9554 161.895C-47.9878 180.588 -10.1407 188.267 25.9045 200.009C61.9497 211.751 98.4408 229.263 119.358 260.872C156.561 317.111 131.242 391.29 127.734 458.631C122.417 560.522 175.414 663.463 261.437 718.335"
-                        stroke="currentColor" stroke-miterlimit="10" />
-                    <path
-                        d="M-163.379 85.7578C-164.056 123.649 -135.868 156.869 -102.901 175.563C-69.9331 194.256 -32.086 201.934 3.9592 213.677C40.0044 225.419 76.4955 242.931 97.4127 274.54C134.616 330.779 109.296 404.957 105.789 472.299C100.472 574.19 153.468 677.131 239.492 732.003"
-                        stroke="currentColor" stroke-miterlimit="10" />
-                    <path
-                        d="M-185.305 99.4208C-185.982 137.312 -157.794 170.532 -124.826 189.226C-91.8589 207.919 -54.0118 215.597 -17.9666 227.34C18.0787 239.082 54.5697 256.594 75.4869 288.203C112.69 344.442 87.3706 418.62 83.8633 485.962C78.5463 587.852 131.542 690.794 217.566 745.666"
-                        stroke="currentColor" stroke-miterlimit="10" />
-                </svg>
-                <svg class="shape shape-right text-light" width="474" height="511" viewBox="0 0 474 511"
-                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M601.776 325.899C579.043 348.894 552.727 371.275 520.74 375.956C478.826 382.079 438.015 355.5 412.619 321.6C387.211 287.707 373.264 246.852 354.93 208.66C336.584 170.473 311.566 132.682 273.247 114.593C220.12 89.5159 155.704 108.4 99.7772 90.3769C53.1531 75.3464 16.3392 33.2759 7.65012 -14.947"
-                        stroke="currentColor" stroke-miterlimit="10" />
-                    <path
-                        d="M585.78 298.192C564.28 319.945 539.378 341.122 509.124 345.548C469.472 351.341 430.868 326.199 406.845 294.131C382.805 262.059 369.62 223.419 352.278 187.293C334.936 151.168 311.254 115.417 275.009 98.311C224.74 74.582 163.815 92.4554 110.913 75.3971C66.8087 61.1784 31.979 21.3767 23.7639 -24.2362"
-                        stroke="currentColor" stroke-miterlimit="10" />
-                    <path
-                        d="M569.783 270.486C549.5 290.99 526.04 310.962 497.501 315.13C460.111 320.592 423.715 296.887 401.059 266.641C378.392 236.402 365.963 199.965 349.596 165.901C333.24 131.832 310.911 98.1265 276.74 82.0034C229.347 59.6271 171.895 76.4848 122.013 60.4086C80.419 47.0077 47.5905 9.47947 39.8431 -33.5342"
-                        stroke="currentColor" stroke-miterlimit="10" />
-                    <path
-                        d="M553.787 242.779C534.737 262.041 512.691 280.809 485.884 284.722C450.757 289.853 416.568 267.586 395.286 239.173C373.993 210.766 362.308 176.538 346.945 144.535C331.581 112.533 310.605 80.8723 278.502 65.7217C233.984 44.6979 180.006 60.54 133.149 45.4289C94.0746 32.8398 63.2303 -2.41965 55.9568 -42.8233"
-                        stroke="currentColor" stroke-miterlimit="10" />
-                    <path
-                        d="M537.791 215.073C519.964 233.098 499.336 250.645 474.269 254.315C441.41 259.126 409.422 238.286 389.513 211.704C369.594 185.13 358.665 153.106 344.294 123.17C329.923 93.2337 310.293 63.6078 280.258 49.4296C238.605 29.7646 188.105 44.5741 144.268 30.4451C107.714 18.6677 78.8538 -14.3229 72.0543 -52.1165"
-                        stroke="currentColor" stroke-miterlimit="10" />
-                </svg>
-            </div>
         </div>
     </section>
 
-    <section class="section bg-blues2 bg-img-overlay py-4" id="layanan-mpp">
+    <section class="section bg-blues2 bg-img-overlay item2-img py-5" id="layanan-mpp">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-9">
                     <div class="section-title text-center">
-                        <h1 class=" text-white">Loket Pelayanan MPP Balikpapan</h1>
-                        <p class=" text-white">Tedapat {{ $instansi->count() }} Loket Pelayanan Instansi, Kantor, dan
+                        <h1 class="mb-1 text-white">Loket Pelayanan MPP Balikpapan</h1>
+                        <p class="fs-5 text-white">Tedapat {{ $instansi->count() }} Loket Pelayanan Instansi, Kantor, dan
                             Dinas</p>
                     </div>
                 </div>
@@ -649,6 +669,10 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <div class="text-center mt-3">
+                <a href="tlandingpage/images/denah1.jpg" data-lightbox="imagedenah" data-title="Denah Lantai 1" class="btn btn-warning btn-sm me-3">Denah Lantai 1</a>
+                <a href="tlandingpage/images/denah2.jpg" data-lightbox="imagedenah" data-title="Denah Lantai 2" class="btn btn-warning btn-sm">Denah Lantai 2</a>
             </div>
         </div>
     </section>
@@ -706,7 +730,7 @@
                 fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M-119.511 58.4275C-120.188 96.3185 -92.0001 129.539 -59.0325 148.232C-26.0649 166.926 11.7821 174.604 47.8274 186.346C83.8726 198.088 120.364 215.601 141.281 247.209C178.484 303.449 153.165 377.627 149.657 444.969C144.34 546.859 197.336 649.801 283.36 704.673"
-                    stroke="currentColor" stroke-miterlimit="10" />
+                    stroke="currentColor" stroke-miterlimit="10" /> 
                 <path
                     d="M-141.434 72.0899C-142.111 109.981 -113.923 143.201 -80.9554 161.895C-47.9878 180.588 -10.1407 188.267 25.9045 200.009C61.9497 211.751 98.4408 229.263 119.358 260.872C156.561 317.111 131.242 391.29 127.734 458.631C122.417 560.522 175.414 663.463 261.437 718.335"
                     stroke="currentColor" stroke-miterlimit="10" />
@@ -896,43 +920,46 @@
         </div>
     </section>
 
-    <section class="section py-4">
+    <section class="section py-4 bg-blues2 bg-img-overlay item4-img" style="position: relative; overflow:hidden">
         <div class="container">
+            <img class="char-img char-img1" src="tlandingpage/images/char1.png" alt="">
+            <img class="char-img char-img2" src="tlandingpage/images/char2.png" alt="">
             <div class="section-title text-center mb-1 pb-2">
-                <p class="text-primary text-uppercase fw-bold mb-0 fs-4">STATISTIK KUNJUNGAN PELAYANAN MPP BALIKPAPAN</p>
+                <p class="text-white text-uppercase fw-bold mb-0 fs-2">STATISTIK KUNJUNGAN PELAYANAN MPP BALIKPAPAN</p>
             </div>
-            <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item me-3" role="presentation">
-                    <button class="nav-link active" id="pills-harian-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-harian" type="button" role="tab" aria-controls="pills-harian"
-                        aria-selected="true">KUNJUNGAN HARIAN</button>
-                </li>
-                <li class="nav-item me-3" role="presentation">
-                    <button class="nav-link" id="pills-bulanan-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-bulanan" type="button" role="tab" aria-controls="pills-bulanan"
-                        aria-selected="true">KUNJUNGAN BULANAN</button>
-                </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-harian" role="tabpanel"
-                    aria-labelledby="pills-harian-tab">
-                    <div class="row justify-content-center">
-                        <div class="col-8">
-                            <div class="card shadow-lg border border-primary border-2">
-                                <div class="card-body">
-                                    <canvas id="myChart" style="height: 100px"></canvas>
+            <div class="row justify-content-center">
+                <div class="col-7">
+                    <div class="card shadow-lg rounded" style="min-height: 450px;">
+                        <div class="card-body">
+                            <ul class="nav nav-pills justify-content-center mb-2" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="pills-harian-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-harian" type="button" role="tab" aria-controls="pills-harian"
+                                        aria-selected="true">KUNJUNGAN HARIAN</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-bulanan-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-bulanan" type="button" role="tab" aria-controls="pills-bulanan"
+                                        aria-selected="true">KUNJUNGAN BULANAN</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-harian" role="tabpanel"
+                                    aria-labelledby="pills-harian-tab">
+                                        <canvas id="myChart" style="height: 100px"></canvas>
+                                </div>
+                                <div class="tab-pane fade" id="pills-bulanan" role="tabpanel" aria-labelledby="pills-bulanan-tab">
+                                    ...
+                                </div>
+                                <div class="tab-pane fade" id="pills-instansi" role="tabpanel" aria-labelledby="pills-instansi-tab">
+                                    ...
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pills-bulanan" role="tabpanel" aria-labelledby="pills-bulanan-tab">
-                    ...
-                </div>
-                <div class="tab-pane fade" id="pills-instansi" role="tabpanel" aria-labelledby="pills-instansi-tab">
-                    ...
-                </div>
             </div>
+            
         </div>
     </section>
 
@@ -946,7 +973,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="accordion shadow border-light border-1 rounded py-5 px-0 px-lg-4 bg-white position-relative" id="dropfaq">
+                    <div class="accordion shadow-lg border-light border-1 rounded py-5 px-0 px-lg-4 bg-white position-relative" id="dropfaq">
                         @foreach ($faq as $item)
                             <div class="accordion-item p-1 mb-2">
                                 <h2 class="accordion-header accordion-button h5 border-0"
@@ -964,7 +991,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 mt-4 mt-lg-0">
-                    <div class="shadow border-light border-1 rounded py-5 px-4 ms-0 ms-lg-4 bg-white position-relative">
+                    <div class="shadow-lg border-light border-1 rounded py-5 px-4 ms-0 ms-lg-4 bg-white position-relative">
                         <div class="block mx-0 mx-lg-3 mt-0">
                             <h4 class="h5">Masih memiliki Pertanyaan?</h4>
                             <div class="content">Tidak perlu ragu hubungi kami
@@ -1012,8 +1039,8 @@
         </div>
     </section>
 
-    <div style="position: relative; overflow:visible;">
-        <section class="banner bg-blues2 position-relative overflow-hidden pt-5 pb-0">
+    <div style="position: relative; low:visible;">
+        <section class="banner bg-blues2 bg-img-overlay item5-img position-relative overflow-hidden pt-5 pb-0">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12 mb-5 mb-3 text-center">
                     <h1 class="text-white text-uppercase fw-bold mb-1">MAL PELAYANAN PUBLIK KOTA BALIKPAPAN</h1>
@@ -1026,6 +1053,63 @@
 
     @push('scripts')
         <script>
+            var TxtRotate = function(el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 0) || 0;
+                this.txt = '';
+                this.tick();
+                this.isDeleting = false;
+            };
+
+            TxtRotate.prototype.tick = function() {
+                var i = this.loopNum % this.toRotate.length;
+                var fullTxt = this.toRotate[i];
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+                var that = this;
+                var delta = 250 - Math.random() * 100;
+
+                if (this.isDeleting) { delta /= 2; }
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    delta = this.period;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.loopNum++;
+                    delta = 450;
+                }
+
+                setTimeout(function() {
+                    that.tick();
+                    }, delta);
+            };
+
+            window.onload = function() {
+                var elements = document.getElementsByClassName('txt-rotate');
+                for (var i=0; i<elements.length; i++) {
+                    var toRotate = elements[i].getAttribute('data-rotate');
+                    var period = elements[i].getAttribute('data-period');
+                    if (toRotate) {
+                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                    }
+                }
+                var css = document.createElement("style");
+                css.type = "text/css";
+                css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+                document.body.appendChild(css);
+            };
+
+            // CHART
             const ctx = document.getElementById('myChart');
 
             new Chart(ctx, {
@@ -1048,6 +1132,126 @@
                     }
                 }
             });
+
+            // ANIMATE HEADER DOT KECIL
+            const canvas = document.getElementById("dots-canvas");
+            const ctx2 = canvas.getContext("2d");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particles = [];
+
+            let mouse = {
+                x: undefined,
+                y: undefined,
+                radius: 100
+            };
+
+            window.addEventListener("mousemove", (e) => {
+                mouse.x = e.x;
+                mouse.y = e.y;
+            });
+            window.addEventListener("mouseout", () => {
+                mouse.x = undefined;
+                mouse.y = undefined;
+            });
+
+            class Particle {
+                constructor(x, y, radius, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.baseX = x;
+                    this.baseY = y;
+                    this.radius = 2 || radius;
+                    this.color = "#101d97" || color;
+                    this.velocity = Math.random() * 10 + 10;
+                }
+
+                draw() {
+                    ctx2.beginPath();
+                    ctx2.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                    ctx2.fillStyle = this.color;
+                    ctx2.fill();
+                    ctx2.closePath();
+                }
+
+                update() {
+                    let dx = mouse.x - this.x,
+                        dy = mouse.y - this.y,
+                        distance = Math.hypot(dx, dy),
+                        forceDirectionX = dx / distance,
+                        forceDirectionY = dy / distance,
+                        force = (mouse.radius - distance) / mouse.radius;
+
+                    if (force < 0) {
+                        force = 0;
+                    }
+
+                    let directionX = force * forceDirectionX * this.velocity,
+                        directionY = force * forceDirectionY * this.velocity;
+
+                    if (distance < this.radius + mouse.radius) {
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    } else {
+                        if (this.x != this.baseX) {
+                            let dx = this.x - this.baseX;
+                            this.x -= dx / 15;
+                        }
+                        if (this.y != this.baseY) {
+                            let dy = this.y - this.baseY;
+                            this.y -= dy / 15;
+                        }
+                    }
+                    this.draw();
+                }
+            }
+
+            let grid = 30;
+            function init() {
+                for (let a = 0; a < grid; a++) {
+                    for (let b = 0; b < grid; b++) {
+                        let initX = canvas.width / grid,
+                            initY = canvas.height / grid;
+
+                        particles.push(
+                            new Particle(initX * b + initX / 2, initY * a + initY / 2)
+                        );
+                    }
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx2.fillStyle = `#02062e`;
+                ctx2.fillRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((particle) => {
+                    particle.update();
+                });
+            }
+
+            init();
+            animate();
+
+            window.addEventListener("resize", () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                particles = [];
+                init();
+            });
+
+            // ANIMATE HEADER DOT BIRU
+            const dots = document.getElementsByClassName('dot');
+            console.log(dots);
+
+            // DENAH JS
+            imagedenah.option({
+                'resizeDuration': 100,
+                'imageFadeDuration': 100,
+                'fadeDuration': 100,
+                'wrapAround': True,
+                'disableScrolling' : True,
+            })
         </script>
     @endpush
 </x-guest-layout>
