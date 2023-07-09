@@ -659,7 +659,7 @@
                             <div>
                                 <img src="{{ $item->gambar }}" class="d-inline-block mb-2" width="150px">
                                 <h3 class="mb-0 service-title">{{ $item->nama_instansi }}</h3>
-                                <p class="mb-3 text-secondary">Lantai 3 Loket 2</p>
+                                <p class="mb-3 text-secondary">Lantai {{$item->lantai}} Loket {{$item->loket}}</p>
                             </div>
                             <div class="content">
                                 <a href="#" data-bs-toggle="modal"
