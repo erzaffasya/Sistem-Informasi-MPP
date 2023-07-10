@@ -19,51 +19,46 @@ class Controller extends BaseController
     public function generatePassword()
     {
         $tmp = (new \DateTime)->format('Ymd');
-        $password = $tmp . '' . 'mppbpp108%!';
+        $password = $tmp.''.'mppbpp108%!';
         // dd(md5($password));
         return md5($password);
     }
 
-    public function postApiMpp($url, $request)
-    {
+    public function postApiMpp($url, $request){
         $response = Http::withBasicAuth('dmiapiservice', $this->generatePassword())->asForm()->post($url, $request);
         // dd($data);
         $data = json_decode($response->body());
         return $data;
     }
 
-    public function getApiMpp($url, $request)
-    {
+    public function getApiMpp($url, $request){
         $response = Http::withBasicAuth('dmiapiservice', $this->generatePassword())->get($url, $request);
         $data = json_decode($response->body());
         return $data;
     }
 
-    public function getNilaiSKM()
-    {
+    public function getNilaiSKM(){
         $response = $this->getApiMpp('https://skm-mpp.balikpapan.go.id/dmiapiskm/skm/nilaiskm', "");
         // dd($response);
         // $data = json_decode($response->body());
         return $response;
     }
 
-    public function getInstansiKuota(Request $request)
-    {
+    public function getInstansiKuota(Request $request){
         $response = $this->postApiMpp('https://antrian-mpp.balikpapan.go.id/dmiapi/antrian/getlayanan', [
             'instansi_id' => $request->instansi_id
         ]);
-        // dd($response->data[0]);
+        dd($response);
         // $data = json_decode($response->body());
-        return $response->data[0];
+        return $response->data;
     }
 
-    public function syncInstansi()
-    {
+    public function syncInstansi(){
         $dataInstansi = $this->postApiMpp('https://antrian-mpp.balikpapan.go.id/dmiapi/antrian/getinstansi', []);
         // dd($dataInstansi->data);
         foreach ($dataInstansi->data as $item) {
-            $dataInstansi = Instansi::where('id_instansi_mpp', $item->id)->exists();
-            if (!$dataInstansi) {
+            $dataInstansi = Instansi::where('id_instansi_mpp',$item->id)->exists();
+            if(!$dataInstansi){
                 Instansi::insert([
                     'id' => $item->id,
                     'nama_instansi' => $item->nama,

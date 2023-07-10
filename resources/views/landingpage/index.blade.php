@@ -63,15 +63,61 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
-
+                                    </div>
+                                </div>
+                                <div class="accordion-item p-1 mb-2">
+                                    <h2 class="accordion-header accordion-button h5 border-0 " id="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-a443e01b4db47b3f4a1267e10594576d52730ec1" aria-expanded="false" aria-controls="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1">Persyaratan
+                                    </h2>
+                                    <div id="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1" class="accordion-collapse collapse border-0 " aria-labelledby="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" data-bs-parent="#accordionFAQ">
+                                        <div class="accordion-body py-0 content">Peraturan Menteri PANRB Nomor 23 Tahun
+                                            2017 tentang
+                                            Penyelenggaraan Mal Pelayanan Publik.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item p-1 mb-2">
+                                    <h2 class="accordion-header accordion-button h5 border-0 " id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false" aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">Sistem,
+                                        Mekanisme, dan Prosedur
+                                    </h2>
+                                    <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" class="accordion-collapse collapse border-0 " aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+                                        <div class="accordion-body py-0 content">Untuk meningkatkan kualitas pelayanan
+                                            publik dan
+                                            mengintegrasikan berbagai layanan meliputi Instansi Pusat, Instansi Daerah,
+                                            BUMN, BUMD, Swasta dan
+                                            layanan pendukung lainnya dalam satu lokasi yang sama sehingga dapat
+                                            memberikan pelayanan publik
+                                            menjadi semakin cepat, terjangkau, mudah, aman dan nyaman.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item p-1 mb-2">
+                                    <h2 class="accordion-header accordion-button h5 border-0 " id="heading-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" aria-expanded="false" aria-controls="collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3">Jangka Waktu
+                                        Pelayanan
+                                    </h2>
+                                    <div id="collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" class="accordion-collapse collapse border-0 " aria-labelledby="heading-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" data-bs-parent="#accordionFAQ">
+                                        <div class="accordion-body py-0 content">Biaya
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item p-1 mb-2">
+                                    <h2 class="accordion-header accordion-button h5 border-0 " id="heading-8fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-8fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false" aria-controls="collapse-8fe6730e26db16f15763887c30a614caa075f518">Penanganan
+                                        pengaduan, saran, dan
+                                        masukan
+                                    </h2>
+                                    <div id="collapse-8fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 " aria-labelledby="heading-8fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
+                                        <div class="accordion-body py-0 content">Terletak di Dinas Penanaman Modal dan
+                                            Pelayanan Terpadu
+                                            Satu
+                                            Pintu (DPMPTSP) Kota Balikpapan yang beralamat di Jl. Ruhui Rahayu 1 No.9
+                                            Sepinggan Baru,
+                                            Balikpapan
+                                            Selatan, Kota Balikpapan</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -238,15 +284,13 @@
                             </div>
                         </nav>
                         <div class="tab-content px-5 py-4" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                aria-labelledby="nav-home-tab">
-                                <form method="post" data-action="{{ route('get-kuota') }}" id="add-user-form">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <form method="post" action="{{route('get-kuota')}}">
                                     @csrf
                                     <div class="row justify-content-center">
                                         <div class="col-md-8">
                                             <label for="inputState" class="form-label fs-5">Pilih Instansi</label>
-                                            <select name="instansi_id" id="inputState"
-                                                class="form-select form-select-lg text-secondary">
+                                            <select name="instansi_id" id="inputState" class="form-select form-select-lg text-secondary">
                                                 @foreach ($instansi as $item)
                                                     <option value="{{ $item->id_instansi_mpp }}">
                                                         {{ $item->nama_instansi }}</option>

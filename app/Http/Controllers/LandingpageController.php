@@ -43,7 +43,7 @@ class LandingpageController extends Controller
         $berita = Berita::latest()->limit(3)->get();
         $testimoni = Testimoni::where('status', true)->latest()->limit(15)->get();
         $fasilitas = Fasilitas::all();
-        $mekanisme = Mekanisme::orderBy('urut', 'ASC')->get();
+        $mekanisme = Mekanisme::orderBy('urut','ASC')->get();
         $instansi = Instansi::all();
         $faq = Faq::all();
         $linkTerkait = LinkTerkait::orderBy('urut', 'ASC')->get();

@@ -13,7 +13,6 @@ use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\LinkTerkaitController;
 use App\Http\Controllers\MekanismeController;
-use App\Http\Controllers\NamaLayananController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\TestimoniController;
@@ -68,7 +67,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('FAQ', FaqController::class);
     Route::resource('Fasilitas', FasilitasController::class);
     Route::resource('Galeri', GaleriController::class);
-    Route::resource('NamaLayanan', NamaLayananController::class);
     Route::resource('KategoriBerita', KategoriBeritaController::class);
     Route::resource('KategoriGaleri', KategoriGaleriController::class);
     Route::resource('LinkTerkait', LinkTerkaitController::class);

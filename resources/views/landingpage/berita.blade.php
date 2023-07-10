@@ -73,8 +73,9 @@
                         <h5 class="widget-title"><span>Berita Populer</span></h5>
                         <!-- post-item -->
                         <ul class="list-unstyled widget-list">
-                        @foreach ($RandomPost as $item)
-                                <li class="shadow-lg border border-light py-2 px-2 rounded d-flex widget-post align-items-center mb-3">
+                            @foreach ($RandomPost as $item)
+                                <li
+                                    class="shadow-lg border border-light py-2 px-2 rounded d-flex widget-post align-items-center mb-3">
                                     <a class="text-black" href="/blog/post-2/">
                                         <div class="widget-post-image flex-shrink-0 me-3">
                                             <img class="rounded" loading="lazy" decoding="async"
@@ -83,12 +84,13 @@
                                     </a>
                                     <div class="flex-grow-1">
                                         <h5 class="h6 mb-0"><a class="text-black"
-                                                href="{{ url('berita/' . $item->slug) }}">{!! substr_replace($item->judul, '...', 60) !!}</a></h5>
+                                                href="{{ url('berita/' . $item->slug) }}">{!! substr_replace($item->judul, '...', 60) !!}</a>
+                                        </h5>
                                         <small>{{ $item->created_at->format('M d, Y') }}</small>
                                     </div>
                                 </li>
-                                @endforeach
-                            </ul>
+                            @endforeach
+                        </ul>
 
                     </div>
                     <!-- Social -->

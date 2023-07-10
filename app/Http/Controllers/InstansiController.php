@@ -82,7 +82,7 @@ class InstansiController extends Controller
      */
     public function show(Instansi $Instansi)
     {
-        $Layanan = Layanan::with('NamaLayanan')->where('instansi_id',$Instansi->id)->get();
+        $Layanan = Layanan::where('instansi_id',$Instansi->id)->get();
         // dd($Layanan);
         return view('admin.Instansi.Layanan.index', compact('Layanan'));
     }
