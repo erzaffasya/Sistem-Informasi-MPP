@@ -1,34 +1,44 @@
 <x-guest-layout>
     <!-- Modal -->
-    <div class="modal fade" id="modallayanan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="section-title text-left mb-0 pb-2">
-                                <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Layanan</p>
-                                <h4>BPJS KESEHATAN</h4>
+    @foreach ($dataLayanan as $item)
+        <div class="modal fade modal-layanan-card" id="modallayanan-{{ $item['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"x
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Informasi Layanan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-3 col-6 mb-0 py-0">
+                                <img src="{{$item['gambar']}}" class="d-inline-block mb-2" width="100%">
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="accordion shadow rounded py-5 px-0 px-lg-4 bg-white position-relative" id="accordionFAQ">
-                                <div class="accordion-item p-1 mb-2">
-                                    <h2 class="accordion-header accordion-button h5 border-0 active" id="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" aria-expanded="true" aria-controls="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9">
-                                        Jenis Layanan
-                                    </h2>
-                                    <div id="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" class="accordion-collapse collapse border-0 show" aria-labelledby="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" data-bs-parent="#accordionFAQ">
-                                        <div class="accordion-body py-0 content">
-                                            <ul>
-                                                <li>Pendaftaran / Registrasi Peserta Baru</li>
-                                                <li>Perubahan Data / Identitas Peserta</li>
-                                                <li>Penambahan / Pengurangan anggota keluarga</li>
-                                                <li>Pemberian Informasi dan Penanganan Pengaduan</li>
-                                            </ul>
+                            <div class="col-lg-9 col-12">
+                                <div class="section-title text-left mb-0">
+                                    <p class="text-primary text-uppercase fw-bold mb-0 fs-5">Layanan</p>
+                                    <h4 class="fs-2">{{ $item['nama_instansi'] }}</h4>
+                                </div>
+                                <div class="text-left mb-0 pb-2">
+                                    <div class="mt-4 d-flex">
+                                        <div class="me-4">
+                                            <h4 class="h5">Jadwal Pelayanan</h4>
+                                            <div class="content d-flex">
+                                                <p class="mb-0 me-4">Senin-Kamis
+                                                    <br>{{ $item['senin_kamis']}}
+                                                </p>
+                                                <p class="mb-0 me-4">Jum'at
+                                                    <br>{{ $item['jumat']}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="me-4">
+                                            <h4 class="h5">Kontak</h4>
+                                            <div class="content d-flex">
+                                                <p class="mb-0 me-4">Whatsapp
+                                                    <br>{{ $item['kontak']}}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -88,65 +98,143 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="modallogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="text-center mb-5">
-                        <img loading="prelaod" decoding="async" class="img-fluid" width="60%" src="tlandingpage/images/logo.png" alt="Wallet">
-                        <h4 class="title mt-4" id="exampleModalLabel">Selamat Datang</h4>
-                        <h5 class="subtitle fw-normal text-secondary" id="exampleModalLabel">Masukkan data akun anda
-                            dengan benar</h5>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
-                                    <input type="email" class="form-control input-md" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                </div>
-                                <div class="mb-4">
-                                    <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
-                                    <input type="password" class="form-control input-md" id="exampleInputPassword1">
-                                    <div id="emailHelp" class="form-text">Lupa password akun ? <a href="#">Klik
-                                            disini</a></div>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100 mb-3">MASUK AKUN</button>
-                                <a type="submit" class="btn btn-outline-primary w-100 mb-3">DAFTAR AKUN</a>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
+    @endforeach
+
+    <section class="banner position-relative overflow-hidden pt-6 pb-0">
+        <canvas id="dots-canvas" class="w-100 h-100"></canvas>
+        <div class="wrap-dots w-100 h-100">
+            <div class="left-side">
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+            </div>
+            <div class="right-side">
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+                <span class="dot animate"></span>
+              </div>
             </div>
         </div>
-    </div>
-    <section class="banner bg-tertiary position-relative overflow-hidden pt-5 pb-0">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-12 mb-5 mb-3">
                 <div class="text-center">
-                    <p class="text-primary text-uppercase fw-bold mb-2 fs-3">ONE STOP SERVICE AREA</p>
-                    <h1 class="text-capitalize mb-2"><span class="text-uppercase">Mal Pelayanan Publik</span><br><span class="fs-1">Kota Balikpapan</span></h1>
-                    <p class="fs-5 mb-4">Dapatkan berbagai macam pelayanan publik dinas, kantor, instansi secara cepat
-                        dan mudah
-                        hanya dalam 1 tempat</p>
-                    <!-- <a type="button"
-          class="btn btn-lg btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#applyLoan">Ambil Antrian<span style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span>
-        </a> -->
+                    <p class="text-white d-inline px-2 bg-blues2 text-uppercase fw-bold mb-0 fs-4 mt-4">MAL PELAYANAN PUBLIK KOTA BALIKPAPAN</p>
+                    <h1 class="text-white mb-0">CARA MUDAH MENGURUS
+                    <span
+                        class="txt-rotate text-danger"
+                        data-period="500"
+                        data-rotate='[ "PASPOR", "BPJS", "STNK", "PERIZINAN" ]'></span>
+                    </h1>
+                    <p class="text-primary text-uppercase mb-0 fs-4">{{ $profile->slogan }}</p>
                 </div>
             </div>
-            <div class="col-lg-12" style="position: relative;">
-                <!-- <img src="tlandingpage/images/rahmad.png"
-          style="width: 320px; position: absolute; left: 0; bottom: 0;z-index: 99!important;">
-        <img src="tlandingpage/images/budi.png" style="width: 320px; position: absolute; right: 0; bottom: 0;z-index: 99!important;"> -->
+            <div class="col-lg-12 position-relative">
                 <div class="text-center">
                     <img loading="lazy" decoding="async" src="tlandingpage/images/mpp2.png" alt="banner image" width="80%">
                 </div>
@@ -173,11 +261,11 @@
         </div>
     </section>
 
-    <section class="section py-0 mb-5 rounded-lg" style="position: relative; top: -70px; z-index: 99;">
+    <section id="card-antrian" class="section py-0 rounded-lg">
         <div class="container rounded-lg">
-            <div class="row">
-                <div class="col-9">
-                    <div class="bg-white rounded-lg">
+            <div class="row gy-3 justify-content-center">
+                <div class="col-lg-9 col-12 ">
+                    <div class="bg-white rounded-lg shadow border border-primary border-top-0 border-2">
                         <nav id="tab-antrian">
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                 <button class="nav-link fs-4 active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Cek Antrian</button>
@@ -188,8 +276,8 @@
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                 <form method="post" action="{{route('get-kuota')}}">
                                     @csrf
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-8">
+                                    <div class="row gy-3 justify-content-center">
+                                        <div class="col-lg-8 col-12">
                                             <label for="inputState" class="form-label fs-5">Pilih Instansi</label>
                                             <select name="instansi_id" id="inputState" class="form-select form-select-lg text-secondary">
                                                 @foreach ($instansi as $item)
@@ -199,9 +287,15 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-md-4 d-flex align-items-end">
-                                            <button type="submit" class="btn btn-primary w-100">CEK ANTRIAN
-                                                LAYANAN</button>
+                                        <div class="col-lg-4 col-12 d-flex align-items-end">
+                                            @if (session()->has('loginMpp'))
+                                                <button type="submit" class="btn btn-primary w-100">CEK ANTRIAN
+                                                    LAYANAN</button>
+                                            @else
+                                                <a data-bs-toggle="modal" data-bs-target="#modallogin"
+                                                    class="btn btn-primary w-100">CEK ANTRIAN LAYANAN</a>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </form>
@@ -293,7 +387,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3 bg-primary rounded">
+
+                <div class="col-lg-3 col-11 bg-blues2 rounded py-3">
                     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
                         <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
                         <p class="display-2 fw-bold text-white mb-0">{{ $skm->nilai }}</p>
@@ -304,12 +399,13 @@
             </div>
         </div>
     </section>
-    <section class="section py-0" style="position: relative; top: -50px; z-index: 99;">
+
+    <section id="section-feature" class="section py-0">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <a href="https://s.id/siapditempa-android">
-                        <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
+            <div class="row gy-3 justify-content-center">
+                <div class="col-lg-4 col-md-6 col-12 ">
+                    <a class="card rounded shadow-lg" href="https://play.google.com/store/apps/details?id=dmi.mpp.balikpapan&pli=1" target="_blank">
+                        <div class="bg-white difference-of-us-item p-3 rounded mr-0">
                             <div>
                                 <div class="text-center">
                                     <figure class="mb-4">
@@ -323,9 +419,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4">
-                    <a href="https://layanan-mpp.balikpapan.go.id/tracking">
-                        <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <a class="card rounded shadow-lg" href="https://layanan-mpp.balikpapan.go.id/tracking">
+                        <div class="bg-white difference-of-us-item p-3 rounded mr-0">
                             <div>
                                 <div class="text-center">
                                     <figure class="mb-4">
@@ -339,17 +435,21 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4">
-                    <a href="https://skm-mpp.balikpapan.go.id">
-                        <div class="bg-white difference-of-us-item p-3 rounded mr-0 me-lg-4">
-                            <div>
-                                <div class="text-center">
-                                    <figure class="mb-4">
-                                        <img src="tlandingpage/images/layanan2.png" alt="" width="45%">
-                                    </figure>
-                                    <h4 class="mb-4">SURVEY KEPUASAN MASYARAKAT</h4>
-                                    <button class="btn btn-success w-100"> KUNJUNGI</button>
-                                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    @if (session()->has('loginMpp'))
+                        <a class="card rounded shadow-lg h-100" href="https://skm-mpp.balikpapan.go.id/">
+                        @else
+                            <a class="card rounded shadow-lg h-100" data-bs-toggle="modal" data-bs-target="#modallogin">
+                    @endif
+                    <div class="bg-white h-100 difference-of-us-item p-3 rounded mr-0">
+                        <div>
+                            <div class="text-center">
+                                <figure class="mb-4">
+                                    <img src="tlandingpage/images/layanan2.png" alt="" style="height: 150px">
+                                </figure>
+                                <h4 class="mb-4">SURVEY KEPUASAN <br> MASYARAKAT</h4>
+
+                                <button class="btn btn-success w-100"> KUNJUNGI</button>
                             </div>
                         </div>
                     </a>
@@ -358,10 +458,7 @@
         </div>
     </section>
 
-
-
-
-    <section class="section">
+    <section id="section-about" class="section bg-blues2 bg-img-overlay item3-img py-4">
         <div class="container">
             <div class="row justify-content-around align-items-center">
                 <div class="col-lg-6">
@@ -388,12 +485,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mt-5 mt-lg-0">
+                <div class="col-lg-6">
                     <div class="has-video-popup position-relative">
-                        <img loading="lazy" decoding="async" src="tlandingpage/images/pelayanan.jpg" alt="video thumb" class="rounded-lg w-100" style="object-fit: cover; height: 400px; object-position: left;">
-                        <button type="button" class="video-play-btn border-0 bg-transparent" data-bs-toggle="modal" data-src="tlandingpage/https://www.youtube.com/embed/9rQcOeBRQkI?VQ=HD720" data-bs-target="#videoModal">
-                            <svg class="text-primary" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="45" cy="45" r="45" fill="currentColor" fill-opacity="0.4" />
+                        <img loading="lazy" decoding="async" src="tlandingpage/images/pelayanan.jpg"
+                            alt="video thumb" class="rounded-lg w-100">
+                        <button type="button" class="video-play-btn border-0 bg-transparent" data-bs-toggle="modal"
+                            data-src="https://www.youtube.com/embed/9rQcOeBRQkI?VQ=HD720"
+                            data-bs-target="#videoModal">
+                            <svg class="text-primary" viewBox="0 0 90 90" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="45" cy="45" r="45" fill="currentColor"
+                                    fill-opacity="0.4" />
                                 <circle cx="44.9995" cy="45" r="37.437" fill="currentColor" />
                                 <path d="M58.2354 44.9999L38.3824 56.462L38.3824 33.5378L58.2354 44.9999Z" fill="white" />
                             </svg>
@@ -418,8 +520,9 @@
             </div>
         </div>
     </div>
-    <section class="homepage_tab position-relative">
-        <div class="section container">
+    
+    <section id="section-fasilitas" class="section homepage_tab position-relative py-4">
+        <div class="py-4 container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title text-center">
@@ -480,7 +583,7 @@
         </div>
     </section>
 
-    <section class="section bg-primary pb-0" id="layanan-mpp">
+    <section id="section-loket" class="section bg-blues2 bg-img-overlay item2-img py-5" id="layanan-mpp">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-9">
@@ -516,7 +619,7 @@
         </div>
     </section>
 
-    <section class="about-section section bg-blues position-relative pt-5 mb-5">
+    <section id="section-iklan" class="about-section section position-relative py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -540,69 +643,86 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 text-center text-lg-end">
+                <div class="col-lg-3 text-center text-lg-end d-none d-lg-block">
                     <img src="tlandingpage/images/hpgambar.png" alt="About Ourselves" class="img-fluid">
                 </div>
             </div>
         </div>
-        <div class="has-shapes">
-            <svg class="shape shape-left text-light" width="381" height="443" viewBox="0 0 381 443" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M334.266 499.007C330.108 469.108 304.151 446.496 276.261 435.921C248.372 425.346 218.077 424.035 188.666 419.32C159.254 414.589 128.795 405.375 108.664 383.129C72.8533 343.535 83.3445 282.01 77.7634 228.587C69.3017 147.754 15.4873 73.3967 -58.0001 40.9907" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M349.584 485.51C345.427 455.611 319.469 433 291.58 422.425C263.69 411.85 233.395 410.538 203.984 405.823C174.573 401.092 144.114 391.878 123.982 369.632C88.1716 330.038 98.6628 268.513 93.0817 215.09C84.62 134.258 30.8056 59.8999 -42.6819 27.494" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M364.904 472.013C360.747 442.114 334.789 419.503 306.9 408.928C279.011 398.352 248.716 397.041 219.304 392.326C189.893 387.595 159.434 378.381 139.303 356.135C103.492 316.541 113.983 255.016 108.402 201.593C99.9403 120.76 46.1259 46.4028 -27.3616 13.9969" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M380.24 458.516C376.083 428.617 350.125 406.006 322.236 395.431C294.347 384.856 264.051 383.544 234.64 378.829C205.229 374.098 174.77 364.884 154.639 342.638C118.828 303.044 129.319 241.519 123.738 188.096C115.276 107.264 61.4619 32.906 -12.0255 0.500103" stroke="currentColor" stroke-miterlimit="10" />
-            </svg>
-            <svg class="shape shape-right text-light" width="406" height="433" viewBox="0 0 406 433" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M101.974 -86.77C128.962 -74.8992 143.467 -43.2447 146.175 -12.7857C148.883 17.6734 142.273 48.1263 139.087 78.5816C135.916 109.041 136.681 141.702 152.351 167.47C180.247 213.314 240.712 218.81 289.413 238.184C363.095 267.516 418.962 340.253 430.36 421.687" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M118.607 -98.5031C145.596 -86.6323 160.101 -54.9778 162.809 -24.5188C165.517 5.94031 158.907 36.3933 155.72 66.8486C152.549 97.3082 153.314 129.969 168.985 155.737C196.881 201.581 257.346 207.077 306.047 226.451C379.729 255.783 435.596 328.52 446.994 409.954" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M135.241 -110.238C162.23 -98.3675 176.735 -66.7131 179.443 -36.254C182.151 -5.79492 175.541 24.6581 172.354 55.1134C169.183 85.573 169.948 118.234 185.619 144.002C213.515 189.846 273.98 195.342 322.681 214.716C396.363 244.048 452.23 316.785 463.627 398.219" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M151.879 -121.989C178.867 -110.118 193.373 -78.4638 196.081 -48.0047C198.789 -17.5457 192.179 12.9074 188.992 43.3627C185.821 73.8223 186.586 106.483 202.256 132.251C230.153 178.095 290.618 183.591 339.318 202.965C413.001 232.297 468.867 305.034 480.265 386.468" stroke="currentColor" stroke-miterlimit="10" />
-            </svg>
-        </div>
-        <div class="container position-absolute" style="left: 0; right: 0;">
-            <div class="row justify-content-center gx-5">
-                <div class="icon-box-item col-lg-4 col-md-6">
-                    <div class="block bg-white text-center">
-                        <h1 class="mb-2 text-primary display-4 fw-bold">31</h1>
-                        <p class="mb-0 fs-5 fw-bold text-dark">JUMLAH INSTANSI</p>
+        <div class="container mt-3" style="left: 0; right: 0;">
+            <div class="row gy-3 justify-content-center gx-5">
+                <div class="icon-box-item col-lg-3 col-10 col-md-6">
+                    <div class="block py-3 bg-blues2 text-center">
+                        <h1 class="mb-2 text-white display-4 fw-bold">31</h1>
+                        <p class="mb-0 fs-5 fw-bold text-white">JUMLAH INSTANSI</p>
                     </div>
                 </div>
-                <div class="icon-box-item col-lg-4 col-md-6">
-                    <div class="block bg-white text-center">
-                        <h1 class="mb-2 text-primary display-4 fw-bold">120</h1>
-                        <p class="mb-0 fs-5 fw-bold text-dark">JUMLAH LAYANAN</p>
+                <div class="icon-box-item col-lg-3 col-10 col-md-6">
+                    <div class="block py-3 bg-blues2 text-center">
+                        <h1 class="mb-2 text-white display-4 fw-bold">120</h1>
+                        <p class="mb-0 fs-5 fw-bold text-white">JUMLAH LAYANAN</p>
                     </div>
                 </div>
-                <div class="icon-box-item col-lg-4 col-md-6">
-                    <div class="block bg-white text-center">
-                        <h1 class="mb-2 text-primary display-4 fw-bold">40</h1>
-                        <p class="mb-0 fs-5 fw-bold text-dark">KUNJUNGAN HARI INI</p>
+                <div class="icon-box-item col-lg-3 col-10 col-md-6">
+                    <div class="block py-3 bg-blues2 text-center">
+                        <h1 class="mb-2 text-white display-4 fw-bold">40</h1>
+                        <p class="mb-0 fs-5 fw-bold text-white">KUNJUNGAN HARI INI</p>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="has-shapes d-none d-lg-block">
+            <svg class="shape shape-left text-primary opacity-75" width="290" height="709" viewBox="0 0 290 709"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M-119.511 58.4275C-120.188 96.3185 -92.0001 129.539 -59.0325 148.232C-26.0649 166.926 11.7821 174.604 47.8274 186.346C83.8726 198.088 120.364 215.601 141.281 247.209C178.484 303.449 153.165 377.627 149.657 444.969C144.34 546.859 197.336 649.801 283.36 704.673"
+                    stroke="currentColor" stroke-miterlimit="10" /> 
+                <path
+                    d="M-141.434 72.0899C-142.111 109.981 -113.923 143.201 -80.9554 161.895C-47.9878 180.588 -10.1407 188.267 25.9045 200.009C61.9497 211.751 98.4408 229.263 119.358 260.872C156.561 317.111 131.242 391.29 127.734 458.631C122.417 560.522 175.414 663.463 261.437 718.335"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M-163.379 85.7578C-164.056 123.649 -135.868 156.869 -102.901 175.563C-69.9331 194.256 -32.086 201.934 3.9592 213.677C40.0044 225.419 76.4955 242.931 97.4127 274.54C134.616 330.779 109.296 404.957 105.789 472.299C100.472 574.19 153.468 677.131 239.492 732.003"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M-185.305 99.4208C-185.982 137.312 -157.794 170.532 -124.826 189.226C-91.8589 207.919 -54.0118 215.597 -17.9666 227.34C18.0787 239.082 54.5697 256.594 75.4869 288.203C112.69 344.442 87.3706 418.62 83.8633 485.962C78.5463 587.852 131.542 690.794 217.566 745.666"
+                    stroke="currentColor" stroke-miterlimit="10" />
+            </svg>
+            <svg class="shape shape-right text-primary opacity-75" width="731" height="429" viewBox="0 0 731 429"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M12.1794 428.14C1.80036 390.275 -5.75764 349.015 8.73984 312.537C27.748 264.745 80.4729 237.968 131.538 231.843C182.604 225.703 234.032 235.841 285.323 239.748C336.615 243.64 391.543 240.276 433.828 210.964C492.452 170.323 511.701 91.1227 564.607 43.2553C608.718 3.35334 675.307 -9.81661 731.29 10.323"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M51.0253 428.14C41.2045 392.326 34.0538 353.284 47.7668 318.783C65.7491 273.571 115.623 248.242 163.928 242.449C212.248 236.641 260.884 246.235 309.4 249.931C357.916 253.627 409.887 250.429 449.879 222.701C505.35 184.248 523.543 109.331 573.598 64.0588C615.326 26.3141 678.324 13.8532 731.275 32.9066"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M89.8715 428.14C80.6239 394.363 73.8654 357.568 86.8091 325.028C103.766 282.396 150.788 258.515 196.347 253.054C241.906 247.578 287.767 256.629 333.523 260.099C379.278 263.584 428.277 260.567 465.976 234.423C518.279 198.172 535.431 127.525 582.62 84.8317C621.964 49.2292 681.356 37.4924 731.291 55.4596"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M128.718 428.14C120.029 396.414 113.678 361.838 125.837 331.274C141.768 291.221 185.939 268.788 228.737 263.659C271.536 258.515 314.621 267.008 357.6 270.282C400.58 273.556 446.607 270.719 482.028 246.16C531.163 212.111 547.275 145.733 591.612 105.635C628.572 72.19 684.375 61.1622 731.276 78.0432"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M167.564 428.14C159.432 398.451 153.504 366.107 164.863 337.519C179.753 300.046 221.088 279.062 261.126 274.265C301.164 269.452 341.473 277.402 381.677 280.465C421.88 283.527 464.95 280.872 498.094 257.896C544.061 226.035 559.146 163.942 600.617 126.423C635.194 95.1355 687.406 84.8167 731.276 100.612"
+                    stroke="currentColor" stroke-miterlimit="10" />
+            </svg>
+        </div>
     </section>
-    <br>
-    <br>
-    <section class="section loan-steps mt-5">
+
+    <section id="section-mekanisme" class="section loan-steps py-4 bg-tertiary">
         <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-9">
-                    <div class="section-title text-center">
-                        <p class="text-primary text-uppercase fw-bold mb-3 fs-4">Mekanisme Pelayanan</p>
-                        <h1>Urus Kebutuhan Dengan 5 Langkah Mudah di MPP Balikpapan</h1>
-                    </div>
-                </div>
+            <div class="section-title text-center mb-0">
+                <p class="text-primary text-uppercase fw-bold mb-0 fs-4">Mekanisme Pelayanan</p>
+                <h1>Urus Kebutuhan Dengan 5 Langkah Mudah di MPP Balikpapan</h1>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="row justify-content-center">
                         @foreach ($mekanisme as $item)
-                        <div class="step-item col">
-                            <div class="text-center">
-                                <p class="count">{{ $loop->iteration }}</p>
-                                <h3 class="mb-3">{{ $item->judul }}</h3>
-                                <p class="mb-0">{!! $item->isi !!}</p>
+                            <div class="step-item mt-0 col-lg-auto">
+                                <div class="text-center">
+                                    <p class="count mb-2 mb-lg-3">{{ $loop->iteration }}</p>
+                                    <h3 class="mb-lg-3 mb-0">{{ $item->judul }}</h3>
+                                    <p class="mb-0">{!! $item->isi !!}</p>
+                                </div>
                             </div>
                         </div>
                         @endforeach
@@ -612,7 +732,7 @@
         </div>
     </section>
 
-    <section class="section" id="beritasection">
+    <section id="section-berita" class="section py-4 mb-4" id="beritasection">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -653,7 +773,7 @@
         </div>
     </section>
 
-    <section class="section testimonials overflow-hidden bg-tertiary">
+    {{-- <section class="section testimonials overflow-hidden pt-4 pb-5 bg-tertiary">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -667,34 +787,114 @@
             </div>
             <div class="slick-testimoni row position-relative">
                 @foreach ($testimoni as $item)
-                <div class="col mx-2 pt-1">
-                    <div class="shadow rounded bg-white p-4 mt-4">
-                        <div class="content mb-3">{!! $item->isi !!}</div>
-                        <div class="d-block d-sm-flex align-items-center">
-                            <div class="mt-3 mt-sm-0">
-                                <h4 class="h5 mb-0">{{ $item->judul }}</h4>
-                                <p class="mb-0">{{ $item->jabatan }}</p>
+                    <div class="col mx-2 pt-1">
+                        <div class="wrapper-layanan shadow rounded bg-white p-4 mt-4">
+                            <div class="content">{!! $item->isi !!}</div>
+                            <div class="d-block d-sm-flex align-items-center">
+                                <div class="mt-3 mt-sm-0">
+                                    <h4 class="h5 mb-0">{{ $item->judul }}</h4>
+                                    <p class="mb-0">{{ $item->jabatan }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <br>
+            <form method="POST" action="{{ route('tambah-testimoni') }}" class="row justify-content-center mt-5">
+                    @csrf
+                    <div class="col-md-6">
+                        <div class="form-floating mb-2">
+                            <textarea class="form-control" name="isi" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Testimoni Anda</label>
+                        </div>
+                        @if (session()->has('loginMpp'))
+                            <button type="submit" class="btn btn-primary w-100">Tambah Testimoni</button>
+                        @else
+                            <a data-bs-toggle="modal" data-bs-target="#modallogin"
+                                class="btn btn-primary w-100">Tambah
+                                Testimoni</a>
+                        @endif
+                    </div>
+            </form>
+        </div>
+        <div class="has-shapes">
+            <svg class="shape shape-left text-light" width="290" height="709" viewBox="0 0 290 709"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M-119.511 58.4275C-120.188 96.3185 -92.0001 129.539 -59.0325 148.232C-26.0649 166.926 11.7821 174.604 47.8274 186.346C83.8726 198.088 120.364 215.601 141.281 247.209C178.484 303.449 153.165 377.627 149.657 444.969C144.34 546.859 197.336 649.801 283.36 704.673"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M-141.434 72.0899C-142.111 109.981 -113.923 143.201 -80.9554 161.895C-47.9878 180.588 -10.1407 188.267 25.9045 200.009C61.9497 211.751 98.4408 229.263 119.358 260.872C156.561 317.111 131.242 391.29 127.734 458.631C122.417 560.522 175.414 663.463 261.437 718.335"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M-163.379 85.7578C-164.056 123.649 -135.868 156.869 -102.901 175.563C-69.9331 194.256 -32.086 201.934 3.9592 213.677C40.0044 225.419 76.4955 242.931 97.4127 274.54C134.616 330.779 109.296 404.957 105.789 472.299C100.472 574.19 153.468 677.131 239.492 732.003"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M-185.305 99.4208C-185.982 137.312 -157.794 170.532 -124.826 189.226C-91.8589 207.919 -54.0118 215.597 -17.9666 227.34C18.0787 239.082 54.5697 256.594 75.4869 288.203C112.69 344.442 87.3706 418.62 83.8633 485.962C78.5463 587.852 131.542 690.794 217.566 745.666"
+                    stroke="currentColor" stroke-miterlimit="10" />
+            </svg>
+            <svg class="shape shape-right text-light" width="731" height="429" viewBox="0 0 731 429"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M12.1794 428.14C1.80036 390.275 -5.75764 349.015 8.73984 312.537C27.748 264.745 80.4729 237.968 131.538 231.843C182.604 225.703 234.032 235.841 285.323 239.748C336.615 243.64 391.543 240.276 433.828 210.964C492.452 170.323 511.701 91.1227 564.607 43.2553C608.718 3.35334 675.307 -9.81661 731.29 10.323"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M51.0253 428.14C41.2045 392.326 34.0538 353.284 47.7668 318.783C65.7491 273.571 115.623 248.242 163.928 242.449C212.248 236.641 260.884 246.235 309.4 249.931C357.916 253.627 409.887 250.429 449.879 222.701C505.35 184.248 523.543 109.331 573.598 64.0588C615.326 26.3141 678.324 13.8532 731.275 32.9066"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M89.8715 428.14C80.6239 394.363 73.8654 357.568 86.8091 325.028C103.766 282.396 150.788 258.515 196.347 253.054C241.906 247.578 287.767 256.629 333.523 260.099C379.278 263.584 428.277 260.567 465.976 234.423C518.279 198.172 535.431 127.525 582.62 84.8317C621.964 49.2292 681.356 37.4924 731.291 55.4596"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M128.718 428.14C120.029 396.414 113.678 361.838 125.837 331.274C141.768 291.221 185.939 268.788 228.737 263.659C271.536 258.515 314.621 267.008 357.6 270.282C400.58 273.556 446.607 270.719 482.028 246.16C531.163 212.111 547.275 145.733 591.612 105.635C628.572 72.19 684.375 61.1622 731.276 78.0432"
+                    stroke="currentColor" stroke-miterlimit="10" />
+                <path
+                    d="M167.564 428.14C159.432 398.451 153.504 366.107 164.863 337.519C179.753 300.046 221.088 279.062 261.126 274.265C301.164 269.452 341.473 277.402 381.677 280.465C421.88 283.527 464.95 280.872 498.094 257.896C544.061 226.035 559.146 163.942 600.617 126.423C635.194 95.1355 687.406 84.8167 731.276 100.612"
+                    stroke="currentColor" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </section>
+
+    <section class="section py-4 bg-blues2 bg-img-overlay item4-img" style="position: relative; overflow:hidden">
+        <div class="container">
+            <img class="char-img char-img1" src="tlandingpage/images/char1.png" alt="">
+            <img class="char-img char-img2" src="tlandingpage/images/char2.png" alt="">
+            <div class="section-title text-center mb-1 pb-2">
+                <p class="text-white text-uppercase fw-bold mb-0 fs-2">STATISTIK KUNJUNGAN PELAYANAN MPP BALIKPAPAN</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-7">
+                    <div class="card shadow-lg rounded" style="min-height: 450px;">
+                        <div class="card-body">
+                            <ul class="nav nav-pills justify-content-center mb-2" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="pills-harian-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-harian" type="button" role="tab" aria-controls="pills-harian"
+                                        aria-selected="true">KUNJUNGAN HARIAN</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-bulanan-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-bulanan" type="button" role="tab" aria-controls="pills-bulanan"
+                                        aria-selected="true">KUNJUNGAN BULANAN</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-harian" role="tabpanel"
+                                    aria-labelledby="pills-harian-tab">
+                                        <canvas id="myChart" style="height: 100px"></canvas>
+                                </div>
+                                <div class="tab-pane fade" id="pills-bulanan" role="tabpanel" aria-labelledby="pills-bulanan-tab">
+                                    ...
+                                </div>
+                                <div class="tab-pane fade" id="pills-instansi" role="tabpanel" aria-labelledby="pills-instansi-tab">
+                                    ...
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 @endforeach
             </div>
-        </div>
-        <div class="has-shapes">
-            <svg class="shape shape-left text-light" width="290" height="709" viewBox="0 0 290 709" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M-119.511 58.4275C-120.188 96.3185 -92.0001 129.539 -59.0325 148.232C-26.0649 166.926 11.7821 174.604 47.8274 186.346C83.8726 198.088 120.364 215.601 141.281 247.209C178.484 303.449 153.165 377.627 149.657 444.969C144.34 546.859 197.336 649.801 283.36 704.673" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M-141.434 72.0899C-142.111 109.981 -113.923 143.201 -80.9554 161.895C-47.9878 180.588 -10.1407 188.267 25.9045 200.009C61.9497 211.751 98.4408 229.263 119.358 260.872C156.561 317.111 131.242 391.29 127.734 458.631C122.417 560.522 175.414 663.463 261.437 718.335" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M-163.379 85.7578C-164.056 123.649 -135.868 156.869 -102.901 175.563C-69.9331 194.256 -32.086 201.934 3.9592 213.677C40.0044 225.419 76.4955 242.931 97.4127 274.54C134.616 330.779 109.296 404.957 105.789 472.299C100.472 574.19 153.468 677.131 239.492 732.003" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M-185.305 99.4208C-185.982 137.312 -157.794 170.532 -124.826 189.226C-91.8589 207.919 -54.0118 215.597 -17.9666 227.34C18.0787 239.082 54.5697 256.594 75.4869 288.203C112.69 344.442 87.3706 418.62 83.8633 485.962C78.5463 587.852 131.542 690.794 217.566 745.666" stroke="currentColor" stroke-miterlimit="10" />
-            </svg>
-            <svg class="shape shape-right text-light" width="731" height="429" viewBox="0 0 731 429" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.1794 428.14C1.80036 390.275 -5.75764 349.015 8.73984 312.537C27.748 264.745 80.4729 237.968 131.538 231.843C182.604 225.703 234.032 235.841 285.323 239.748C336.615 243.64 391.543 240.276 433.828 210.964C492.452 170.323 511.701 91.1227 564.607 43.2553C608.718 3.35334 675.307 -9.81661 731.29 10.323" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M51.0253 428.14C41.2045 392.326 34.0538 353.284 47.7668 318.783C65.7491 273.571 115.623 248.242 163.928 242.449C212.248 236.641 260.884 246.235 309.4 249.931C357.916 253.627 409.887 250.429 449.879 222.701C505.35 184.248 523.543 109.331 573.598 64.0588C615.326 26.3141 678.324 13.8532 731.275 32.9066" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M89.8715 428.14C80.6239 394.363 73.8654 357.568 86.8091 325.028C103.766 282.396 150.788 258.515 196.347 253.054C241.906 247.578 287.767 256.629 333.523 260.099C379.278 263.584 428.277 260.567 465.976 234.423C518.279 198.172 535.431 127.525 582.62 84.8317C621.964 49.2292 681.356 37.4924 731.291 55.4596" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M128.718 428.14C120.029 396.414 113.678 361.838 125.837 331.274C141.768 291.221 185.939 268.788 228.737 263.659C271.536 258.515 314.621 267.008 357.6 270.282C400.58 273.556 446.607 270.719 482.028 246.16C531.163 212.111 547.275 145.733 591.612 105.635C628.572 72.19 684.375 61.1622 731.276 78.0432" stroke="currentColor" stroke-miterlimit="10" />
-                <path d="M167.564 428.14C159.432 398.451 153.504 366.107 164.863 337.519C179.753 300.046 221.088 279.062 261.126 274.265C301.164 269.452 341.473 277.402 381.677 280.465C421.88 283.527 464.95 280.872 498.094 257.896C544.061 226.035 559.146 163.942 600.617 126.423C635.194 95.1355 687.406 84.8167 731.276 100.612" stroke="currentColor" stroke-miterlimit="10" />
-            </svg>
         </div>
     </section>
 
@@ -732,7 +932,6 @@
                         <div class="block mx-0 mx-lg-3 mt-0">
                             <h4 class="h5">Masih memiliki Pertanyaan?</h4>
                             <div class="content">Tidak perlu ragu hubungi kami
-                                <!-- <br> <a href="tel:+3301563965">+3301563965</a> -->
                                 <ul>
                                     <li>Customer Service 1 <br> 0815-450000-10</li>
                                     <li>Customer Service 2 <br> 0815-450000-12</li>
@@ -780,5 +979,209 @@
                 </div>
             </div>
         </section>
-    </div>
+    </div> --}}
+
+    @push('scripts')
+        <script>
+            var TxtRotate = function(el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 0) || 0;
+                this.txt = '';
+                this.tick();
+                this.isDeleting = false;
+            };
+
+            TxtRotate.prototype.tick = function() {
+                var i = this.loopNum % this.toRotate.length;
+                var fullTxt = this.toRotate[i];
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+                var that = this;
+                var delta = 250 - Math.random() * 100;
+
+                if (this.isDeleting) { delta /= 2; }
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    delta = this.period;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.loopNum++;
+                    delta = 450;
+                }
+
+                setTimeout(function() {
+                    that.tick();
+                    }, delta);
+            };
+
+            window.onload = function() {
+                var elements = document.getElementsByClassName('txt-rotate');
+                for (var i=0; i<elements.length; i++) {
+                    var toRotate = elements[i].getAttribute('data-rotate');
+                    var period = elements[i].getAttribute('data-period');
+                    if (toRotate) {
+                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                    }
+                }
+                var css = document.createElement("style");
+                css.type = "text/css";
+                css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+                document.body.appendChild(css);
+            };
+
+            // CHART
+            const ctx = document.getElementById('myChart');
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
+                        'Oktober', 'November', 'Desember'
+                    ],
+                    datasets: [{
+                        label: 'Kunjungan Harian',
+                        data: [{{ $arrayStatistik }}],
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // ANIMATE HEADER DOT KECIL
+            const canvas = document.getElementById("dots-canvas");
+            const ctx2 = canvas.getContext("2d");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particles = [];
+
+            let mouse = {
+                x: undefined,
+                y: undefined,
+                radius: 100
+            };
+
+            window.addEventListener("mousemove", (e) => {
+                mouse.x = e.x;
+                mouse.y = e.y;
+            });
+            window.addEventListener("mouseout", () => {
+                mouse.x = undefined;
+                mouse.y = undefined;
+            });
+
+            class Particle {
+                constructor(x, y, radius, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.baseX = x;
+                    this.baseY = y;
+                    this.radius = 2 || radius;
+                    this.color = "#101d97" || color;
+                    this.velocity = Math.random() * 10 + 10;
+                }
+
+                draw() {
+                    ctx2.beginPath();
+                    ctx2.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                    ctx2.fillStyle = this.color;
+                    ctx2.fill();
+                    ctx2.closePath();
+                }
+
+                update() {
+                    let dx = mouse.x - this.x,
+                        dy = mouse.y - this.y,
+                        distance = Math.hypot(dx, dy),
+                        forceDirectionX = dx / distance,
+                        forceDirectionY = dy / distance,
+                        force = (mouse.radius - distance) / mouse.radius;
+
+                    if (force < 0) {
+                        force = 0;
+                    }
+
+                    let directionX = force * forceDirectionX * this.velocity,
+                        directionY = force * forceDirectionY * this.velocity;
+
+                    if (distance < this.radius + mouse.radius) {
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    } else {
+                        if (this.x != this.baseX) {
+                            let dx = this.x - this.baseX;
+                            this.x -= dx / 15;
+                        }
+                        if (this.y != this.baseY) {
+                            let dy = this.y - this.baseY;
+                            this.y -= dy / 15;
+                        }
+                    }
+                    this.draw();
+                }
+            }
+
+            let grid = 30;
+            function init() {
+                for (let a = 0; a < grid; a++) {
+                    for (let b = 0; b < grid; b++) {
+                        let initX = canvas.width / grid,
+                            initY = canvas.height / grid;
+
+                        particles.push(
+                            new Particle(initX * b + initX / 2, initY * a + initY / 2)
+                        );
+                    }
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx2.fillStyle = `#02062e`;
+                ctx2.fillRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((particle) => {
+                    particle.update();
+                });
+            }
+
+            init();
+            animate();
+
+            window.addEventListener("resize", () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                particles = [];
+                init();
+            });
+
+            // ANIMATE HEADER DOT BIRU
+            const dots = document.getElementsByClassName('dot');
+            console.log(dots);
+
+            // DENAH JS
+            imagedenah.option({
+                'resizeDuration': 100,
+                'imageFadeDuration': 100,
+                'fadeDuration': 100,
+                'wrapAround': True,
+                'disableScrolling' : True,
+            })
+        </script>
+    @endpush
 </x-guest-layout>
