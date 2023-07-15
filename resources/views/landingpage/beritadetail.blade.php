@@ -6,8 +6,8 @@
                     <div class="col-lg-10">
                         <div class="mb-2">
                             <h2 class="mb-2" style="line-height:1.5">{{$berita->judul}}</h2>
-                            <span>{{$berita->created_at->format('M d, Y')}}<span class="mx-2">/</span> </span>
-                            <p class="list-inline-item">Category : <a href="#!" class="ml-1">Photography </a>
+                            <span>{{$berita->created_at->format('M d, Y')}}<span class="mx-2"></span> </span>
+                            {{-- <p class="list-inline-item">Category : <a href="#!" class="ml-1">Photography </a> --}}
                             </p>
                         </div>
                         <div class="mb-5 text-center">

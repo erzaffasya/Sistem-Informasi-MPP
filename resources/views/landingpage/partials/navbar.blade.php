@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top bg-white navbar-expand-xl navbar-light text-center shadow-sm py-1">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img loading="prelaod" decoding="async" class="img-fluid" width="160" src="tlandingpage/images/logo.png">
+            <img loading="prelaod" decoding="async" class="img-fluid" width="160" src="{{asset('tlandingpage/images/logo.png')}}">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
