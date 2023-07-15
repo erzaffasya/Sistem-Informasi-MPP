@@ -1,7 +1,7 @@
 <x-guest-layout>
     <!-- Modal -->
     @foreach ($dataLayanan as $item)
-        <div class="modal fade" id="modallayanan-{{ $item['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"x
+        <div class="modal fade modal-layanan-card" id="modallayanan-{{ $item['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"x
             aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -10,12 +10,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-3">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-3 col-6 mb-0 py-0">
                                 <img src="{{$item['gambar']}}" class="d-inline-block mb-2" width="100%">
                             </div>
-                            <div class="col-9">
-                                <div class="section-title text-left mb-0 pb-2">
+                            <div class="col-9 col-12">
+                                <div class="section-title text-left mb-0">
                                     <p class="text-primary text-uppercase fw-bold mb-0 fs-5">Layanan</p>
                                     <h4 class="fs-2">{{ $item['nama_instansi'] }}</h4>
                                     <div class="mt-4 d-flex">
@@ -123,9 +123,9 @@
         </div>
     @endforeach
 
-    <section class="banner position-relative overflow-hidden pt-6 pb-0" style="background: #02062e; position: relative;">
-        <canvas id="dots-canvas" class="w-100 h-100" style="position: absolute; z-index: -1; top:0; left:0;"></canvas>
-        <div class="wrap-dots w-100 h-100" style="position: absolute;">
+    <section class="banner position-relative overflow-hidden pt-6 pb-0">
+        <canvas id="dots-canvas" class="w-100 h-100"></canvas>
+        <div class="wrap-dots w-100 h-100">
             <div class="left-side">
               <div class="dots">
                 <span class="dot animate"></span>
@@ -245,10 +245,9 @@
             </div>
           </div>
         <div class="row align-items-center justify-content-center">
-            <div class="col-lg-12 my-4">
+            <div class="col-lg-12 mb-5 mb-3">
                 <div class="text-center">
                     <p class="text-white d-inline px-2 bg-blues2 text-uppercase fw-bold mb-0 fs-4 mt-4">MAL PELAYANAN PUBLIK KOTA BALIKPAPAN</p>
-                    
                     <h1 class=" text-white mb-0">CARA MUDAH MENGURUS
                     <span
                         class="txt-rotate text-danger"
@@ -258,37 +257,31 @@
                     <p class="text-primary text-uppercase mb-0 fs-4">{{ $profile->slogan }}</p>
                 </div>
             </div>
-            <div class="col-lg-12" style="position: relative;">
+            <div class="col-lg-12 position-relative">
                 <div class="text-center">
-                    <img loading="lazy" decoding="async" src="tlandingpage/images/mpp2.png" alt="banner image"
-                        width="80%">
+                    <img loading="lazy" decoding="async" src="tlandingpage/images/mpp2.png" alt="banner image" width="80%">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="card-antrian" class="section py-0 mb-5 rounded-lg"
-        style="position: relative; top: -70px; z-index: 99;">
+    <section id="card-antrian" class="section py-0 rounded-lg">
         <div class="container rounded-lg">
-            <div class="row">
-                <div class="col-9">
+            <div class="row gy-3 justify-content-center">
+                <div class="col-lg-9 col-12 ">
                     <div class="bg-white rounded-lg shadow border border-primary border-top-0 border-2">
                         <nav id="tab-antrian">
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                <button class="nav-link fs-4 active" id="nav-home-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-home" type="button" role="tab"
-                                    aria-controls="nav-home" aria-selected="true">Cek Antrian</button>
-                                <button class="nav-link fs-4" id="nav-profile-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-profile" type="button" role="tab"
-                                    aria-controls="nav-profile" aria-selected="false">Ambil Antrian</button>
+                                <button class="nav-link fs-4 active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Cek Antrian</button>
+                                <button class="nav-link fs-4" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Ambil Antrian</button>
                             </div>
                         </nav>
                         <div class="tab-content px-5 py-4" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                 <form method="post" action="{{route('get-kuota')}}">
                                     @csrf
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-8">
+                                    <div class="row gy-3 justify-content-center">
+                                        <div class="col-lg-8 col-12">
                                             <label for="inputState" class="form-label fs-5">Pilih Instansi</label>
                                             <select name="instansi_id" id="inputState" class="form-select form-select-lg text-secondary">
                                                 @foreach ($instansi as $item)
@@ -297,7 +290,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-md-4 d-flex align-items-end">
+                                        <div class="col-lg-4 col-12 d-flex align-items-end">
                                             @if (session()->has('loginMpp'))
                                                 <button type="submit" class="btn btn-primary w-100">CEK ANTRIAN
                                                     LAYANAN</button>
@@ -407,8 +400,7 @@
                                 </script>
                             @endpush
 
-                            <div class="tab-pane fade " id="nav-profile" role="tabpanel"
-                                aria-labelledby="nav-profile-tab">
+                            <div class="tab-pane fade " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                 @if (session()->has('loginMpp'))
                                     <form method="post" data-action="{{ route('ambil-antrian') }}"
                                         id="ambilAntrian">
@@ -508,7 +500,7 @@
                     </div>
                 </div>
 
-                <div class="col-3 bg-blues2 rounded">
+                <div class="col-lg-3 col-11 bg-blues2 rounded py-3">
                     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
                         <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
                         <p class="display-2 fw-bold text-white mb-0">{{ $skm->nilai }}</p>
@@ -519,16 +511,16 @@
         </div>
     </section>
 
-    <section class="section py-0" style="position: relative; top: -50px; z-index: 99;">
+    <section id="section-feature" class="section py-0">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 ">
+            <div class="row gy-3 justify-content-center">
+                <div class="col-lg-4 col-md-6 col-12 ">
                     <a class="card rounded shadow-lg" href="https://play.google.com/store/apps/details?id=dmi.mpp.balikpapan&pli=1" target="_blank">
                         <div class="bg-white difference-of-us-item p-3 rounded mr-0">
                             <div>
                                 <div class="text-center">
                                     <figure class="mb-4">
-                                        <img src="tlandingpage/images/layanan3.png" alt="" style="height: 150px">
+                                        <img src="tlandingpage/images/layanan3.png" alt="" width="45%">
                                     </figure>
                                     <h4 class="mb-1">APLIKASI ANTRIAN ONLINE</h4>
                                     <p class="text-secondary">Ambil antrian online dengan mudah</p>
@@ -538,13 +530,13 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-6 col-12">
                     <a class="card rounded shadow-lg" href="https://layanan-mpp.balikpapan.go.id/tracking">
                         <div class="bg-white difference-of-us-item p-3 rounded mr-0">
                             <div>
                                 <div class="text-center">
                                     <figure class="mb-4">
-                                        <img src="tlandingpage/images/layanan.png" alt="" style="height: 150px">
+                                        <img src="tlandingpage/images/layanan.png" alt="" width="45%">
                                     </figure>
                                     <h4 class="mb-1">TRACKING LAYANAN</h4>
                                     <p class="text-secondary">Ketahui status layanan/permohonan</p>
@@ -554,7 +546,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-6 col-12">
                     @if (session()->has('loginMpp'))
                         <a class="card rounded shadow-lg h-100" href="https://skm-mpp.balikpapan.go.id/">
                         @else
@@ -578,15 +570,15 @@
         </div>
     </section>
 
-    <section class="section bg-blues2 bg-img-overlay item3-img py-4">
+    <section id="section-about" class="section bg-blues2 bg-img-overlay item3-img py-4">
         <div class="container">
             <div class="row justify-content-around align-items-center">
                 <div class="col-lg-6">
                     <div class="section-title text-white">
-                        <p class="text-uppercase fw-bold mb-1 fs-5 opacity-75">Tentang Mal Pelayanan Publik
+                        <p class="text-uppercase fw-bold mb-1 fs-5 opacity-75 text-white">Tentang Mal Pelayanan Publik
                             Balikpapan</p>
                         <h1 class="text-white">Berbagai Pelayanan Dalam 1 Tempat</h1>
-                        <p class="">
+                        <p>
                             {!! $profile->deskripsi !!}
                         </p>
                     </div>
@@ -631,7 +623,7 @@
             </div>
         </div>
     </div>
-    <section class="section homepage_tab position-relative py-4">
+    <section id="section-fasilitas" class="section homepage_tab position-relative py-4">
         <div class="py-4 container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -685,7 +677,7 @@
         </div>
     </section>
 
-    <section class="section bg-blues2 bg-img-overlay item2-img py-5" id="layanan-mpp">
+    <section id="section-loket" class="section bg-blues2 bg-img-overlay item2-img py-5" id="layanan-mpp">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-9">
@@ -721,7 +713,7 @@
         </div>
     </section>
 
-    <section class="about-section section position-relative py-5">
+    <section id="section-iklan" class="about-section section position-relative py-5">
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-8">
@@ -742,26 +734,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 text-center text-lg-end">
+                <div class="col-lg-3 text-center text-lg-end d-none d-lg-block">
                     <img src="tlandingpage/images/hpgambar.png" alt="About Ourselves" class="img-fluid">
                 </div>
             </div>
         </div>
         <div class="container mt-3" style="left: 0; right: 0;">
-            <div class="row justify-content-center gx-5">
-                <div class="icon-box-item col-lg-3 col-md-6">
+            <div class="row gy-3 justify-content-center gx-5">
+                <div class="icon-box-item col-lg-3 col-10 col-md-6">
                     <div class="block py-3 bg-blues2 text-center">
                         <h1 class="mb-2 text-white display-4 fw-bold">31</h1>
                         <p class="mb-0 fs-5 fw-bold text-white">JUMLAH INSTANSI</p>
                     </div>
                 </div>
-                <div class="icon-box-item col-lg-3 col-md-6">
+                <div class="icon-box-item col-lg-3 col-10 col-md-6">
                     <div class="block py-3 bg-blues2 text-center">
                         <h1 class="mb-2 text-white display-4 fw-bold">120</h1>
                         <p class="mb-0 fs-5 fw-bold text-white">JUMLAH LAYANAN</p>
                     </div>
                 </div>
-                <div class="icon-box-item col-lg-3 col-md-6">
+                <div class="icon-box-item col-lg-3 col-10 col-md-6">
                     <div class="block py-3 bg-blues2 text-center">
                         <h1 class="mb-2 text-white display-4 fw-bold">40</h1>
                         <p class="mb-0 fs-5 fw-bold text-white">KUNJUNGAN HARI INI</p>
@@ -806,7 +798,7 @@
         </div>
     </section>
 
-    <section class="section loan-steps py-4 bg-tertiary">
+    <section id="section-mekanisme" class="section loan-steps py-4 bg-tertiary">
         <div class="container">
             <div class="row justify-content-center align-items-center mb-0">
                 <div class="col-lg-9">
@@ -820,10 +812,10 @@
                 <div class="col-lg-12">
                     <div class="row justify-content-center">
                         @foreach ($mekanisme as $item)
-                            <div class="step-item col mt-0">
+                            <div class="step-item mt-0 col-lg-auto">
                                 <div class="text-center">
-                                    <p class="count">{{ $loop->iteration }}</p>
-                                    <h3 class="mb-3">{{ $item->judul }}</h3>
+                                    <p class="count mb-2 mb-lg-3">{{ $loop->iteration }}</p>
+                                    <h3 class="mb-lg-3 mb-0">{{ $item->judul }}</h3>
                                     <p class="mb-0">{!! $item->isi !!}</p>
                                 </div>
                             </div>
