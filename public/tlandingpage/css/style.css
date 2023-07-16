@@ -3622,7 +3622,7 @@
  }
  
  .nav-pills .nav-link {
-   background: none;
+   background: #d4e7ff;
    border: 0;
    border-radius: 0.25rem;
  }
@@ -8894,7 +8894,7 @@
  }
  
  .bg-tertiary {
-   background: #FBFBFB !important;
+   background: #DBFBF8 !important;
  }
  .bg-blues {
      background: #097EE4!important;
@@ -9467,7 +9467,7 @@
  .banner {
    padding: 90px 0;
    z-index: 5;
-   background: #02062e;
+   /* background: #02062e; */
    position: relative;
  }
  .banner > canvas {
