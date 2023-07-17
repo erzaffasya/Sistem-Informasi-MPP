@@ -10,11 +10,11 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center justify-content-start-lg">
                             <div class="col-lg-3 col-6 mb-0 py-0">
                                 <img src="{{$item['gambar']}}" class="d-inline-block mb-2" width="100%">
                             </div>
-                            <div class="col-9 col-12">
+                            <div class="col-lg-9 col-12">
                                 <div class="section-title text-left mb-0">
                                     <p class="text-primary text-uppercase fw-bold mb-0 fs-5">Layanan</p>
                                     <h4 class="fs-2">{{ $item['nama_instansi'] }}</h4>
@@ -539,7 +539,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-6 mt-5 mt-lg-0">
+                <div class="col-lg-6 mt-0 mt-lg-0">
                     <div class="has-video-popup position-relative">
                         <img loading="lazy" decoding="async" src="tlandingpage/images/pelayanan.jpg"
                             alt="video thumb" class="rounded-lg w-100"
@@ -793,9 +793,9 @@
                                     <div class="text-left">
                                         <p class="text-primary text-uppercase fw-bold mb-1 fs-4">Berita MPP Balikpapan
                                         </p>
-                                        <h1>Kabar terbaru saat ini</h1>
+                                        <h2>Kabar terbaru saat ini</h2>
                                     </div>
-                                    <div>
+                                    <div class="d-none d-lg-block">
                                         <a type="button" class="btn btn-primary" href="{{ route('berita') }}"
                                             data-bs-toggle="modal" data-bs-target="#applyLoan">Berita Lainnya<span
                                                 style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span></a>
@@ -820,7 +820,13 @@
                                     </article>
                                 </div>
                             @endforeach
-
+                                <div class="col-12 d-block d-lg-none">
+                                    <br>
+                                    <a type="button" class="btn btn-primary w-100" href="{{ route('berita') }}"
+                                        data-bs-toggle="modal" data-bs-target="#applyLoan">Berita Lainnya<span
+                                            style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -876,7 +882,7 @@
             </form>
         </div>
         <div class="has-shapes">
-            <svg class="shape shape-left text-light" width="290" height="709" viewBox="0 0 290 709"
+            <svg class="shape shape-left text-primary opacity-75" width="290" height="709" viewBox="0 0 290 709"
                 fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M-119.511 58.4275C-120.188 96.3185 -92.0001 129.539 -59.0325 148.232C-26.0649 166.926 11.7821 174.604 47.8274 186.346C83.8726 198.088 120.364 215.601 141.281 247.209C178.484 303.449 153.165 377.627 149.657 444.969C144.34 546.859 197.336 649.801 283.36 704.673"
@@ -891,7 +897,7 @@
                     d="M-185.305 99.4208C-185.982 137.312 -157.794 170.532 -124.826 189.226C-91.8589 207.919 -54.0118 215.597 -17.9666 227.34C18.0787 239.082 54.5697 256.594 75.4869 288.203C112.69 344.442 87.3706 418.62 83.8633 485.962C78.5463 587.852 131.542 690.794 217.566 745.666"
                     stroke="currentColor" stroke-miterlimit="10" />
             </svg>
-            <svg class="shape shape-right text-light" width="731" height="429" viewBox="0 0 731 429"
+            <svg class="shape shape-right text-primary opacity-75" width="731" height="429" viewBox="0 0 731 429"
                 fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M12.1794 428.14C1.80036 390.275 -5.75764 349.015 8.73984 312.537C27.748 264.745 80.4729 237.968 131.538 231.843C182.604 225.703 234.032 235.841 285.323 239.748C336.615 243.64 391.543 240.276 433.828 210.964C492.452 170.323 511.701 91.1227 564.607 43.2553C608.718 3.35334 675.307 -9.81661 731.29 10.323"
@@ -920,7 +926,7 @@
                 <p class="text-white text-uppercase fw-bold mb-0 fs-2">STATISTIK KUNJUNGAN PELAYANAN MPP BALIKPAPAN</p>
             </div>
             <div class="row justify-content-center">
-                <div class="col-7">
+                <div class="col-lg-7 col-12">
                     <div class="card shadow-lg rounded" style="min-height: 450px;">
                         <div class="card-body">
                             <ul class="nav nav-pills justify-content-center mb-2" id="pills-tab" role="tablist">
