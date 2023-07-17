@@ -37,8 +37,8 @@ class LandingpageController extends Controller
 
     public function index()
     {
+        // $this->getStatistikMpp();
         visitor()->visit();
-        // dd(session('loginMpp'));
         $skm = $this->getNilaiSKM();
         $berita = Berita::latest()->limit(3)->get();
         $testimoni = Testimoni::where('status', true)->latest()->limit(15)->get();
@@ -53,15 +53,28 @@ class LandingpageController extends Controller
         // dd($dataAntrian->data[0]);
         $currentYear = Carbon::now()->year;
 
+
+        foreach ($instansi as $item) {
+            $dataLayanan[] = [
+                'id' => $item->id,
+                'gambar' => $item->gambar,
+                'nama_instansi' => $item->nama_instansi,
+                'senin_kamis' => $item->senin_kamis,
+                'jumat' => $item->jumat,
+                'kontak' => $item->kontak,
+                'data' => Layanan::with(['NamaLayanan' => function ($query) {
+                    $query->select('id', 'nama_layanan');
+                }])->where('instansi_id', $item->id)->get()->toArray()
+            ];
+        }
+
         $dataPengunjung = DB::table('shetabit_visits')
             ->select(DB::raw('MONTH(created_at) as month'), DB::raw('COUNT(*) as total'))
             ->whereYear('created_at', $currentYear)
             ->groupBy(DB::raw('MONTH(created_at)'))
             ->get();
 
-        // dd($dataPengunjung);
         $arrayPengunjung = [
-            0 => 0,
             1 => 0,
             2 => 0,
             3 => 0,
@@ -79,24 +92,20 @@ class LandingpageController extends Controller
             $arrayPengunjung[$item->month] = $item->total;
         }
         $arrayStatistik = implode(', ', $arrayPengunjung);
-        // dd($arrayStatistik);
-        foreach ($instansi as $item) {
-            $dataLayanan[] = [
-                'id' => $item->id,
-                'gambar' => $item->gambar,
-                'nama_instansi' => $item->nama_instansi,
-                'senin_kamis' => $item->senin_kamis,
-                'jumat' => $item->jumat,
-                'kontak' => $item->kontak,
-                'data' => Layanan::with(['NamaLayanan' => function ($query) {
-                    $query->select('id', 'nama_layanan');
-                }])->where('instansi_id', $item->id)->get()->toArray()
-            ];
+
+
+        $label = [];
+        $dataStatistik = [];
+        foreach ($this->getStatistikMpp() as $item) {
+            $label[] = "'".$item->nama."'";
+            $dataStatistik[] = $item->jmlresponden;
         }
-        // $this->getInstansiKuota(1);
+        $label = implode(', ', $label);
+        $dataStatistik = implode(', ', $dataStatistik);
+        // dd($label, $dataStatistik);
+        // dd($label);
         // $this->syncInstansi();
 
-        // dd($this->generatePassword());
         return view('landingpage.index', compact(
             'skm',
             'berita',
@@ -108,7 +117,9 @@ class LandingpageController extends Controller
             'dataLayanan',
             'antrianTerakhir',
             'arrayStatistik',
-            'profile'
+            'profile',
+            'dataStatistik',
+            'label'
         ))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

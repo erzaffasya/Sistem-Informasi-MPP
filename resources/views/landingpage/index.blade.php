@@ -927,12 +927,12 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="pills-harian-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-harian" type="button" role="tab" aria-controls="pills-harian"
-                                        aria-selected="true">KUNJUNGAN HARIAN</button>
+                                        aria-selected="true">KUNJUNGAN MPP</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="pills-bulanan-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-bulanan" type="button" role="tab" aria-controls="pills-bulanan"
-                                        aria-selected="true">KUNJUNGAN BULANAN</button>
+                                        aria-selected="true">KUNJUNGAN WEBSITE</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
@@ -941,10 +941,7 @@
                                         <canvas id="myChart" style="height: 100px"></canvas>
                                 </div>
                                 <div class="tab-pane fade" id="pills-bulanan" role="tabpanel" aria-labelledby="pills-bulanan-tab">
-                                    ...
-                                </div>
-                                <div class="tab-pane fade" id="pills-instansi" role="tabpanel" aria-labelledby="pills-instansi-tab">
-                                    ...
+                                    <canvas id="myChart2" style="height: 100px"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -1107,11 +1104,31 @@
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
-                        'Oktober', 'November', 'Desember'
-                    ],
+                    labels: ['IMIGRASI', 'SAMSAT', 'DJP', 'BNN', 'BPD', 'DPMPTSP KOTA BALIKPAPAN', 'DPMPTSP PROV. KALTIM', 'POLRESTA', 'KEJARI', 'KANTOR KEMENTRIAN AGAMA', 'PENGADILAN AGAMA', 'BPJS KESEHATAN', 'BPJS KETENAGAKERJAAN', 'PENGADILAN NEGERI', 'BPN', 'TASPEN', 'PLN', 'PDAM', 'BPOM', 'PEGADAIAN', 'DPUPR', 'DISHUB', 'DISDUKCAPIL', 'BPPDRD', 'DLH', 'DPPR', 'DISNAKER'],
                     datasets: [{
                         label: 'Kunjungan Harian',
+                        data: [{{ $dataStatistik }}],
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            const chartPengunjung = document.getElementById('myChart2');
+
+            new Chart(chartPengunjung, {
+                type: 'bar',
+                data: {
+                    labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
+                        'Oktober', 'November', 'Desember'],
+                    datasets: [{
+                        label: 'Kunjungan Bulanan',
                         data: [{{ $arrayStatistik }}],
                         borderWidth: 3
                     }]

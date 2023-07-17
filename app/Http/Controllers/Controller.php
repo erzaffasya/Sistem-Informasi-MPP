@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
@@ -46,6 +47,18 @@ class Controller extends BaseController
         // $data = json_decode($response->body());
         return $response;
     }
+
+
+
+    public function getStatistikMpp()
+    {
+        $response = $this->getApiMpp('https://skm-mpp.balikpapan.go.id/dmiapiskm/skm/dataresponden?tanggal='. date("d-m-Y"), "");
+        // dd($response->instansi);
+        // $data = json_decode($response->body());
+        return $response->instansi;
+    }
+
+    
 
     public function getInstansiKuota(Request $request)
     {
