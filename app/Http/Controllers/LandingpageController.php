@@ -95,14 +95,14 @@ class LandingpageController extends Controller
         $arrayStatistik = implode(', ', $arrayPengunjung);
 
 
-        $label = [];
-        $dataStatistik = [];
-        foreach ($this->getStatistikMpp() as $item) {
-            $label[] = "'".$item->nama."'";
-            $dataStatistik[] = $item->jmlresponden;
-        }
-        $label = implode(', ', $label);
-        $dataStatistik = implode(', ', $dataStatistik);
+        // $label = [];
+        // $dataStatistik = [];
+        // foreach ($this->getStatistikMpp() as $item) {
+        //     $label[] = "'".$item->nama."'";
+        //     $dataStatistik[] = $item->jmlresponden;
+        // }
+        // $label = implode(', ', $label);
+        // $dataStatistik = implode(', ', $dataStatistik);
         // dd($label, $dataStatistik);
         // dd($label);
         // $this->syncInstansi();
@@ -119,7 +119,7 @@ class LandingpageController extends Controller
             // 'antrianTerakhir',
             'arrayStatistik',
             'profile',
-            'dataStatistik',
+            // 'dataStatistik',
             'label'
         ))
             ->with('i', (request()->input('page', 1) - 1) * 5);
