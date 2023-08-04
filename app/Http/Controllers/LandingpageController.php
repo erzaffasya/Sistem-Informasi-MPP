@@ -39,7 +39,8 @@ class LandingpageController extends Controller
     {
         // $this->getStatistikMpp();
         visitor()->visit();
-        $skm = $this->getNilaiSKM();
+        // $skm = $this->getNilaiSKM();
+        $skm = null;
         $berita = Berita::latest()->limit(3)->get();
         $testimoni = Testimoni::where('status', true)->latest()->limit(15)->get();
         $fasilitas = Fasilitas::all();
@@ -47,8 +48,8 @@ class LandingpageController extends Controller
         $instansi = Instansi::all();
         $faq = Faq::all();
         $linkTerkait = LinkTerkait::orderBy('urut', 'ASC')->get();
-        $dataAntrian = $this->getRiwayatAntrian();
-        $antrianTerakhir = $dataAntrian->data[0] ?? null;
+        // $dataAntrian = $this->getRiwayatAntrian();
+        // $antrianTerakhir = $dataAntrian->data[0] ?? null;
         $profile = Profile::find(1);
         // dd($dataAntrian->data[0]);
         $currentYear = Carbon::now()->year;
@@ -107,7 +108,7 @@ class LandingpageController extends Controller
         // $this->syncInstansi();
 
         return view('landingpage.index', compact(
-            'skm',
+            // 'skm',
             'berita',
             'testimoni',
             'fasilitas',
@@ -115,7 +116,7 @@ class LandingpageController extends Controller
             'instansi',
             'faq',
             'dataLayanan',
-            'antrianTerakhir',
+            // 'antrianTerakhir',
             'arrayStatistik',
             'profile',
             'dataStatistik',

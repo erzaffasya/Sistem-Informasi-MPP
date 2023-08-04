@@ -393,7 +393,7 @@
                                     </div>
                                 @endif
 
-                                @if ($antrianTerakhir != null)
+                                {{-- @if ($antrianTerakhir != null)
                                     <div class="row py-3">
                                         <div class="col-8">
                                             <table class="table table-borderless text-dark">
@@ -449,7 +449,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endif
+                                @endif --}}
 
                             </div>
                         </div>
@@ -459,7 +459,7 @@
                 <div class="col-lg-3 col-11 bg-blues2 rounded py-3">
                     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
                         <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
-                        <p class="display-2 fw-bold text-white mb-0">{{ $skm->nilai }}</p>
+                        <p class="display-2 fw-bold text-white mb-0">99.6</p>
                         <p class="fs-5 text-white mb-0">Total Responden <span class="fw-semibold">452</span></p>
                     </div>
                 </div>
