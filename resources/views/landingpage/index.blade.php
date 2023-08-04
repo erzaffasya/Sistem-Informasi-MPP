@@ -1113,7 +1113,7 @@
                     labels: ['IMIGRASI', 'SAMSAT', 'DJP', 'BNN', 'BPD', 'DPMPTSP KOTA BALIKPAPAN', 'DPMPTSP PROV. KALTIM', 'POLRESTA', 'KEJARI', 'KANTOR KEMENTRIAN AGAMA', 'PENGADILAN AGAMA', 'BPJS KESEHATAN', 'BPJS KETENAGAKERJAAN', 'PENGADILAN NEGERI', 'BPN', 'TASPEN', 'PLN', 'PDAM', 'BPOM', 'PEGADAIAN', 'DPUPR', 'DISHUB', 'DISDUKCAPIL', 'BPPDRD', 'DLH', 'DPPR', 'DISNAKER'],
                     datasets: [{
                         label: 'Kunjungan Harian',
-                        data: [{{ $dataStatistik }}],
+                        data: [],
                         borderWidth: 3
                     }]
                 },
