@@ -120,7 +120,7 @@ class LandingpageController extends Controller
             'arrayStatistik',
             'profile',
             // 'dataStatistik',
-            'label'
+            // 'label'
         ))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
