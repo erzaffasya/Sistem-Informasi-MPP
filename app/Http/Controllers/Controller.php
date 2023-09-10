@@ -52,7 +52,7 @@ class Controller extends BaseController
 
     public function getStatistikMpp()
     {
-        $response = $this->getApiMpp('https://skm-mpp.balikpapan.go.id/dmiapiskm/skm/dataresponden?tanggal='. date("d-m-Y"), "");
+        $response = $this->getApiMpp('https://skm-mpp.balikpapan.go.id/dmiapiskm/skm/datapengunjung?tanggal='. date("d-m-Y"), "");
         // dd($response->instansi);
         // $data = json_decode($response->body());
         return $response->instansi;
