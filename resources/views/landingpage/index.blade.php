@@ -1,4 +1,34 @@
 <x-guest-layout>
+    <div class="modal fade" id="headlineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                {{-- <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> --}}
+            <div class="modal-body position-relative">
+                <div class="position-absolute float-end bg-white p-2 rounded" style="top: 0.5rem!important; right: 0.5rem!important;">
+                    <button type="button" class="btn-close mb-0 fw-bold" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <figure class="mb-0">
+                    <a href="#">
+                        <img src="https://media.istockphoto.com/id/1206045787/vector/preview-sticker-preview-square-sign-preview-peeler.jpg?s=612x612&w=0&k=20&c=ZDWuqpr3V8AhZs1ZlaiI8-cRLD7V2a5iwAKHLEt76h8=" alt="" width="100%" style="max-height: 300px; min-height: 250px; object-fit: contain; background: rgb(228, 239, 253);">
+                    </a>
+                    <figcaption class="fs-6">
+                        <p class="mb-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio modi deserunt cupiditate culpa dicta, repudiandae, sunt et non, laborum sapiente quisquam? Excepturi ad est asperiores quos accusantium aut odit optio.
+                        </p>
+                        <a href="#" class="btn btn-primary btn-sm py-2 px-3 rounded mt-2">Link</a>
+                    </figcaption>
+                </figure>
+            </div>
+            {{-- <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> --}}
+            </div>
+        </div>
+    </div>
+
     <!-- Modal -->
     @foreach ($dataLayanan as $item)
         <div class="modal fade modal-layanan-card" id="modallayanan-{{ $item['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"x
