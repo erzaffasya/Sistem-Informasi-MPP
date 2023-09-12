@@ -1,3 +1,7 @@
+$(document).ready(function(){
+  $('#headlineModal').modal('show');
+  // $("#myModal").modal('show');
+});
 $('.slick-layanan').slick({
   infinite: true,
   slidesToShow: 4,
