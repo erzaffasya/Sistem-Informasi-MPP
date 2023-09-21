@@ -342,5 +342,24 @@
     </li>
 
 
+    {{-- Banner --}}
+    <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Setting Banner</span>
+    </li>
+    <li class="menu-item {{ request()->routeIs('Banner.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+            <div data-i18n="Misc">Banner</div>
+        </a>
+        <ul class="menu-sub ">
+            <li class="menu-item {{ request()->routeIs('Banner.index') ? 'active' : '' }}">
+                <a href="{{ route('Banner.index') }}" class="menu-link">
+                    <div data-i18n="Under Maintenance">Lihat Data</div>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
 
 </ul>

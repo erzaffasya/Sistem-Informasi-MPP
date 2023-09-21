@@ -111,7 +111,7 @@ class LandingpageController extends Controller
 
         // dd($label, $dataStatistik);
         // dd($totalPengunjung, $totalInstansi);
-        // $this->syncInstansi();
+        $this->syncInstansi();
 
         return view('landingpage.index', compact(
             'skm',

@@ -12,13 +12,13 @@
                 </div>
                 <figure class="mb-0">
                     <a href="#">
-                        <img src="https://media.istockphoto.com/id/1206045787/vector/preview-sticker-preview-square-sign-preview-peeler.jpg?s=612x612&w=0&k=20&c=ZDWuqpr3V8AhZs1ZlaiI8-cRLD7V2a5iwAKHLEt76h8=" alt="" width="100%" style="max-height: 300px; min-height: 250px; object-fit: contain; background: rgb(228, 239, 253);">
+                        <img src="{{asset($Banner->gambar)}}" alt="" width="100%" style="max-height: 300px; min-height: 250px; object-fit: contain; background: rgb(228, 239, 253);">
                     </a>
                     <figcaption class="fs-6">
                         <p class="mb-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio modi deserunt cupiditate culpa dicta, repudiandae, sunt et non, laborum sapiente quisquam? Excepturi ad est asperiores quos accusantium aut odit optio.
+                            {!!$Banner->deskripsi!!}
                         </p>
-                        <a href="#" class="btn btn-primary btn-sm py-2 px-3 rounded mt-2">Link</a>
+                        <a href="{{$Banner->link}}" target="_blank" class="btn btn-primary btn-sm py-2 px-3 rounded mt-2">Link</a>
                     </figcaption>
                 </figure>
             </div>

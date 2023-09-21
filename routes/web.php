@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
@@ -76,6 +77,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('Profile', ProfileController::class);
     Route::resource('Testimoni', TestimoniController::class);
     Route::resource('Tentang', TentangController::class);
+    Route::resource('Banner', BannerController::class);
 
 
     Route::get('profile/tentang', [TentangController::class, 'index'])->name('ubah-tentang');

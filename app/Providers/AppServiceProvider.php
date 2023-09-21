@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Banner;
 use App\Models\LinkTerkait;
 use App\Models\Menu;
 use App\Models\Pengumuman;
@@ -38,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('getLinkTerkait', LinkTerkait::orderBy('urut','ASC')->get());
 
         View::share('getTentang',Tentang::find(1));
+        View::share('Banner',Banner::find(1));
         // View::share('Pengumuman', Pengumuman::latest()->paginate(4));
     }
 }
