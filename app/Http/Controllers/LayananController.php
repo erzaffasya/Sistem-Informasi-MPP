@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Layanan;
 use App\Models\NamaLayanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LayananController extends Controller
 {
@@ -29,7 +30,7 @@ class LayananController extends Controller
     {
         // dd('erza');
         $namaLayanan = NamaLayanan::all();
-        return view('admin.Instansi.Layanan.tambah', compact('id','namaLayanan'));
+        return view('admin.Instansi.Layanan.tambah', compact('id', 'namaLayanan'));
     }
 
     /**
@@ -44,13 +45,23 @@ class LayananController extends Controller
         $request->validate([
             'nama_layanan_id' => 'required',
         ]);
+
+        $txt = null;
+        if (isset($request->file)) {
+            $extention = $request->file->extension();
+            $file_name = time() . '.' . $extention;
+            $txt = "storage/Layanan/File/" . $file_name;
+            $request->file->storeAs('public/Layanan/File', $file_name);
+        }
+
         $Layanan = Layanan::create([
             'nama_layanan_id' => $request->nama_layanan_id,
             'deskripsi' => $request->deskripsi,
             'instansi_id' => $request->instansi_id,
+            'file' => $txt
         ]);
 
-        return redirect()->route('Instansi.show',$request->instansi_id)
+        return redirect()->route('Instansi.show', $request->instansi_id)
             ->with('success', 'Layanan Berhasil Ditambahkan');
     }
 
@@ -75,7 +86,7 @@ class LayananController extends Controller
     {
         $Layanan = Layanan::find($id);
         $namaLayanan = NamaLayanan::all();
-        return view('admin.Instansi.Layanan.edit', compact('Layanan','namaLayanan'));
+        return view('admin.Instansi.Layanan.edit', compact('Layanan', 'namaLayanan'));
     }
 
     /**
@@ -87,13 +98,26 @@ class LayananController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
         $Layanan = Layanan::find($id);
+        if (isset($request->file)) {
+            $extention = $request->file->extension();
+            $file_name = time() . '.' . $extention;
+            $txt = "storage/Layanan/File/" . $file_name;
+            $request->file->storeAs('public/Layanan/File', $file_name);
+            Storage::delete("public/Layanan/File/$Layanan->file");
+        } else {
+            $txt = $Layanan->file;
+        }
+        
         $Layanan->nama_layanan_id = $request->nama_layanan_id;
         $Layanan->deskripsi = $request->deskripsi;
+        $Layanan->file = $txt;
         // $Layanan->instansi_id = $request->instansi_id;
         $Layanan->save();
 
-        return redirect()->route('Instansi.show',$Layanan->instansi_id)
+        return redirect()->route('Instansi.show', $Layanan->instansi_id)
             ->with('edit', 'Layanan Berhasil Diedit');
     }
 

@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string("senin_kamis")->nullable();
             $table->string("jumat")->nullable();
             $table->string("kontak")->nullable();
+            $table->string("wa1")->nullable();
+            $table->string("wa2")->nullable();
+            $table->string("website")->nullable();
             $table->text("deskripsi")->nullable();
             $table->string("gambar")->nullable();
             $table->string("slug")->nullable();

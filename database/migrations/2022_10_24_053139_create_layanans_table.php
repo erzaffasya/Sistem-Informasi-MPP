@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId("nama_layanan_id")->nullable()->constrained("nama_layanan")->onDelete("cascade")->onUpdate("cascade");
             $table->text("deskripsi")->nullable();
             $table->foreignId("instansi_id")->nullable()->constrained("instansi")->onDelete("cascade")->onUpdate("cascade");
+            $table->string("file")->nullable();
             $table->timestamps();
         });
     }

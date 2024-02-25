@@ -6,23 +6,27 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div> --}}
-            <div class="modal-body position-relative">
-                <div class="position-absolute float-end bg-white p-2 rounded" style="top: 0.5rem!important; right: 0.5rem!important;">
-                    <button type="button" class="btn-close mb-0 fw-bold" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body position-relative">
+                    <div class="position-absolute float-end bg-white p-2 rounded"
+                        style="top: 0.5rem!important; right: 0.5rem!important;">
+                        <button type="button" class="btn-close mb-0 fw-bold" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <figure class="mb-0">
+                        <a href="#">
+                            <img src="{{ asset($Banner->gambar) }}" alt="" width="100%"
+                                style="max-height: 300px; min-height: 250px; object-fit: contain; background: rgb(228, 239, 253);">
+                        </a>
+                        <figcaption class="fs-6">
+                            <p class="mb-0">
+                                {!! $Banner->deskripsi !!}
+                            </p>
+                            <a href="{{ $Banner->link }}" target="_blank"
+                                class="btn btn-primary btn-sm py-2 px-3 rounded mt-2">Link</a>
+                        </figcaption>
+                    </figure>
                 </div>
-                <figure class="mb-0">
-                    <a href="#">
-                        <img src="{{asset($Banner->gambar)}}" alt="" width="100%" style="max-height: 300px; min-height: 250px; object-fit: contain; background: rgb(228, 239, 253);">
-                    </a>
-                    <figcaption class="fs-6">
-                        <p class="mb-0">
-                            {!!$Banner->deskripsi!!}
-                        </p>
-                        <a href="{{$Banner->link}}" target="_blank" class="btn btn-primary btn-sm py-2 px-3 rounded mt-2">Link</a>
-                    </figcaption>
-                </figure>
-            </div>
-            {{-- <div class="modal-footer">
+                {{-- <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div> --}}
             </div>
@@ -30,8 +34,8 @@
     </div>
     <!-- Modal -->
     @foreach ($dataLayanan as $item)
-        <div class="modal fade modal-layanan-card" id="modallayanan-{{ $item['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"x
-            aria-hidden="true">
+        <div class="modal fade modal-layanan-card" id="modallayanan-{{ $item['id'] }}" tabindex="-1"
+            aria-labelledby="exampleModalLabel"x aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -41,32 +45,66 @@
                     <div class="modal-body">
                         <div class="row justify-content-center justify-content-start-lg">
                             <div class="col-lg-3 col-6 mb-0 py-0">
-                                <img src="{{$item['gambar']}}" class="d-inline-block mb-2" width="100%">
+                                <img src="{{ $item['gambar'] }}" class="d-inline-block mb-2" width="100%">
                             </div>
                             <div class="col-lg-9 col-12">
                                 <div class="section-title text-left mb-0">
                                     <p class="text-primary text-uppercase fw-bold mb-0 fs-5">Layanan</p>
                                     <h4 class="fs-2">{{ $item['nama_instansi'] }}</h4>
                                     <div class="mt-4 d-flex">
-                                        <div class="me-4">
+                                        <div class="me-2">
                                             <h4 class="h5">Jadwal Pelayanan</h4>
                                             <div class="content d-flex">
                                                 <p class="mb-0 me-4">Senin-Kamis
-                                                    <br>{{ $item['senin_kamis']}}
+                                                    <br>{{ $item['senin_kamis'] }}
                                                 </p>
                                                 <p class="mb-0 me-4">Jum'at
-                                                    <br>{{ $item['jumat']}}
+                                                    <br>{{ $item['jumat'] }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h4 class="h5">Kontak</h4>
+                                            @if ($item['wa1'] != null)
+                                                <p class="mb-0"><a href="https://wa.me/{{ $item['wa1'] }}"
+                                                        target="_blank"><i class="fab fa-whatsapp"></i>
+                                                        {{ $item['wa1'] }}</a></p>
+                                            @endif
+                                            @if ($item['wa2'] != null)
+                                                <p class="mb-0"><a href="https://wa.me/{{ $item['wa1'] }}"
+                                                        target="_blank"><i class="fab fa-whatsapp"></i>
+                                                        {{ $item['wa2'] }}</a></p>
+                                            @endif
+                                            @if ($item['website'] != null)
+                                                <p class="mb-0"><a href="https://{{ $item['website'] }}"
+                                                        target="_blank"><i class="fas fa-globe"></i>
+                                                        {{ $item['website'] }}</a></p>
+                                            @endif
+                                        </div>
+                                        {{-- <div class="me-4">
+                                            <h4 class="h5">WA 1</h4>
+                                            <div class="content d-flex">
+                                                <p class="mb-0 me-4">
+                                                    {!! $item['wa1'] !!}
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="me-4">
-                                            <h4 class="h5">Kontak</h4>
+                                            <h4 class="h5">WA 2</h4>
                                             <div class="content d-flex">
                                                 <p class="mb-0 me-4">
-                                                    <br>{{ $item['kontak']}}
+                                                    {!! $item['wa2'] !!}
                                                 </p>
                                             </div>
                                         </div>
+                                        <div class="me-4">
+                                            <h4 class="h5">Website</h4>
+                                            <div class="content d-flex">
+                                                <p class="mb-0 me-4">
+                                                    {!! $item['website'] !!}
+                                                </p>
+                                            </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -110,139 +148,139 @@
         <canvas id="dots-canvas" class="w-100 h-100"></canvas>
         <div class="wrap-dots w-100 h-100">
             <div class="left-side">
-              <div class="dots">
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
+                <div class="dots">
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
             </div>
             <div class="right-side">
-              <div class="dots">
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
-              <div class="dots">
-                <span class="dot"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-                <span class="dot animate"></span>
-              </div>
+                <div class="dots">
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
+                <div class="dots">
+                    <span class="dot"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                    <span class="dot animate"></span>
+                </div>
             </div>
-          </div>
+        </div>
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-12 mb-5 mb-3">
                 <div class="text-center">
-                    <p class="text-white d-inline px-2 bg-blues2 text-uppercase fw-bold mb-0 fs-4 mt-4">MAL PELAYANAN PUBLIK KOTA BALIKPAPAN</p>
+                    <p class="text-white d-inline px-2 bg-blues2 text-uppercase fw-bold mb-0 fs-4 mt-4">MAL PELAYANAN
+                        PUBLIK KOTA BALIKPAPAN</p>
                     <h1 class=" text-white mb-0">CARA MUDAH MENGURUS
-                    <span
-                        class="txt-rotate text-danger"
-                        data-period="500"
-                        data-rotate='[ "PASPOR", "BPJS", "STNK", "PERIZINAN" ]'></span>
+                        <span class="txt-rotate text-danger" data-period="500"
+                            data-rotate='[ "PASPOR", "BPJS", "STNK", "PERIZINAN" ]'></span>
                     </h1>
                     <p class="text-primary text-uppercase mb-0 fs-4">{{ $profile->slogan }}</p>
                 </div>
             </div>
             <div class="col-lg-12 position-relative">
                 <div class="text-center">
-                    <img loading="lazy" decoding="async" src="tlandingpage/images/mpp2.png" alt="banner image" width="80%">
+                    <img loading="lazy" decoding="async" src="tlandingpage/images/mpp2.png" alt="banner image"
+                        width="80%">
                 </div>
             </div>
         </div>
@@ -255,8 +293,12 @@
                     <div class="bg-white rounded-lg shadow border border-primary border-top-0 border-2">
                         <nav id="tab-antrian">
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                <button class="nav-link fs-4 active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Cek Antrian</button>
-                                <button class="nav-link fs-4" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Ambil Antrian</button>
+                                <button class="nav-link fs-4 active" id="nav-home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-home" type="button" role="tab"
+                                    aria-controls="nav-home" aria-selected="true">Cek Antrian</button>
+                                <button class="nav-link fs-4" id="nav-profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-profile" type="button" role="tab"
+                                    aria-controls="nav-profile" aria-selected="false">Ambil Antrian</button>
                             </div>
                         </nav>
                         <div class="tab-content px-5 py-4" id="nav-tabContent">
@@ -385,7 +427,8 @@
                                 </script>
                             @endpush
 
-                            <div class="tab-pane fade " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <div class="tab-pane fade " id="nav-profile" role="tabpanel"
+                                aria-labelledby="nav-profile-tab">
                                 @if (session()->has('loginMpp'))
                                     <form method="post" data-action="{{ route('ambil-antrian') }}"
                                         id="ambilAntrian">
@@ -488,8 +531,9 @@
                 <div class="col-lg-3 col-11 bg-blues2 rounded py-3">
                     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
                         <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
-                        <p class="display-2 fw-bold text-white mb-0">{{ $skm->nilai??"" }}</p>
-                        <p class="fs-5 text-white mb-0">Total Responden <span class="fw-semibold">{{$skm->jmlresponden}}</span></p>
+                        <p class="display-2 fw-bold text-white mb-0">{{ $skm->nilai ?? '' }}</p>
+                        <p class="fs-5 text-white mb-0">Total Responden <span
+                                class="fw-semibold">{{ $skm->jmlresponden }}</span></p>
                     </div>
                 </div>
             </div>
@@ -500,7 +544,8 @@
         <div class="container">
             <div class="row gy-3 justify-content-center">
                 <div class="col-lg-4 col-md-6 col-12 ">
-                    <a class="card rounded shadow-lg" href="https://play.google.com/store/apps/details?id=dmi.mpp.balikpapan&pli=1" target="_blank">
+                    <a class="card rounded shadow-lg"
+                        href="https://play.google.com/store/apps/details?id=dmi.mpp.balikpapan&pli=1" target="_blank">
                         <div class="bg-white difference-of-us-item p-3 rounded mr-0">
                             <div>
                                 <div class="text-center">
@@ -535,7 +580,8 @@
                     @if (session()->has('loginMpp'))
                         <a class="card rounded shadow-lg h-100" href="https://skm-mpp.balikpapan.go.id/">
                         @else
-                            <a class="card rounded shadow-lg h-100" data-bs-toggle="modal" data-bs-target="#modallogin">
+                            <a class="card rounded shadow-lg h-100" data-bs-toggle="modal"
+                                data-bs-target="#modallogin">
                     @endif
                     <div class="bg-white h-100 difference-of-us-item p-3 rounded mr-0">
                         <div>
@@ -574,8 +620,7 @@
                             alt="video thumb" class="rounded-lg w-100"
                             style="object-fit: cover; height: 400px; object-position: left;">
                         <button type="button" class="video-play-btn border-0 bg-transparent" data-bs-toggle="modal"
-                            data-src="{{ $profile->video }}"
-                            data-bs-target="#videoModal">
+                            data-src="{{ $profile->video }}" data-bs-target="#videoModal">
                             <svg class="text-primary" viewBox="0 0 90 90" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="45" cy="45" r="45" fill="currentColor"
@@ -601,7 +646,7 @@
                 </div>
                 <div class="modal-body p-0">
                     <div class="ratio ratio-16x9 rounded-bottom overflow-hidden">
-                        <iframe src="{{$profile->video}}" id="showVideo" allowscriptaccess="always"
+                        <iframe src="{{ $profile->video }}" id="showVideo" allowscriptaccess="always"
                             allow="autoplay" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -668,7 +713,8 @@
                 <div class="col-lg-9">
                     <div class="section-title text-center">
                         <h1 class="mb-1 text-white">Loket Pelayanan MPP Balikpapan</h1>
-                        <p class="fs-5 text-white">Tedapat {{ $instansi->count() }} Loket Pelayanan Instansi, Kantor, dan
+                        <p class="fs-5 text-white">Tedapat {{ $instansi->count() }} Loket Pelayanan Instansi, Kantor,
+                            dan
                             Dinas</p>
                     </div>
                 </div>
@@ -680,7 +726,8 @@
                             <div>
                                 <img src="{{ $item->gambar }}" class="d-inline-block mb-2" width="150px">
                                 <h3 class="mb-0 service-title">{{ $item->nama_instansi }}</h3>
-                                <p class="mb-3 text-secondary">Lantai {{$item->lantai}} Loket {{$item->loket}}</p>
+                                <p class="mb-3 text-secondary">Lantai {{ $item->lantai }} Loket {{ $item->loket }}
+                                </p>
                             </div>
                             <div class="content">
                                 <a href="#" data-bs-toggle="modal"
@@ -692,8 +739,10 @@
                 @endforeach
             </div>
             <div class="text-center mt-3">
-                <a href="tlandingpage/images/denah1.jpg" data-lightbox="imagedenah" data-title="Denah Lantai 1" class="btn btn-warning btn-sm me-3">Denah Lantai 1</a>
-                <a href="tlandingpage/images/denah2.jpg" data-lightbox="imagedenah" data-title="Denah Lantai 2" class="btn btn-warning btn-sm">Denah Lantai 2</a>
+                <a href="tlandingpage/images/denah1.jpg" data-lightbox="imagedenah" data-title="Denah Lantai 1"
+                    class="btn btn-warning btn-sm me-3">Denah Lantai 1</a>
+                <a href="tlandingpage/images/denah2.jpg" data-lightbox="imagedenah" data-title="Denah Lantai 2"
+                    class="btn btn-warning btn-sm">Denah Lantai 2</a>
             </div>
         </div>
     </section>
@@ -747,11 +796,11 @@
             </div>
         </div>
         <div class="has-shapes">
-            <svg class="shape shape-left text-primary opacity-75" width="290" height="709" viewBox="0 0 290 709"
-                fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="shape shape-left text-primary opacity-75" width="290" height="709"
+                viewBox="0 0 290 709" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M-119.511 58.4275C-120.188 96.3185 -92.0001 129.539 -59.0325 148.232C-26.0649 166.926 11.7821 174.604 47.8274 186.346C83.8726 198.088 120.364 215.601 141.281 247.209C178.484 303.449 153.165 377.627 149.657 444.969C144.34 546.859 197.336 649.801 283.36 704.673"
-                    stroke="currentColor" stroke-miterlimit="10" /> 
+                    stroke="currentColor" stroke-miterlimit="10" />
                 <path
                     d="M-141.434 72.0899C-142.111 109.981 -113.923 143.201 -80.9554 161.895C-47.9878 180.588 -10.1407 188.267 25.9045 200.009C61.9497 211.751 98.4408 229.263 119.358 260.872C156.561 317.111 131.242 391.29 127.734 458.631C122.417 560.522 175.414 663.463 261.437 718.335"
                     stroke="currentColor" stroke-miterlimit="10" />
@@ -762,8 +811,8 @@
                     d="M-185.305 99.4208C-185.982 137.312 -157.794 170.532 -124.826 189.226C-91.8589 207.919 -54.0118 215.597 -17.9666 227.34C18.0787 239.082 54.5697 256.594 75.4869 288.203C112.69 344.442 87.3706 418.62 83.8633 485.962C78.5463 587.852 131.542 690.794 217.566 745.666"
                     stroke="currentColor" stroke-miterlimit="10" />
             </svg>
-            <svg class="shape shape-right text-primary opacity-75" width="731" height="429" viewBox="0 0 731 429"
-                fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="shape shape-right text-primary opacity-75" width="731" height="429"
+                viewBox="0 0 731 429" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M12.1794 428.14C1.80036 390.275 -5.75764 349.015 8.73984 312.537C27.748 264.745 80.4729 237.968 131.538 231.843C182.604 225.703 234.032 235.841 285.323 239.748C336.615 243.64 391.543 240.276 433.828 210.964C492.452 170.323 511.701 91.1227 564.607 43.2553C608.718 3.35334 675.307 -9.81661 731.29 10.323"
                     stroke="currentColor" stroke-miterlimit="10" />
@@ -849,17 +898,17 @@
                                     </article>
                                 </div>
                             @endforeach
-                                <div class="col-12 d-block d-lg-none">
-                                    <br>
-                                    <a type="button" class="btn btn-primary w-100" href="{{ route('berita') }}"
-                                        data-bs-toggle="modal" data-bs-target="#applyLoan">Berita Lainnya<span
-                                            style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span></a>
-                                </div>
+                            <div class="col-12 d-block d-lg-none">
+                                <br>
+                                <a type="button" class="btn btn-primary w-100" href="{{ route('berita') }}"
+                                    data-bs-toggle="modal" data-bs-target="#applyLoan">Berita Lainnya<span
+                                        style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -892,27 +941,26 @@
             <br>
             <form method="POST" action="{{ route('tambah-testimoni') }}" class="row justify-content-center mt-5">
                 {{-- <form method="POST" action="{{ route('tambah-testimoni') }}"> --}}
-                    @csrf
-                    <div class="col-md-6">
-                        <div class="form-floating mb-2">
-                            <textarea class="form-control" name="isi" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">Testimoni Anda</label>
-                        </div>
-                        @if (session()->has('loginMpp'))
-                            <button type="submit" class="btn btn-primary w-100">Tambah Testimoni</button>
-                        @else
-                            <a data-bs-toggle="modal" data-bs-target="#modallogin"
-                                class="btn btn-primary w-100">Tambah
-                                Testimoni</a>
-                        @endif
-
+                @csrf
+                <div class="col-md-6">
+                    <div class="form-floating mb-2">
+                        <textarea class="form-control" name="isi" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Testimoni Anda</label>
                     </div>
+                    @if (session()->has('loginMpp'))
+                        <button type="submit" class="btn btn-primary w-100">Tambah Testimoni</button>
+                    @else
+                        <a data-bs-toggle="modal" data-bs-target="#modallogin" class="btn btn-primary w-100">Tambah
+                            Testimoni</a>
+                    @endif
+
+                </div>
                 {{-- </form> --}}
             </form>
         </div>
         <div class="has-shapes">
-            <svg class="shape shape-left text-primary opacity-75" width="290" height="709" viewBox="0 0 290 709"
-                fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="shape shape-left text-primary opacity-75" width="290" height="709"
+                viewBox="0 0 290 709" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M-119.511 58.4275C-120.188 96.3185 -92.0001 129.539 -59.0325 148.232C-26.0649 166.926 11.7821 174.604 47.8274 186.346C83.8726 198.088 120.364 215.601 141.281 247.209C178.484 303.449 153.165 377.627 149.657 444.969C144.34 546.859 197.336 649.801 283.36 704.673"
                     stroke="currentColor" stroke-miterlimit="10" />
@@ -926,8 +974,8 @@
                     d="M-185.305 99.4208C-185.982 137.312 -157.794 170.532 -124.826 189.226C-91.8589 207.919 -54.0118 215.597 -17.9666 227.34C18.0787 239.082 54.5697 256.594 75.4869 288.203C112.69 344.442 87.3706 418.62 83.8633 485.962C78.5463 587.852 131.542 690.794 217.566 745.666"
                     stroke="currentColor" stroke-miterlimit="10" />
             </svg>
-            <svg class="shape shape-right text-primary opacity-75" width="731" height="429" viewBox="0 0 731 429"
-                fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="shape shape-right text-primary opacity-75" width="731" height="429"
+                viewBox="0 0 731 429" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M12.1794 428.14C1.80036 390.275 -5.75764 349.015 8.73984 312.537C27.748 264.745 80.4729 237.968 131.538 231.843C182.604 225.703 234.032 235.841 285.323 239.748C336.615 243.64 391.543 240.276 433.828 210.964C492.452 170.323 511.701 91.1227 564.607 43.2553C608.718 3.35334 675.307 -9.81661 731.29 10.323"
                     stroke="currentColor" stroke-miterlimit="10" />
@@ -961,21 +1009,22 @@
                             <ul class="nav nav-pills justify-content-center mb-2" id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="pills-harian-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-harian" type="button" role="tab" aria-controls="pills-harian"
-                                        aria-selected="true">KUNJUNGAN MPP</button>
+                                        data-bs-target="#pills-harian" type="button" role="tab"
+                                        aria-controls="pills-harian" aria-selected="true">KUNJUNGAN MPP</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="pills-bulanan-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-bulanan" type="button" role="tab" aria-controls="pills-bulanan"
-                                        aria-selected="true">KUNJUNGAN WEBSITE</button>
+                                        data-bs-target="#pills-bulanan" type="button" role="tab"
+                                        aria-controls="pills-bulanan" aria-selected="true">KUNJUNGAN WEBSITE</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-harian" role="tabpanel"
                                     aria-labelledby="pills-harian-tab">
-                                        <canvas id="myChart" style="height: 100px"></canvas>
+                                    <canvas id="myChart" style="height: 100px"></canvas>
                                 </div>
-                                <div class="tab-pane fade" id="pills-bulanan" role="tabpanel" aria-labelledby="pills-bulanan-tab">
+                                <div class="tab-pane fade" id="pills-bulanan" role="tabpanel"
+                                    aria-labelledby="pills-bulanan-tab">
                                     <canvas id="myChart2" style="height: 100px"></canvas>
                                 </div>
                             </div>
@@ -983,7 +1032,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
@@ -997,7 +1046,8 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="accordion shadow-lg border-light border-1 rounded py-5 px-0 px-lg-4 bg-white position-relative" id="dropfaq">
+                    <div class="accordion shadow-lg border-light border-1 rounded py-5 px-0 px-lg-4 bg-white position-relative"
+                        id="dropfaq">
                         @foreach ($faq as $item)
                             <div class="accordion-item p-1 mb-2">
                                 <h2 class="accordion-header accordion-button h5 border-0"
@@ -1015,7 +1065,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4 mt-4 mt-lg-0">
-                    <div class="shadow-lg border-light border-1 rounded py-5 px-4 ms-0 ms-lg-4 bg-white position-relative">
+                    <div
+                        class="shadow-lg border-light border-1 rounded py-5 px-4 ms-0 ms-lg-4 bg-white position-relative">
                         <div class="block mx-0 mx-lg-3 mt-0">
                             <h4 class="h5">Masih memiliki Pertanyaan?</h4>
                             <div class="content">Tidak perlu ragu hubungi kami
@@ -1052,8 +1103,8 @@
                             <h4 class="h5">Pengaduan Masyarakat</h4>
                             <a href="https://www.lapor.go.id/">
                                 <figure class="py-2">
-                                    <img src="https://www.lapor.go.id/themes/lapor/assets/images/logo.png" alt=""
-                                        width="80%">
+                                    <img src="https://www.lapor.go.id/themes/lapor/assets/images/logo.png"
+                                        alt="" width="80%">
                                 </figure>
                             </a>
                         </div>
@@ -1097,12 +1148,14 @@
                     this.txt = fullTxt.substring(0, this.txt.length + 1);
                 }
 
-                this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+                this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
 
                 var that = this;
                 var delta = 250 - Math.random() * 100;
 
-                if (this.isDeleting) { delta /= 2; }
+                if (this.isDeleting) {
+                    delta /= 2;
+                }
 
                 if (!this.isDeleting && this.txt === fullTxt) {
                     delta = this.period;
@@ -1115,16 +1168,16 @@
 
                 setTimeout(function() {
                     that.tick();
-                    }, delta);
+                }, delta);
             };
 
             window.onload = function() {
                 var elements = document.getElementsByClassName('txt-rotate');
-                for (var i=0; i<elements.length; i++) {
+                for (var i = 0; i < elements.length; i++) {
                     var toRotate = elements[i].getAttribute('data-rotate');
                     var period = elements[i].getAttribute('data-period');
                     if (toRotate) {
-                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                        new TxtRotate(elements[i], JSON.parse(toRotate), period);
                     }
                 }
                 var css = document.createElement("style");
@@ -1139,7 +1192,12 @@
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['IMIGRASI', 'SAMSAT', 'DJP', 'BNN', 'BPD', 'DPMPTSP KOTA BALIKPAPAN', 'DPMPTSP PROV. KALTIM', 'POLRESTA', 'KEJARI', 'KANTOR KEMENTRIAN AGAMA', 'PENGADILAN AGAMA', 'BPJS KESEHATAN', 'BPJS KETENAGAKERJAAN', 'PENGADILAN NEGERI', 'BPN', 'TASPEN', 'PLN', 'PDAM', 'BPOM', 'PEGADAIAN', 'DPUPR', 'DISHUB', 'DISDUKCAPIL', 'BPPDRD', 'DLH', 'DPPR', 'DISNAKER'],
+                    labels: ['IMIGRASI', 'SAMSAT', 'DJP', 'BNN', 'BPD', 'DPMPTSP KOTA BALIKPAPAN',
+                        'DPMPTSP PROV. KALTIM', 'POLRESTA', 'KEJARI', 'KANTOR KEMENTRIAN AGAMA', 'PENGADILAN AGAMA',
+                        'BPJS KESEHATAN', 'BPJS KETENAGAKERJAAN', 'PENGADILAN NEGERI', 'BPN', 'TASPEN', 'PLN',
+                        'PDAM', 'BPOM', 'PEGADAIAN', 'DPUPR', 'DISHUB', 'DISDUKCAPIL', 'BPPDRD', 'DLH', 'DPPR',
+                        'DISNAKER'
+                    ],
                     datasets: [{
                         label: 'Kunjungan Harian',
                         data: [{{ $dataStatistik }}],
@@ -1161,7 +1219,8 @@
                 type: 'bar',
                 data: {
                     labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
-                        'Oktober', 'November', 'Desember'],
+                        'Oktober', 'November', 'Desember'
+                    ],
                     datasets: [{
                         label: 'Kunjungan Bulanan',
                         data: [{{ $arrayStatistik }}],
@@ -1252,6 +1311,7 @@
             }
 
             let grid = 30;
+
             function init() {
                 for (let a = 0; a < grid; a++) {
                     for (let b = 0; b < grid; b++) {
@@ -1294,7 +1354,7 @@
                 'imageFadeDuration': 100,
                 'fadeDuration': 100,
                 'wrapAround': True,
-                'disableScrolling' : True,
+                'disableScrolling': True,
             })
         </script>
     @endpush

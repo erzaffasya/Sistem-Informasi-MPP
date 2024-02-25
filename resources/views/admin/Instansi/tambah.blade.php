@@ -28,8 +28,16 @@
                     <input type="text" class="form-control" id="basic-default-fullname" name="jumat">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="basic-default-fullname">Kontak</label>
-                    <input type="text" class="form-control" id="basic-default-fullname" name="kontak">
+                    <label class="form-label" for="basic-default-fullname">Whatsapp 1</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" name="wa1">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Whatsapp 2</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" name="wa2">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Website</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" name="website">
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">deskripsi</label>

@@ -29,8 +29,16 @@
                     <input type="text" class="form-control" id="basic-default-fullname" value="{{$Instansi->jumat}}" name="jumat">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="basic-default-fullname">Kontak</label>
-                    <input type="text" class="form-control" id="basic-default-fullname" value="{{$Instansi->kontak}}" name="kontak">
+                    <label class="form-label" for="basic-default-fullname">Whatsapp 1</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" value="{{$Instansi->wa1}}" name="wa1">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Whatsapp 2</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" value="{{$Instansi->wa2}}" name="wa2">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Website</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" value="{{$Instansi->website}}" name="website">
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">deskripsi</label>
