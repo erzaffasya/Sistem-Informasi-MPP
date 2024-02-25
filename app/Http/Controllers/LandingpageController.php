@@ -29,8 +29,7 @@ class LandingpageController extends Controller
         return view('landingpage.lupapassword');
     }
 
-    public function postLupaPassword(Request $request)
-    {
+    public function postLupaPassword(Request $request){
         // dd('sukses');
         $this->lupaPassword($request);
         return view('landingpage.lupapasswordberhasil');
@@ -53,10 +52,9 @@ class LandingpageController extends Controller
         $profile = Profile::find(1);
         // dd($dataAntrian->data[0]);
         $currentYear = Carbon::now()->year;
-        $totalLayanan = Layanan::get()->count();
+	$totalLayanan = Layanan::get()->count();
 
-
-        $totalInstansi = 0;
+	$totalInstansi = 0;
         foreach ($instansi as $item) {
             $dataLayanan[] = [
                 'id' => $item->id,
@@ -68,8 +66,9 @@ class LandingpageController extends Controller
                 'data' => Layanan::with(['NamaLayanan' => function ($query) {
                     $query->select('id', 'nama_layanan');
                 }])->where('instansi_id', $item->id)->get()->toArray()
-            ];
-            $totalInstansi = $totalInstansi + 1;
+		];	
+	   $totalInstansi = $totalInstansi +1;   
+         
         }
 
         $dataPengunjung = DB::table('shetabit_visits')
@@ -92,26 +91,27 @@ class LandingpageController extends Controller
             11 => 0,
             12 => 0,
         ];
+
+	$totalPengunjung = 0;
         foreach ($dataPengunjung as $item) {
             $arrayPengunjung[$item->month] = $item->total;
-        }
+        
+	}
         $arrayStatistik = implode(', ', $arrayPengunjung);
 
 
-        $totalPengunjung = 0;
         $label = [];
         $dataStatistik = [];
         foreach ($this->getStatistikMpp() as $item) {
-            $label[] = "'" . $item->nama . "'";
+            $label[] = "'".$item->nama."'";
             $dataStatistik[] = $item->jmlpengunjung;
-            $totalPengunjung = $totalPengunjung + $item->jmlpengunjung;
-        }
+      	    $totalPengunjung = $totalPengunjung + $item->jmlpengunjung;
+	}
         $label = implode(', ', $label);
         $dataStatistik = implode(', ', $dataStatistik);
-
         // dd($label, $dataStatistik);
-        // dd($totalPengunjung, $totalInstansi);
-        $this->syncInstansi();
+        // dd($label);
+        // $this->syncInstansi();
 
         return view('landingpage.index', compact(
             'skm',
@@ -127,9 +127,9 @@ class LandingpageController extends Controller
             'profile',
             'dataStatistik',
             'label',
-            'totalInstansi',
-            'totalPengunjung',
-            'totalLayanan'
+	    'totalPengunjung',
+	    'totalInstansi',
+	    'totalLayanan'
         ))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -159,7 +159,7 @@ class LandingpageController extends Controller
         // } else {
         //     $txt = null;
         // }
-        // dd($request);
+            // dd($request);
         $Testimoni = Testimoni::create([
             'judul' => 'Masyarakat',
             'isi' => $request->isi,

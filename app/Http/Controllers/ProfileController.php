@@ -84,7 +84,7 @@ class ProfileController extends Controller
                 $Profile->slogan = $request->slogan;
                 $Profile->misi = $request->misi;
                 $Profile->deskripsi = $request->deskripsi;
-                $Profile->video = $request->video;
+                $Profile->video = "https://www.youtube.com/embed/".$request->video;
             }
 
             if ($request->alamat != null || $request->email != null) {

@@ -28,7 +28,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal -->
     @foreach ($dataLayanan as $item)
         <div class="modal fade modal-layanan-card" id="modallayanan-{{ $item['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"x
@@ -63,7 +62,7 @@
                                         <div class="me-4">
                                             <h4 class="h5">Kontak</h4>
                                             <div class="content d-flex">
-                                                <p class="mb-0 me-4">Whatsapp
+                                                <p class="mb-0 me-4">
                                                     <br>{{ $item['kontak']}}
                                                 </p>
                                             </div>
@@ -423,7 +422,7 @@
                                     </div>
                                 @endif
 
-                                {{-- @if ($antrianTerakhir != null)
+                                @if ($antrianTerakhir != null)
                                     <div class="row py-3">
                                         <div class="col-8">
                                             <table class="table table-borderless text-dark">
@@ -479,7 +478,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endif --}}
+                                @endif
 
                             </div>
                         </div>
@@ -489,8 +488,8 @@
                 <div class="col-lg-3 col-11 bg-blues2 rounded py-3">
                     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
                         <p class="h4 text-white fw-semibold text-uppercase mb-0">Nilai SKM</p>
-                        <p class="display-2 fw-bold text-white mb-0">99.6</p>
-                        <p class="fs-5 text-white mb-0">Total Responden <span class="fw-semibold">452</span></p>
+                        <p class="display-2 fw-bold text-white mb-0">{{ $skm->nilai??"" }}</p>
+                        <p class="fs-5 text-white mb-0">Total Responden <span class="fw-semibold">{{$skm->jmlresponden}}</span></p>
                     </div>
                 </div>
             </div>
@@ -575,7 +574,7 @@
                             alt="video thumb" class="rounded-lg w-100"
                             style="object-fit: cover; height: 400px; object-position: left;">
                         <button type="button" class="video-play-btn border-0 bg-transparent" data-bs-toggle="modal"
-                            data-src="https://www.youtube.com/embed/9rQcOeBRQkI?VQ=HD720"
+                            data-src="{{ $profile->video }}"
                             data-bs-target="#videoModal">
                             <svg class="text-primary" viewBox="0 0 90 90" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -602,7 +601,7 @@
                 </div>
                 <div class="modal-body p-0">
                     <div class="ratio ratio-16x9 rounded-bottom overflow-hidden">
-                        <iframe src="{{ $profile->video }}" id="showVideo" allowscriptaccess="always"
+                        <iframe src="{{$profile->video}}" id="showVideo" allowscriptaccess="always"
                             allow="autoplay" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -729,19 +728,19 @@
             <div class="row gy-3 justify-content-center gx-5">
                 <div class="icon-box-item col-lg-3 col-10 col-md-6">
                     <div class="block py-3 bg-blues2 text-center">
-                        <h1 class="mb-2 text-white display-4 fw-bold">31</h1>
+                        <h1 class="mb-2 text-white display-4 fw-bold">{{ $totalInstansi }}</h1>
                         <p class="mb-0 fs-5 fw-bold text-white">JUMLAH INSTANSI</p>
                     </div>
                 </div>
                 <div class="icon-box-item col-lg-3 col-10 col-md-6">
                     <div class="block py-3 bg-blues2 text-center">
-                        <h1 class="mb-2 text-white display-4 fw-bold">120</h1>
+                        <h1 class="mb-2 text-white display-4 fw-bold">101</h1>
                         <p class="mb-0 fs-5 fw-bold text-white">JUMLAH LAYANAN</p>
                     </div>
                 </div>
                 <div class="icon-box-item col-lg-3 col-10 col-md-6">
                     <div class="block py-3 bg-blues2 text-center">
-                        <h1 class="mb-2 text-white display-4 fw-bold">40</h1>
+                        <h1 class="mb-2 text-white display-4 fw-bold">{{ $totalPengunjung }}</h1>
                         <p class="mb-0 fs-5 fw-bold text-white">KUNJUNGAN HARI INI</p>
                     </div>
                 </div>
@@ -1053,7 +1052,7 @@
                             <h4 class="h5">Pengaduan Masyarakat</h4>
                             <a href="https://www.lapor.go.id/">
                                 <figure class="py-2">
-                                    <img src="https://kemensos.go.id/uploads/topics/16551961877203.png" alt=""
+                                    <img src="https://www.lapor.go.id/themes/lapor/assets/images/logo.png" alt=""
                                         width="80%">
                                 </figure>
                             </a>
@@ -1143,7 +1142,7 @@
                     labels: ['IMIGRASI', 'SAMSAT', 'DJP', 'BNN', 'BPD', 'DPMPTSP KOTA BALIKPAPAN', 'DPMPTSP PROV. KALTIM', 'POLRESTA', 'KEJARI', 'KANTOR KEMENTRIAN AGAMA', 'PENGADILAN AGAMA', 'BPJS KESEHATAN', 'BPJS KETENAGAKERJAAN', 'PENGADILAN NEGERI', 'BPN', 'TASPEN', 'PLN', 'PDAM', 'BPOM', 'PEGADAIAN', 'DPUPR', 'DISHUB', 'DISDUKCAPIL', 'BPPDRD', 'DLH', 'DPPR', 'DISNAKER'],
                     datasets: [{
                         label: 'Kunjungan Harian',
-                        data: [],
+                        data: [{{ $dataStatistik }}],
                         borderWidth: 3
                     }]
                 },

@@ -2,25 +2,19 @@
     <div class="row justify-content-between">
         <div class="col-lg-2 col-md-4 col-6">
             <div class="footer-widget">
-                <a href="index.html">
+                <a href="#">
                     <img loading="prelaod" decoding="async" class="img-fluid" width="100%"
                         src="tlandingpage/images/logo.png" alt="Wallet">
                 </a>
                 <ul class="list-unstyled list-inline my-4 social-icons">
-                    <li class="list-inline-item me-3"><a title="Explorer Facebook Profile" class="text-black"
-                            href="{{$getTentang->facebook??null}}"><i class="fab fa-facebook-f"></i></a>
+                    <li class="list-inline-item me-3"><a title="Explorer Facebook Profile" target="_blank" class="text-black"
+                            href="{{$getProfile->facebook??null}}"><i class="fab fa-facebook-f"></i></a>
                     </li>
-                    <li class="list-inline-item me-3"><a title="Explorer Twitter Profile" class="text-black"
-                            href="{{$getTentang->twitter??null}}"><i class="fab fa-twitter"></i></a>
+                    <li class="list-inline-item me-3"><a title="Explorer Youtube Profile" class="text-black" target="_blank"
+                            href="{{$getProfile->youtube??null}}"><i class="fab fa-youtube"></i></a>
                     </li>
-                    <li class="list-inline-item me-3"><a title="Explorer Instagram Profile" class="text-black"
-                            href="{{$getTentang->instagram??null}}"><i class="fab fa-instagram"></i></a>
-                    </li>
-                </ul>
-                <ul class="list-unstyled list-inline mt-2 mb-0 text-start">
-                    <li class="list-inline-item"><a class="text-secondary" href="privacy-policy.html">Privacy Policy</a>
-                    </li>
-                    <li class="list-inline-item"><a class="text-secondary" href="terms.html">Terms &amp; Conditions</a>
+                    <li class="list-inline-item me-3"><a title="Explorer Instagram Profile" class="text-black" target="_blank"
+                            href="{{$getProfile->instagram??null}}"><i class="fab fa-instagram"></i></a>
                     </li>
                 </ul>
             </div>
@@ -55,9 +49,9 @@
             <div class="footer-widget">
                 <h5 class="mb-2 text-primary font-secondary">Lainnya</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="contact.html">Kontak</a>
+                    <li class="mb-2"><a href="#!">Kontak</a>
                     </li>
-                    <li class="mb-2"><a href="faq.html">FAQ</a>
+                    <li class="mb-2"><a href="#!">FAQ</a>
                     </li>
                 </ul>
             </div>
