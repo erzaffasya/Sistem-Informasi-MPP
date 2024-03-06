@@ -109,6 +109,16 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
+                                <div class="input-group mt-3 mb-2">
+                                    <span class="input-group-btn">
+                                        <a href="https://simapan.balikpapan.go.id/storage/files/pdf/kebijakan/kebijakan_1695073580.pdf"
+                                            class="btn btn-primary">
+                                            <i class="fa fa-download"></i> Download
+                                        </a>
+                                    </span>
+                                    <input disabled type="text" class="form-control"
+                                        value="Jenis-jenis layanan dan Syarat Ketentuan" style="height: inherit!important; position:relative; left: -0.3rem; padding-left: 1rem;">
+                                </div>
                                 <div class="accordion shadow rounded py-2 px-2 bg-white position-relative"
                                     id="accordionFAQ">
                                     @foreach ($item['data'] as $data)
@@ -131,7 +141,6 @@
                                             </div>
                                         </div>
                                     @endforeach
-
                                 </div>
                             </div>
                         </div>
