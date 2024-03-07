@@ -12,7 +12,9 @@
                         <th>Loket</th>
                         <th>Senin - Kamis</th>
                         <th>Jumat</th>
-                        <th>Kontak</th>
+                        <th>Whatsapp 1</th>
+                        <th>Whatsapp 2</th>
+                        <th>Website</th>
                         <th>Deskripsi</th>
                         <th>Aksi</th>
                     </tr>
@@ -29,7 +31,9 @@
                             <td> {{ $item->loket }} </td>
                             <td> {{ $item->senin_kamis }} </td>
                             <td> {{ $item->jumat }} </td>
-                            <td> {{ $item->kontak }} </td>
+                            <td> {{ $item->wa1 }} </td>
+                            <td> {{ $item->wa2 }} </td>
+                            <td> {{ $item->website }} </td>
                             <td> {!! \Illuminate\Support\Str::limit($item->deskripsi, $limit = 150, $end = '...') !!} </td>
 
                             <td>

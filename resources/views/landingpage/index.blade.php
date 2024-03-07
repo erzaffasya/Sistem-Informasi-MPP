@@ -78,7 +78,7 @@
                                             @if ($item['website'] != null)
                                                 <p class="mb-0"><a href="https://{{ $item['website'] }}"
                                                         target="_blank"><i class="fas fa-globe"></i>
-                                                        {{ $item['website'] }}</a></p>
+                                                        Website</a></p>
                                             @endif
                                         </div>
                                         {{-- <div class="me-4">
