@@ -109,16 +109,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <div class="input-group mt-3 mb-2">
-                                    <span class="input-group-btn">
-                                        <a href="https://simapan.balikpapan.go.id/storage/files/pdf/kebijakan/kebijakan_1695073580.pdf"
-                                            class="btn btn-primary">
-                                            <i class="fa fa-download"></i> Download
-                                        </a>
-                                    </span>
-                                    <input disabled type="text" class="form-control"
-                                        value="Jenis-jenis layanan dan Syarat Ketentuan" style="height: inherit!important; position:relative; left: -0.3rem; padding-left: 1rem;">
-                                </div>
+
                                 <div class="accordion shadow rounded py-2 px-2 bg-white position-relative"
                                     id="accordionFAQ">
                                     @foreach ($item['data'] as $data)
@@ -136,7 +127,21 @@
                                                 aria-labelledby="heading-{{ $item['id'] }}-{{ $data['id'] }}"
                                                 data-bs-parent="#accordionFAQ">
                                                 <div class="accordion-body py-0 content">
+                                                    <hr/>
                                                     {!! $data['deskripsi'] !!}
+                                                    @if ($data['file'] != null)
+                                                        <div class="input-group mt-3 mb-2">
+                                                            <span class="input-group-btn">
+                                                                <a target="_blank" href="{{ asset($data['file']) }}"
+                                                                    class="btn btn-primary">
+                                                                    <i class="fa fa-link"></i> Dokumen
+                                                                </a>
+                                                            </span>
+                                                            <input disabled type="text" class="form-control"
+                                                                value="Standar Pelayanan"
+                                                                style="height: inherit!important; position:relative; left: -0.3rem; padding-left: 1rem;">
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -1201,11 +1206,7 @@
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['IMIGRASI', 'SAMSAT', 'DJP', 'BNN', 'BPD', 'DPMPTSP KOTA BALIKPAPAN',
-                        'DPMPTSP PROV. KALTIM', 'POLRESTA', 'KEJARI', 'KANTOR KEMENTRIAN AGAMA', 'PENGADILAN AGAMA',
-                        'BPJS KESEHATAN', 'BPJS KETENAGAKERJAAN', 'PENGADILAN NEGERI', 'BPN', 'TASPEN', 'PLN',
-                        'PDAM', 'BPOM', 'PEGADAIAN', 'DPUPR', 'DISHUB', 'DISDUKCAPIL', 'BPPDRD', 'DLH', 'DPPR',
-                        'DISNAKER'
+                    labels: [{{$label}}
                     ],
                     datasets: [{
                         label: 'Kunjungan Harian',
